@@ -1,0 +1,29 @@
+import React from "react";
+// import AgeOfUser from "../agecomponent";
+import Button from "../submitbtn";
+function CLPCmgToCanada(props) {
+  return (
+    <>
+      <h3>
+        2) ii. Will your spouse or common-law partner come with you to Canada?{" "}
+      </h3>
+      <select onChange={props.clpartnermainfn}>
+        <option name="select" value="select">
+          ---SELECT---
+        </option>
+        <option name="common_law_partner_" value="partner_coming_canada_yes">
+          YES
+        </option>
+        <option name="select" value="partner_coming_canada_no">
+          NO
+        </option>
+      </select>
+      {/* {props.clpartnermainstate != "" ? <AgeOfUser /> : null} */}
+      {props.clpartnermainstate != "" ? (
+        <Button apiCall={props.submitfn} stateData={props.submitstatedata} />
+      ) : null}
+    </>
+  );
+}
+
+export default CLPCmgToCanada;
