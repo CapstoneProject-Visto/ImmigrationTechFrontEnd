@@ -1,8 +1,9 @@
 import React from "react";
-
-function AgeOfUser() {
+import EducationLevel from "../educationlevel";
+const AgeOfUser = props => {
   return (
     <>
+      {console.log("Props inside age" + Object.keys(props.match))}
       <h3>Choose your age</h3>
       <h5>Choose the best answer possible </h5>
       <ul>
@@ -16,7 +17,7 @@ function AgeOfUser() {
           age.
         </li>
       </ul>
-      <select>
+      <select onChange={props.loe}>
         <option name="select" value="select">
           ------SELECT------
         </option>
@@ -48,8 +49,10 @@ function AgeOfUser() {
           33 years old
         </option>
       </select>
+
+      {props.loestate != "" ? <EducationLevel /> : null}
     </>
   );
-}
+};
 
 export default AgeOfUser;

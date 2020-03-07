@@ -1,43 +1,32 @@
 import React from "react";
-import AgeOfUser from "../agecomponent";
-import CLPCmgToCanada from "./commonlawpartnercmgcanada";
-import Button from "../submitbtn";
+import SpouseStatus from "./spousecanadianornot";
 
 function YesComponent(props) {
   return (
     <>
-      <p>
-        2.a - Is your spouse or common-law partner a citizen or permanent
-        resident of Canada?
-      </p>
-      <select onChange={props.citizenfn}>
+      <p>Are you married or Have Common Law Partner</p>
+      <select onChange={props.marriedfn}>
         <option>-----SELECT----</option>
-        <option name="spouse_citizen_permanent" value="partner_citizen_yes">
-          Yes
+        <option name="married" value="married">
+          Married
         </option>
-        <option name="spouse_citizen_permanent" value="partner_citizen_no">
-          No
+        <option name="commonlawpartner" value="commonlawpartner">
+          Common-Law-Partner
         </option>
       </select>
 
-      {props.partnerCitizenOrNotStateValue === "partner_citizen_yes" ? (
-        // <AgeOfUser />
-        <Button
-          apiCall={props.submitfn}
-          stateData={props.submitstatedata}
-        ></Button>
-      ) : (
-        [
-          props.partnerCitizenOrNotStateValue != "" ? (
-            <CLPCmgToCanada
-              submitfn={props.submitfn}
-              submitstatedata={props.submitDatastate}
-              clpartnermainfn={props.clpcmgtocanada}
-              clpartnermainstate={props.clpcmgtocanadastate}
-            />
-          ) : null
-        ]
-      )}
+      {props.marriedstate != "" ? (
+        <SpouseStatus
+          citizenfn={props.citizenfn}
+          partnerCitizenOrNotStateValue={props.partnerCitizenOrNotStateValue}
+          submitfn={props.submitfn}
+          submitstatedata={props.submitDatastate}
+          clpartnermainfn={props.clpcmgtocanada}
+          clpartnermainstate={props.clpcmgtocanadastate}
+          loe={props.loe}
+          loestate={props.loestate}
+        />
+      ) : null}
     </>
   );
 }

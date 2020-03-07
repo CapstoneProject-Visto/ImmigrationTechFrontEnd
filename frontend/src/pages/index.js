@@ -9,13 +9,16 @@ class MainPage extends React.Component {
     super();
     this.state = {
       selectedOption: "",
+      marriedornot: "",
       partnerCitizenOrNot: "",
       clpcmgtocanada: "",
       notMarriedOptionValue: "",
-      submitDatastate: ""
+      submitDatastate: "",
+      educationlevelstate: ""
     };
     this.radioChange = this.radioChange.bind(this);
     this.citizenofCanada = this.citizenofCanada.bind(this);
+    this.marriedornot = this.marriedornot.bind(this);
     this.clpcmgtocanada = this.clpcmgtocanada.bind(this);
     this.notmarriedstatus = this.notmarriedstatus.bind(this);
     this.submitData = this.submitData.bind(this);
@@ -24,22 +27,35 @@ class MainPage extends React.Component {
   radioChange(e) {
     this.setState({
       selectedOption: e.currentTarget.value,
+      marriedornot: "",
       partnerCitizenOrNot: "",
       clpcmgtocanada: "",
-      notMarriedOptionValue: ""
+      notMarriedOptionValue: "",
+      submitDatastate: "",
+      educationlevelstate: ""
+    });
+  }
+
+  marriedornot(e) {
+    this.setState({
+      marriedornot: e.target.value
     });
   }
 
   citizenofCanada(e) {
     this.setState({
-      partnerCitizenOrNot: e.target.value
+      partnerCitizenOrNot: e.target.value,
+      clpcmgtocanada: ""
     });
   }
 
   clpcmgtocanada(e) {
+    console.log(e.target.value);
+
     this.setState({
       clpcmgtocanada: e.target.value
     });
+    console.log(this.state.clpcmgtocanada);
   }
 
   notmarriedstatus(e) {
@@ -51,10 +67,12 @@ class MainPage extends React.Component {
   }
 
   submitData() {
-    axios
-      .post("/addData", this.state)
-      .then(res => console.log(res))
-      .catch(err => console.error(err));
+    console.log("State data" + this.state);
+
+    // axios
+    //   .post("/addData", this.state)
+    //   .then(res => console.log(res))
+    //   .catch(err => console.error(err));
   }
   render() {
     return (
@@ -78,12 +96,16 @@ class MainPage extends React.Component {
         </div>
         {this.state.selectedOption === "Yes" ? (
           <YesComponent
+            marriedfn={this.marriedornot}
+            marriedstate={this.state.marriedornot}
             citizenfn={this.citizenofCanada}
             partnerCitizenOrNotStateValue={this.state.partnerCitizenOrNot}
             clpcmgtocanada={this.clpcmgtocanada}
             clpcmgtocanadastate={this.state.clpcmgtocanada}
             submitfn={this.submitData}
             submitstatedata={this.state.submitDatastate}
+            loe={this.levelofeducation}
+            loestate={this.state.educationlevelstate}
           />
         ) : (
           [
@@ -93,6 +115,8 @@ class MainPage extends React.Component {
                 notmarriedvalue={this.state.notMarriedOptionValue}
                 submitfn={this.submitData}
                 submitstatedata={this.state.submitDatastate}
+                loe={this.levelofeducation}
+                loestate={this.state.educationlevelstate}
               />
             ) : null
           ]

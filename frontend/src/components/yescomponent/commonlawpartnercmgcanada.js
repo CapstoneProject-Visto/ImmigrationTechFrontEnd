@@ -18,9 +18,15 @@ function CLPCmgToCanada(props) {
           NO
         </option>
       </select>
-      {/* {props.clpartnermainstate != "" ? <AgeOfUser /> : null} */}
+      {/* {props.clpartnermainstate != "" ? (
+        <AgeOfUser loe={props.loe} loestate={props.loestate} />
+      ) : null} */}
       {props.clpartnermainstate != "" ? (
-        <Button apiCall={props.submitfn} stateData={props.submitstatedata} />
+        <Button
+          apiCall={props.submitfn}
+          stateData={props.submitstatedata}
+          propdata={props}
+        />
       ) : null}
     </>
   );

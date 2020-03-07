@@ -5,7 +5,7 @@ function Button(props) {
   return (
     <Link
       to={{
-        pathname: `/newcomponent`,
+        pathname: `/ielts`,
         ageProps: {
           data: props.propdata
         }
