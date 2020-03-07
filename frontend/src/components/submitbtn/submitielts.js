@@ -5,10 +5,7 @@ function Button(props) {
   return (
     <Link
       to={{
-        pathname: `/ielts`,
-        ageProps: {
-          data: props.propdata
-        }
+        pathname: `/workexperience`
       }}
     >
       <input
