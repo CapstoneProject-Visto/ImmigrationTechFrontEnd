@@ -5,7 +5,9 @@ import LoginPage from "./pages/login.js";
 import LevelOfEducation from "./components/educationlevel";
 import AgeOfUser from "./components/agecomponent";
 import IELTS from "./components/ielts";
+import AdditionalPoints from "./components/additionalpoints";
 import WorkExperience from "./components/workexperience";
+import CertificateOrQualification from "./components/certificateorqualification";
 import FileNotFOund from "./components/filenotfound";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -29,7 +31,12 @@ function App() {
         <Route exact path="/newcomponent" component={LevelOfEducation} />
         <Route exact path="/ielts" component={IELTS} />
         <Route exact path="/workexperience" component={WorkExperience} />
-
+        <Route
+          exact
+          path="/certificateorqualification"
+          component={CertificateOrQualification}
+        />
+        <Route exact path="/additionalpoints" component={AdditionalPoints} />
         {/* <Route exact path="/signup">
           <SignupPage></SignupPage>
         </Route> */}
