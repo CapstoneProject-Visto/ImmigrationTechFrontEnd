@@ -4,6 +4,7 @@ import SignupPage from "./pages/signup.js";
 import LoginPage from "./pages/login.js";
 import LevelOfEducation from "./components/educationlevel";
 import AgeOfUser from "./components/agecomponent";
+import Calculator from "./pages/calculator.js";
 import IELTS from "./components/ielts";
 import AdditionalPoints from "./components/additionalpoints";
 import WorkExperience from "./components/workexperience";
@@ -19,6 +20,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <MainPage></MainPage>
+        </Route>
+        <Route exact path="/calculator">
+          <Calculator />
         </Route>
         <Route exact path="/login">
           <LoginPage></LoginPage>

@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+.navbar-dark .navbar-nav .nav-link {
+  color: black;
+}
+.navbar-dark .navbar-brand {
+  color: black !important;
+}
+.bg-light {
+  border-bottom: 0.4px solid black;
+}
