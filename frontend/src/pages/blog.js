@@ -1,6 +1,9 @@
 import React from "react";
 import Header from "../components/header";
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import BlogPosts from "../components/blogposts";
+import Footer from "../components/footer";
 class Blog extends React.Component {
   constructor() {
     super();
@@ -10,8 +13,17 @@ class Blog extends React.Component {
   render() {
     return (
       <>
-        <Header />
-        <h3>This is the class component of Blog Page</h3>
+        <Container>
+          <Row>
+            <Header />
+          </Row>
+          <Row>
+            <BlogPosts />
+          </Row>
+          <Row>
+            <Footer />
+          </Row>
+        </Container>
       </>
     );
   }

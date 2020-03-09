@@ -9,6 +9,7 @@ import WP from "../images/workPermit.jpg";
 import Image from "react-bootstrap/Image";
 import { Card, CardGroup, Button } from "react-bootstrap";
 import { Route } from "react-router-dom";
+import Footer from "../components/footer";
 class AboutUS extends React.Component {
   constructor() {
     super();
@@ -154,6 +155,7 @@ class AboutUS extends React.Component {
           </Row>
 
           {/* Footer */}
+          <Footer />
         </Container>
       </>
     );

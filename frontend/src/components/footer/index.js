@@ -1,121 +1,50 @@
 import React from "react";
-import { Title, Column, Footer, Block, Icon, Media, Image, Level } from "rbx";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Footer() {
   return (
     <>
-      <Footer backgroundColor="dark" textColor="light">
-        <Column.Group>
-          <Column size="one-third">
-            <div className="has-text-centered">
-              <Level>
-                <Level.Item>
-                  <Media>
-                    <Media.Item align="left" style={{ marginRight: 0 }}>
-                      <Image.Container size={32}>
-                        <Image src="/images/icon_light.png" alt="Visto Logo" />
-                      </Image.Container>
-                    </Media.Item>
-                    <Media.Item align="right" style={{ marginLeft: "0.5rem" }}>
-                      <Title
-                        subtitle
-                        textColor="light"
-                        style={{ marginTop: "0.3em" }}
-                      >
-                        Visto Tech Inc
-                      </Title>
-                    </Media.Item>
-                  </Media>
-                </Level.Item>
-              </Level>
-              <p>Toronto, Canada</p>
-              Copyright 2019
-              <Block />
-              <Title size="6">
-                <Link
-                  to="/privacypolicy"
-                  onClick={() => {
-                    scrollUp();
-                  }}
-                >
-                  <p style={{ color: "#fff", textDecoration: "underline" }}>
-                    Privacy Policy
-                  </p>
-                </Link>
-              </Title>
+      <footer>
+        <Row>
+          {/* VistoTech */}
+          <Col xs={12} md={3} lg={3} id="vistotech">
+            <div>VistoTech Inc</div>
+            <div>Located in Toronto, Canada</div>
+            <div>Image here</div>
+          </Col>
+          {/* Navigation */}
+          <Col xs={4} md={6} lg={3} id="navigation">
+            <div>Navigation</div>
+            <div style={{ display: "flex" }}>
+              <Col lg={6} style={{ float: "left" }}>
+                <h4>Home</h4>
+                <h4>Blog</h4>
+                <h4>About Us</h4>
+              </Col>
+              <Col lg={6}>
+                <h4>Contact US</h4>
+                <h4>Privacy Policies</h4>
+                <h4>FAQ</h4>
+              </Col>
             </div>
-          </Column>
-
-          <Column size="one-third" textAlign="centered">
-            <Title subtitle textColor="light">
+          </Col>
+          {/* Follow Us */}
+          <Col xs={4} md={6} lg={3} id="follow_us">
+            <div>Follow Us</div>
+          </Col>
+          {/* Disclaimer */}
+          <Col xs={4} md={12} lg={3} id="disclaimer">
+            <div>Disclaimer</div>
+            <div>
               Please note that this website is intended to provide general
               information and is not intended to provide any legal advice and
               should not be relied on as such.
-            </Title>
-          </Column>
-          <Column size="one-third">
-            <div className="has-text-centered">
-              <Title subtitle textColor="white">
-                Follow us on:
-              </Title>
-              <a
-                target="_blank"
-                href="https://www.facebook.com/vistoai/"
-                rel="noopener noreferrer"
-              >
-                <Icon>
-                  <FontAwesomeIcon
-                    className="has-text-white"
-                    style={{ fontSize: "1.8em" }}
-                    icon={faFacebookF}
-                    alt="Facebook Icon"
-                  />
-                </Icon>
-              </a>
-
-              <a
-                target="_blank"
-                style={{ marginLeft: "30px" }}
-                href="https://www.linkedin.com/company/visto-ai/"
-                rel="noopener noreferrer"
-              >
-                <Icon>
-                  <FontAwesomeIcon
-                    className="has-text-white"
-                    icon={faLinkedinIn}
-                    style={{
-                      fontSize: "2em",
-                      position: "relative",
-                      top: ".15em"
-                    }}
-                    alt="LinkedIn Icon"
-                  />
-                </Icon>
-              </a>
-
-              <a
-                target="_blank"
-                style={{ marginLeft: "30px" }}
-                href="https://www.twitter.com/vistoai"
-                rel="noopener noreferrer"
-              >
-                <Icon>
-                  <FontAwesomeIcon
-                    className="has-text-white"
-                    icon={faTwitter}
-                    style={{
-                      fontSize: "2em",
-                      position: "relative",
-                      top: ".15em"
-                    }}
-                    alt="LinkedIn Icon"
-                  />
-                </Icon>
-              </a>
             </div>
-          </Column>
-        </Column.Group>
-      </Footer>
+          </Col>
+        </Row>
+      </footer>
     </>
   );
 }
