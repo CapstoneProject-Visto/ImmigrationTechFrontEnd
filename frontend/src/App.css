@@ -110,7 +110,7 @@
   border-radius: 50% !important;
   display: block;
   margin: 3% auto;
-  margin-top: 10% !important;
+  margin-top: 5% !important;
 }
 .about_us_card_img {
   border-radius: 0px !important;
@@ -170,4 +170,206 @@ a {
 
 footer {
   margin-left: 0px !important;
+}
+
+#contactMainDiv {
+  background-color: aqua;
+  height: 67vh;
+}
+
+#contactUsRightDiv,
+#contactUsLeftDiv {
+  height: 67vh;
+  border: 1px solid black;
+  background-color: burlywood;
+}
+.form-control {
+  width: 57% !important;
+}
+
+/* #image_1_testimonials {
+  height: ;
+  background-image: url("./images//studypermit.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+#testimonial_image_1,
+#testimonial_image_2,
+#testimonial_image_3 {
+  max-width: 100%;
+}
+
+/* FAQ'S */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.faqs {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.faqs .faq {
+  margin: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.541);
+}
+
+.faqs .faq .faq-question {
+  position: relative;
+  font-size: 20px;
+  padding-right: 80px;
+  transition: all 0.4s ease;
+}
+
+.faqs .faq .faq-question {
+  position: relative;
+  font-size: 20px;
+  padding-right: 80px;
+}
+
+.faqs .faq .faq-question::after {
+  content: "\02795";
+  font-size: 13px;
+  margin-left: 5px;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  transition: all 0.4s ease;
+}
+
+.faqs .faq .faq-answer {
+  max-height: 0;
+  overflow-y: hidden;
+  transition: all 0.4s ease-out;
+}
+
+.faqs .faq:hover {
+  background-color: rgba(186, 219, 218, 0.308);
+}
+
+.faqs .faq.open .faq-question {
+  margin-bottom: 15px;
+}
+
+.faqs .faq.open .faq-question::after {
+  content: "\2796";
+}
+
+.faqs .faq.open .faq-answer {
+  max-height: 1000px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 15px;
+}
+
+/* Login Form */
+
+.center {
+  width: 400px;
+  height: auto;
+  margin: 43px auto;
+  background-color: #0d3c4d;
+  border-radius: 10px;
+}
+
+#logintext {
+  text-align: center;
+  color: bisque;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid white;
+}
+
+.center form {
+  padding: 30px 30px;
+  box-sizing: border-box;
+}
+
+#text_field {
+  border-bottom: 1px solid white;
+  margin: 5px 0;
+  height: 7vh;
+}
+#text_field input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  font-size: 16px;
+  background: none;
+  outline: none;
+  background-color: #0d3c4d;
+}
+
+#text_field label {
+  position: relative;
+  pointer-events: none;
+  transform: translateY(-130%);
+  font-size: 16px;
+  left: 5px;
+}
+.password {
+  margin: 25px 0 20px 5px;
+  color: #a6a6a6;
+  cursor: pointer;
+}
+.password:hover {
+  text-decoration: underline;
+}
+
+input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  background: #2691d9;
+  border-radius: 25px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="submit"]:hover {
+  border-color: #2691d9;
+  transition: 0.5s;
+}
+
+.sign_up {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+
+.sign_up a {
+  color: #2691d9;
+  text-decoration: none;
 }

@@ -9,8 +9,14 @@ function LatestBlogPosts() {
   return (
     <>
       <Container>
-        <div style={{ width: "100%", textAlign: "center" }}>
-          Recent Blog Posts
+        <div
+          style={{
+            textAlign: "center",
+            color: "orange",
+            marginTop: "30px"
+          }}
+        >
+          <h3>BLOGS</h3>
         </div>
         <Row>
           <Col sm={12} md={6} lg={4} xl={4}>

@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/header";
+import MainDiv from "../components/contactUsMainDiv";
 class ContactUs extends React.Component {
   constructor() {
     super();
@@ -10,7 +11,7 @@ class ContactUs extends React.Component {
     return (
       <>
         <Header />
-        <h3>This is the class component of Contact Us</h3>
+        <MainDiv />
       </>
     );
   }

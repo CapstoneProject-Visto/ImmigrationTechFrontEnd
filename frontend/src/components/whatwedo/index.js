@@ -7,6 +7,15 @@ import Image from "../../images/introdiv.jpg";
 function WhatWeDo() {
   return (
     <>
+      <div
+        style={{
+          textAlign: "center",
+          color: "orange",
+          marginTop: "30px"
+        }}
+      >
+        <h3>OUR SERVICES</h3>
+      </div>
       <CardGroup>
         <Card>
           <Card.Img variant="top" src={Image} />
