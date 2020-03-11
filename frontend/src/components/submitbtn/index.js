@@ -15,6 +15,7 @@ function Button(props) {
         type="submit"
         name="submit"
         value="SUBMIT"
+        data-test-id="button"
         onClick={props.apiCall}
       ></input>
     </Link>
