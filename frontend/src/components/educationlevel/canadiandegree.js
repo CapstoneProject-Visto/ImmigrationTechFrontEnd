@@ -1,5 +1,6 @@
 import React from "react";
 import LevelOfEducation from "./levelofeducation";
+import Button from "../submitbtn/submitedu";
 function CanadianDegree(props) {
   return (
     <div>
@@ -33,14 +34,23 @@ function CanadianDegree(props) {
         </option>
       </select>
       {console.log(props)}
-      {props.canadiandegreestate != "" ? (
-        <LevelOfEducation
-          levelofeducationfn={props.levelofeducationfn}
-          levelofeducationstate={props.levelofeducationstate}
-          submitData={props.submitData}
-          submitDataState={props.submitDataState}
-        />
-      ) : null}
+      {props.canadiandegreestate != ""
+        ? [
+            props.canadiandegreestate ==
+            "canadian_degree_diploma_certificate_yes" ? (
+              <LevelOfEducation
+                levelofeducationfn={props.levelofeducationfn}
+                levelofeducationstate={props.levelofeducationstate}
+                submitData={props.submitData}
+                submitDataState={props.submitDataState}
+              />
+            ) : (
+              <Button apiCall={props.submitData} />
+            )
+          ]
+        : null}
+
+      {/* <Button apiCall={props.submitData} /> */}
     </div>
   );
 }

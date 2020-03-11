@@ -22,7 +22,7 @@ function Login() {
               <div class="password">Forgot Password?</div>
               <input type="submit" value="Login" />
               <div class="sign_up">
-                Not a member yet ? <a href="#">SignUp</a>
+                Not a member yet ? <a href="/signup">SignUp</a>
               </div>
             </form>
           </div>

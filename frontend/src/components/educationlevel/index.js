@@ -25,17 +25,17 @@ class EducationLevel extends React.Component {
   }
 
   canadiandegree(e) {
-    this.setState({
-      canadiandegree: e.target.value,
-      levelofeducation4c: ""
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        canadiandegree: ""
+      });
+    } else {
+      this.setState({
+        canadiandegree: e.target.value,
+        levelofeducation4c: ""
+      });
+    }
   }
-
-  // levelofeducation4c(e) {
-  //   this.setState({
-  //     levelofeducation4c: e.target.value
-  //   });
-  // }
 
   submitData() {
     console.log("State data" + this.state);

@@ -12,9 +12,15 @@ class CertificateOrQualification extends React.Component {
   }
 
   certificateorqualification(e) {
-    this.setState({
-      certificateorqualification: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        certificateorqualification: ""
+      });
+    } else {
+      this.setState({
+        certificateorqualification: e.target.value
+      });
+    }
   }
 
   render() {

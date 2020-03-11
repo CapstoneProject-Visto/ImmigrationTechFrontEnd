@@ -11,7 +11,7 @@ function SpouseStatus(props) {
         resident of Canada?
       </p>
       <select onChange={props.citizenfn}>
-        <option>-----SELECT----</option>
+        <option value="select">-----SELECT----</option>
         <option name="spouse_citizen_permanent" value="partner_citizen_yes">
           Yes
         </option>

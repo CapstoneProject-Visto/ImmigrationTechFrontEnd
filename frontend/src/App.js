@@ -31,6 +31,7 @@ function App() {
         <Route exact path="/newcomponent" component={LevelOfEducation} />
         <Route exact path="/ielts" component={IELTS} />
         <Route exact path="/workexperience" component={WorkExperience} />
+        <Route exact path="/additionalpoints" component={AdditionalPoints} />
         <Route
           exact
           path="/signup"

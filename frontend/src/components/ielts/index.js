@@ -21,33 +21,69 @@ class IELTSScore extends React.Component {
   }
 
   ieltsValid(e) {
-    this.setState({
-      ieltsValid: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        ieltsValid: ""
+      });
+    } else if (e.target.value == "No") {
+      this.setState({
+        ieltsValid: "No"
+      });
+    } else if (e.target.value == "YES") {
+      this.setState({
+        ieltsValid: e.target.value
+      });
+    }
+
+    console.log(this.state.ieltsValid);
   }
 
   speakingScore(e) {
-    this.setState({
-      speakingScore: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        speakingscore: ""
+      });
+    } else {
+      this.setState({
+        speakingscore: e.target.value
+      });
+    }
   }
 
   readingScore(e) {
-    this.setState({
-      readingScore: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        readingscore: ""
+      });
+    } else {
+      this.setState({
+        readingscore: e.target.value
+      });
+    }
   }
 
   writingScore(e) {
-    this.setState({
-      writingScore: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        writingscore: ""
+      });
+    } else {
+      this.setState({
+        writingscore: e.target.value
+      });
+    }
   }
 
   listeningScore(e) {
-    this.setState({
-      listeningscore: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        listeningscore: ""
+      });
+    } else {
+      this.setState({
+        listeningscore: e.target.value
+      });
+    }
   }
 
   submitData() {
@@ -71,20 +107,26 @@ class IELTSScore extends React.Component {
             <option value="No">No</option>
           </select>
         </div>
-        {this.state.ieltsValid != "" ? (
-          <LoadScoreModule
-            listeningScorefn={this.listeningScore}
-            listeningScoreState={this.state.listeningscore}
-            readingScorefn={this.readingScore}
-            readingScoreState={this.state.readingscore}
-            writingScorefn={this.writingScore}
-            writingScoreState={this.state.writingscore}
-            speakingScorefn={this.speakingScore}
-            speakingScoreState={this.state.speakingscore}
-            submitfn={this.submitData}
-            submitstatedata={this.state.submitDatastate}
-          />
-        ) : null}
+        {this.state.ieltsValid != ""
+          ? [
+              this.state.ieltsValid == "YES" ? (
+                <LoadScoreModule
+                  listeningScorefn={this.listeningScore}
+                  listeningScoreState={this.state.listeningscore}
+                  readingScorefn={this.readingScore}
+                  readingScoreState={this.state.readingscore}
+                  writingScorefn={this.writingScore}
+                  writingScoreState={this.state.writingscore}
+                  speakingScorefn={this.speakingScore}
+                  speakingScoreState={this.state.speakingscore}
+                  submitfn={this.submitData}
+                  submitstatedata={this.state.submitDatastate}
+                />
+              ) : (
+                <h4>You are not eligible for any furthur steps</h4>
+              )
+            ]
+          : null}
       </>
     );
   }

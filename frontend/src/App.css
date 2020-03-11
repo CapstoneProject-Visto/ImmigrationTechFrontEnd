@@ -373,3 +373,8 @@ input[type="submit"]:hover {
   color: #2691d9;
   text-decoration: none;
 }
+.form-control {
+  transition: none;
+  width: 100% !important;
+  height: calc(1.5em + 0.75rem) !important;
+}

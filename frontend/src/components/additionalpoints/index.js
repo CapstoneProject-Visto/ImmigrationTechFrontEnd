@@ -15,21 +15,39 @@ class AdditionalPoints extends React.Component {
   }
 
   jobofferlmai(e) {
-    this.setState({
-      jobofferlmai: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        jobofferlmai: ""
+      });
+    } else {
+      this.setState({
+        jobofferlmai: e.target.value
+      });
+    }
   }
 
   nominationcertificate(e) {
-    this.setState({
-      nominationcertificate: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        nominationcertificate: ""
+      });
+    } else {
+      this.setState({
+        nominationcertificate: e.target.value
+      });
+    }
   }
 
   siblingsincanada(e) {
-    this.setState({
-      siblingsincanada: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        siblingsincanada: ""
+      });
+    } else {
+      this.setState({
+        siblingsincanada: e.target.value
+      });
+    }
   }
 
   render() {

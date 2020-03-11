@@ -15,12 +15,14 @@ function ForeignSkillExperience(props) {
         name="internationalexperience"
         onChange={props.internationalworkexperiencefn}
       >
+        <option value="select">---SELECT---</option>
         <option value="lessthanayear">None or less than a year</option>
         <option value="oneyear">1 year</option>
         <option value="twoyears">2 years</option>
         <option value="threeyears">3 years or more</option>
       </select>
 
+      {console.log(props)}
       {props.internationalworkexperiencestate != "" ? <Button /> : null}
     </>
   );

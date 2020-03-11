@@ -14,15 +14,28 @@ class WorkExperience extends React.Component {
     );
   }
   canadianexpselected(e) {
-    this.setState({
-      canadianworkexperience: e.target.value
-    });
+    console.log(e.target.value);
+    if (e.target.value == "select") {
+      this.setState({
+        canadianworkexperience: ""
+      });
+    } else {
+      this.setState({
+        canadianworkexperience: e.target.value
+      });
+    }
   }
 
   internationalworkexperienceselected(e) {
-    this.setState({
-      internationalworkexperience: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        internationalworkexperience: ""
+      });
+    } else {
+      this.setState({
+        internationalworkexperience: e.target.value
+      });
+    }
   }
 
   render() {

@@ -36,30 +36,44 @@ class CalculatorPage extends React.Component {
   }
 
   marriedornot(e) {
-    this.setState({
-      marriedornot: e.target.value
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        marriedornot: ""
+      });
+    } else {
+      this.setState({
+        marriedornot: e.target.value
+      });
+    }
   }
 
   citizenofCanada(e) {
-    this.setState({
-      partnerCitizenOrNot: e.target.value,
-      clpcmgtocanada: ""
-    });
+    if (e.target.value == "select") {
+      this.setState({
+        partnerCitizenOrNot: "",
+        clpcmgtocanada: ""
+      });
+    } else {
+      this.setState({
+        partnerCitizenOrNot: e.target.value,
+        clpcmgtocanada: ""
+      });
+    }
   }
 
   clpcmgtocanada(e) {
-    console.log(e.target.value);
-
-    this.setState({
-      clpcmgtocanada: e.target.value
-    });
-    console.log(this.state.clpcmgtocanada);
+    if (e.target.value == "select") {
+      this.setState({
+        clpcmgtocanada: ""
+      });
+    } else {
+      this.setState({
+        clpcmgtocanada: e.target.value
+      });
+    }
   }
 
   notmarriedstatus(e) {
-    console.log(e);
-
     this.setState({
       notMarriedOptionValue: e.target.value
     });
@@ -77,7 +91,7 @@ class CalculatorPage extends React.Component {
     return (
       <>
         <div>
-          <p>Are you married? (If not let me know)</p>
+          <p>Are you married? </p>
           <input
             type="radio"
             value="Yes"

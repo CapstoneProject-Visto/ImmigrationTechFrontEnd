@@ -6,7 +6,7 @@ function YesComponent(props) {
     <>
       <p>Are you married or Have Common Law Partner</p>
       <select onChange={props.marriedfn}>
-        <option>-----SELECT----</option>
+        <option value="select">-----SELECT----</option>
         <option name="married" value="married">
           Married
         </option>
