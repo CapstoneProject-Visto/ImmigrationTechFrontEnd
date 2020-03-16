@@ -378,3 +378,34 @@ input[type="submit"]:hover {
   width: 100% !important;
   height: calc(1.5em + 0.75rem) !important;
 }
+
+/* admin dashboard */
+.column{
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+.column a{
+text-decoration: none;
+}
+
+.search {
+  margin-left: 40px;
+  margin-right: 900px;
+}
+
+.heading1 {
+  padding-left: 30px;
+  background-color: grey;
+}
+
+/* personal info */
+.pinfo {
+  padding-left: 40px;
+}
+
+.pinfo li{
+  list-style-type: none;
+  padding-left: 20px;
+}

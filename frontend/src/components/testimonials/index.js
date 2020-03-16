@@ -4,6 +4,7 @@ import { Slide } from "react-reveal";
 import StarRatingComponent from "react-star-rating-component";
 import Image from "../../images/studypermit.jpg";
 
+
 function Testimonials() {
   return (
     <>
