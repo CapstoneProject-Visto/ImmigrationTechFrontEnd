@@ -7,6 +7,7 @@ function PersonalInfo() {
     return(
 <>
 <h2 style={{padding:'10px'}}>Personal Information</h2>
+<hr />
 <Col>
 <Row>
       <Image src={Img} roundedCircle height='200px' width='200px' />

@@ -42,9 +42,13 @@ background:'#f0f0f0'
                 <ul style={{listStyleType:'none', padding: '10px', marginBottom: '20px',
            fontSize: '22px' }}>
                     <li><Link to='/personal_info'>Personal Information</Link></li>
+                    <hr />
                     <li><Link to='/education'>Education</Link></li>
+                    <hr />
                     <li><Link to='/ielts_score'>IELTS Score</Link></li>
+                    <hr />
                     <li><Link to='/work_experience'>Work Experience</Link></li>
+                    <hr />
                     <li><Link to='/assesment'>Assesment History</Link></li>
                 </ul>
 
