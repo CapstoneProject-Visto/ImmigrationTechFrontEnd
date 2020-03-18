@@ -38,6 +38,19 @@ class WorkExperience extends React.Component {
     }
   }
 
+  submitData() {
+    console.log("State data" + JSON.stringify(this.state));
+    fetch("http://localhost:3000/api/marital-status", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }
+
   render() {
     return (
       <>

@@ -15,7 +15,8 @@ import WorkExperience from "./components/workexperience";
 import CertificateOrQualification from "./components/certificateorqualification";
 import FileNotFOund from "./components/filenotfound";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
+import "./styles/style.css";
 
 function App() {
   return (
