@@ -10,6 +10,7 @@ import Blog from "./pages/blog.js";
 import ContactUs from "./pages/contactus.js";
 import FAQ from "./pages/faq.js";
 import IELTS from "./components/ielts";
+import UserDashboard from "./pages/userdashboard";
 import AdditionalPoints from "./components/additionalpoints";
 import WorkExperience from "./components/workexperience";
 import CertificateOrQualification from "./components/certificateorqualification";
@@ -43,6 +44,8 @@ function App() {
           path="/certificateorqualification"
           component={CertificateOrQualification}
         />
+        <Route exact path="/userdashboard" component={UserDashboard} />
+
         <Route component={FileNotFOund}></Route>
       </Switch>
     </Router>

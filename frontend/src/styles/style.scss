@@ -141,6 +141,21 @@ a {
   max-width: -webkit-fill-available;
 }
 
+.infoCards {
+  display: contents !important;
+  margin-left: 20px;
+}
+
+.col-sm-8 {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+.col-sm-4 {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
 @import "./footer";
 @import "./faq";
 @import "./login";
