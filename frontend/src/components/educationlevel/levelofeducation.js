@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../submitbtn/submitedu";
+import Button from "../submitbtn/submitcadedu";
 
 function LevelOfEducation(props) {
   return (
@@ -7,7 +7,10 @@ function LevelOfEducation(props) {
       <h3>
         4 c) - Choose the best answer to describe the level of your education
       </h3>
-      <select onChange={props.levelofeducationfn}>
+      <select onChange={props.canadianlevelofedufn}>
+        <option name="select" value="select">
+          ---SELECT---
+        </option>
         <option name="school" value="secondary_high_school">
           Secondary (high school) or less
         </option>
@@ -19,11 +22,11 @@ function LevelOfEducation(props) {
           professional or doctoral degree of at least one academic year
         </option>
       </select>
-      {props.levelofeducationstate != "" ? (
+      {props.canadianlevelofedu != "" ? (
         <Button apiCall={props.submitData} />
-      ) : (
-        <Button apiCall={props.submitData} />
-      )}
+      ) : null
+      // <Button apiCall={props.submitData} />
+      }
     </div>
   );
 }

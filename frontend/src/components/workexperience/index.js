@@ -1,17 +1,14 @@
 import React from "react";
-import ForeignSkillExperience from "./foreignskilledexperience";
-
+import Button from "../submitbtn/localworkexbtn";
 class WorkExperience extends React.Component {
   constructor() {
     super();
     this.state = {
-      canadianworkexperience: "",
-      internationalworkexperience: ""
+      canadianworkexperience: ""
     };
     this.canadianexpselected = this.canadianexpselected.bind(this);
-    this.internationalworkexperienceselected = this.internationalworkexperienceselected.bind(
-      this
-    );
+
+    this.submitData = this.submitData.bind(this);
   }
   canadianexpselected(e) {
     console.log(e.target.value);
@@ -26,21 +23,10 @@ class WorkExperience extends React.Component {
     }
   }
 
-  internationalworkexperienceselected(e) {
-    if (e.target.value == "select") {
-      this.setState({
-        internationalworkexperience: ""
-      });
-    } else {
-      this.setState({
-        internationalworkexperience: e.target.value
-      });
-    }
-  }
-
   submitData() {
+    console.log(this.state);
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:3000/api/marital-status", {
+    fetch("http://localhost:5000/api/canadian-experience", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -95,6 +81,9 @@ class WorkExperience extends React.Component {
           <option value="fiveyearsormore">5 years or more</option>
         </select>
         {this.state.canadianworkexperience != "" ? (
+          <Button apiCall={this.submitData} />
+        ) : null}
+        {/* {this.state.canadianworkexperience != "" ? (
           <ForeignSkillExperience
             internationalworkexperiencestate={
               this.state.internationalworkexperience
@@ -102,8 +91,9 @@ class WorkExperience extends React.Component {
             internationalworkexperiencefn={
               this.internationalworkexperienceselected
             }
+            submitDatafn={this.submitData}
           />
-        ) : null}
+        ) : null} */}
       </>
     );
   }

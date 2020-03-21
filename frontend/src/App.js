@@ -11,8 +11,10 @@ import ContactUs from "./pages/contactus.js";
 import FAQ from "./pages/faq.js";
 import IELTS from "./components/ielts";
 import UserDashboard from "./pages/userdashboard";
+import CanadianDegree from "./components/educationlevel/canadiandegree";
 import AdditionalPoints from "./components/additionalpoints";
 import WorkExperience from "./components/workexperience";
+import ForeignSkillExperience from "./components/workexperience/foreignskilledexperience";
 import CertificateOrQualification from "./components/certificateorqualification";
 import FileNotFOund from "./components/filenotfound";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -34,6 +36,12 @@ function App() {
         <Route exact path="/ielts" component={IELTS} />
         <Route exact path="/workexperience" component={WorkExperience} />
         <Route exact path="/additionalpoints" component={AdditionalPoints} />
+        <Route exact path="/cadedu" component={CanadianDegree} />
+        <Route
+          exact
+          path="/foreignworkexp"
+          component={ForeignSkillExperience}
+        />
         <Route
           exact
           path="/signup"

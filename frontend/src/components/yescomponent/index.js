@@ -18,7 +18,7 @@ function YesComponent(props) {
       {props.marriedstate != "" ? (
         <SpouseStatus
           citizenfn={props.citizenfn}
-          partnerCitizenOrNotStateValue={props.partnerCitizenOrNotStateValue}
+          spouse_citizenStateValue={props.spouse_citizenStateValue}
           submitfn={props.submitfn}
           submitstatedata={props.submitDatastate}
           clpartnermainfn={props.clpcmgtocanada}

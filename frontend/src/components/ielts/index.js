@@ -6,17 +6,17 @@ class IELTSScore extends React.Component {
     super();
     this.state = {
       ieltsValid: "",
-      speakingscore: "",
-      readingscore: "",
-      writingscore: "",
+      speaking: "",
+      reading: "",
+      writing: "",
       submitDatastate: "",
-      listeningscore: ""
+      listening: ""
     };
     this.ieltsValid = this.ieltsValid.bind(this);
-    this.speakingScore = this.speakingScore.bind(this);
-    this.readingScore = this.readingScore.bind(this);
-    this.listeningScore = this.listeningScore.bind(this);
-    this.writingScore = this.writingScore.bind(this);
+    this.speaking = this.speaking.bind(this);
+    this.reading = this.reading.bind(this);
+    this.listening = this.listening.bind(this);
+    this.writing = this.writing.bind(this);
     this.submitData = this.submitData.bind(this);
   }
 
@@ -38,57 +38,57 @@ class IELTSScore extends React.Component {
     console.log(this.state.ieltsValid);
   }
 
-  speakingScore(e) {
+  speaking(e) {
     if (e.target.value == "select") {
       this.setState({
-        speakingscore: ""
+        speaking: ""
       });
     } else {
       this.setState({
-        speakingscore: e.target.value
+        speaking: e.target.value
       });
     }
   }
 
-  readingScore(e) {
+  reading(e) {
     if (e.target.value == "select") {
       this.setState({
-        readingscore: ""
+        reading: ""
       });
     } else {
       this.setState({
-        readingscore: e.target.value
+        reading: e.target.value
       });
     }
   }
 
-  writingScore(e) {
+  writing(e) {
     if (e.target.value == "select") {
       this.setState({
-        writingscore: ""
+        writing: ""
       });
     } else {
       this.setState({
-        writingscore: e.target.value
+        writing: e.target.value
       });
     }
   }
 
-  listeningScore(e) {
+  listening(e) {
     if (e.target.value == "select") {
       this.setState({
-        listeningscore: ""
+        listening: ""
       });
     } else {
       this.setState({
-        listeningscore: e.target.value
+        listening: e.target.value
       });
     }
   }
 
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:3000/api/marital-status", {
+    fetch("http://localhost:5000/api/ielts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -115,14 +115,14 @@ class IELTSScore extends React.Component {
           ? [
               this.state.ieltsValid == "YES" ? (
                 <LoadScoreModule
-                  listeningScorefn={this.listeningScore}
-                  listeningScoreState={this.state.listeningscore}
-                  readingScorefn={this.readingScore}
-                  readingScoreState={this.state.readingscore}
-                  writingScorefn={this.writingScore}
-                  writingScoreState={this.state.writingscore}
-                  speakingScorefn={this.speakingScore}
-                  speakingScoreState={this.state.speakingscore}
+                  listeningfn={this.listening}
+                  listeningState={this.state.listening}
+                  readingfn={this.reading}
+                  readingState={this.state.reading}
+                  writingfn={this.writing}
+                  writingState={this.state.writing}
+                  speakingfn={this.speaking}
+                  speakingState={this.state.speaking}
                   submitfn={this.submitData}
                   submitstatedata={this.state.submitDatastate}
                 />

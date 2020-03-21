@@ -12,15 +12,15 @@ function SpouseStatus(props) {
       </p>
       <select onChange={props.citizenfn}>
         <option value="select">-----SELECT----</option>
-        <option name="spouse_citizen_permanent" value="partner_citizen_yes">
+        <option name="spouse_citizen" value="spouse-citizen_yes">
           Yes
         </option>
-        <option name="spouse_citizen_permanent" value="partner_citizen_no">
+        <option name="spouse_citizen" value="spouse-citizen_no">
           No
         </option>
       </select>
 
-      {props.partnerCitizenOrNotStateValue === "partner_citizen_yes" ? (
+      {props.spouse_citizenStateValue === "partner_citizen_yes" ? (
         // <AgeOfUser loe={props.loe} loestate={props.loestate} />
         <Button
           apiCall={props.submitfn}
@@ -28,7 +28,7 @@ function SpouseStatus(props) {
         ></Button>
       ) : (
         [
-          props.partnerCitizenOrNotStateValue != "" ? (
+          props.spouse_citizenStateValue != "" ? (
             <CLPCmgToCanada
               submitfn={props.submitfn}
               submitstatedata={props.submitDatastate}

@@ -11,10 +11,10 @@ function CLPCmgToCanada(props) {
         <option name="select" value="select">
           ---SELECT---
         </option>
-        <option name="common_law_partner_" value="partner_coming_canada_yes">
+        <option name="spouse_coming_canada" value="spouse_coming_canada_yes">
           YES
         </option>
-        <option name="select" value="partner_coming_canada_no">
+        <option name="spouse_coming_canada" value="spouse_coming_canada_no">
           NO
         </option>
       </select>

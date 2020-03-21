@@ -1,14 +1,23 @@
 import React from "react";
 import Button from "../submitbtn/certificatebutton.js";
+import AdditionalPoints from "../additionalpoints/index";
+
 class CertificateOrQualification extends React.Component {
   constructor() {
     super();
     this.state = {
-      certificateorqualification: ""
+      certificateorqualification: "",
+      jobofferlmai: "",
+      nominationcertificate: "",
+      siblingsincanada: ""
     };
     this.certificateorqualification = this.certificateorqualification.bind(
       this
     );
+    this.jobofferlmai = this.jobofferlmai.bind(this);
+    this.nominationcertificate = this.nominationcertificate.bind(this);
+    this.siblingsincanada = this.siblingsincanada.bind(this);
+    this.submitData = this.submitData.bind(this);
   }
 
   certificateorqualification(e) {
@@ -21,6 +30,55 @@ class CertificateOrQualification extends React.Component {
         certificateorqualification: e.target.value
       });
     }
+  }
+
+  jobofferlmai(e) {
+    if (e.target.value == "select") {
+      this.setState({
+        jobofferlmai: ""
+      });
+    } else {
+      this.setState({
+        jobofferlmai: e.target.value
+      });
+    }
+  }
+
+  nominationcertificate(e) {
+    if (e.target.value == "select") {
+      this.setState({
+        nominationcertificate: ""
+      });
+    } else {
+      this.setState({
+        nominationcertificate: e.target.value
+      });
+    }
+  }
+
+  siblingsincanada(e) {
+    if (e.target.value == "select") {
+      this.setState({
+        siblingsincanada: ""
+      });
+    } else {
+      this.setState({
+        siblingsincanada: e.target.value
+      });
+    }
+  }
+
+  submitData() {
+    fetch("http://localhost:5000/api/additional", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify(this.state)
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
   }
 
   render() {
@@ -51,7 +109,17 @@ class CertificateOrQualification extends React.Component {
             <option value="NO">NO</option>
           </select>
         </p>
-        {this.state.certificateorqualification != "" ? <Button /> : null}
+        {this.state.certificateorqualification != "" ? (
+          <AdditionalPoints
+            jobofferlmaifn={this.jobofferlmai}
+            jobofferlmai={this.state.jobofferlmai}
+            nominationcertificatefn={this.nominationcertificate}
+            nominationcertificatestate={this.state.nominationcertificate}
+            siblingsincanadafn={this.siblingsincanada}
+            siblingsincanadastate={this.state.siblingsincanada}
+            apiCall={this.submitData}
+          />
+        ) : null}
       </>
     );
   }

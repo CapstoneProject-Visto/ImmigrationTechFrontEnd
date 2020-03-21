@@ -7,7 +7,7 @@ function LoadScoreModule(props) {
       {console.log(props)}
       <div>
         <h5>Speaking</h5>
-        <select name="speaking" onChange={props.speakingScorefn}>
+        <select name="speaking" onChange={props.speakingfn}>
           <option value="select">---SELECT---</option>
           <option value="9.0">9.0</option>
           <option value="8.5">8.5</option>
@@ -31,7 +31,7 @@ function LoadScoreModule(props) {
         </select>
         {/*  */}
         <h5>Listening</h5>
-        <select name="listening" onChange={props.listeningScorefn}>
+        <select name="listening" onChange={props.listeningfn}>
           <option value="select">---SELECT---</option>
           <option value="9.0">9.0</option>
           <option value="8.5">8.5</option>
@@ -56,7 +56,7 @@ function LoadScoreModule(props) {
 
         {/* */}
         <h5>Reading</h5>
-        <select name="reading" onChange={props.readingScorefn}>
+        <select name="reading" onChange={props.readingfn}>
           <option value="select">---SELECT---</option>
           <option value="9.0">9.0</option>
           <option value="8.5">8.5</option>
@@ -81,7 +81,7 @@ function LoadScoreModule(props) {
 
         {/*  */}
         <h5>Writing</h5>
-        <select name="writing" onChange={props.writingScorefn}>
+        <select name="writing" onChange={props.writingfn}>
           <option value="select">---SELECT---</option>
           <option value="9.0">9.0</option>
           <option value="8.5">8.5</option>
@@ -105,10 +105,10 @@ function LoadScoreModule(props) {
         </select>
       </div>
 
-      {props.listeningScoreState != "" &&
-      props.readingScoreState != "" &&
-      props.speakingScoreState != "" &&
-      props.writingScoreState != "" ? (
+      {props.listeningState != "" &&
+      props.readingState != "" &&
+      props.speakingState != "" &&
+      props.writingState != "" ? (
         <Button apiCall={props.submitfn} />
       ) : null}
     </>

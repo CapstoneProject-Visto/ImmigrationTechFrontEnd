@@ -1,45 +1,26 @@
 import React from "react";
-import CanadianDegree from "./canadiandegree";
+import Button from "../submitbtn/submitedu";
 class EducationLevel extends React.Component {
   constructor() {
     super();
     this.state = {
-      submitDatastate: "",
-      educationlevelstate: "",
-      canadiandegree: "",
-      levelofeducation4c: ""
+      // submitDatastate: "",
+      educationlevelstate: ""
     };
     this.submitData = this.submitData.bind(this);
     this.levelofeducation = this.levelofeducation.bind(this);
-    this.canadiandegree = this.canadiandegree.bind(this);
-    // this.levelofeducation4c = this.levelofeducation4c(this);
   }
 
   levelofeducation(e) {
     console.log(e.target.value);
     this.setState({
-      educationlevelstate: e.target.value,
-      canadiandegree: ""
+      educationlevelstate: e.target.value
     });
-    console.log(this.state);
-  }
-
-  canadiandegree(e) {
-    if (e.target.value == "select") {
-      this.setState({
-        canadiandegree: ""
-      });
-    } else {
-      this.setState({
-        canadiandegree: e.target.value,
-        levelofeducation4c: ""
-      });
-    }
   }
 
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:3000/api/marital-status", {
+    fetch("http://localhost:5000/api/education", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -86,16 +67,8 @@ class EducationLevel extends React.Component {
             Doctoral level university degree (PhD)
           </option>
         </select>
-
         {this.state.educationlevelstate != "" ? (
-          <CanadianDegree
-            canadiandegreefn={this.canadiandegree}
-            canadiandegreestate={this.state.canadiandegree}
-            levelofeducationfn={this.levelofeducation4c}
-            levelofeducationstate={this.state.levelofeducation4c}
-            submitData={this.submitData}
-            submitDataState={this.submitDataState}
-          />
+          <Button submitDataBtn={this.submitData} />
         ) : null}
       </>
     );

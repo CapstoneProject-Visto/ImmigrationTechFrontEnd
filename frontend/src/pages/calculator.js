@@ -8,9 +8,9 @@ class CalculatorPage extends React.Component {
     super();
     this.state = {
       selectedOption: "",
-      marriedornot: "",
-      partnerCitizenOrNot: "",
-      clpcmgtocanada: "",
+      marital_status_type: "",
+      spouse_citizen: "",
+      spouse_coming_canada: "",
       notMarriedOptionValue: "",
       submitDatastate: "",
       educationlevelstate: ""
@@ -26,9 +26,9 @@ class CalculatorPage extends React.Component {
   radioChange(e) {
     this.setState({
       selectedOption: e.currentTarget.value,
-      marriedornot: "",
-      partnerCitizenOrNot: "",
-      clpcmgtocanada: "",
+      marital_status_type: "",
+      spouse_citizen: "",
+      spouse_coming_canada: "",
       notMarriedOptionValue: "",
       submitDatastate: "",
       educationlevelstate: ""
@@ -38,11 +38,11 @@ class CalculatorPage extends React.Component {
   marriedornot(e) {
     if (e.target.value == "select") {
       this.setState({
-        marriedornot: ""
+        marital_status_type: ""
       });
     } else {
       this.setState({
-        marriedornot: e.target.value
+        marital_status_type: e.target.value
       });
     }
   }
@@ -50,13 +50,13 @@ class CalculatorPage extends React.Component {
   citizenofCanada(e) {
     if (e.target.value == "select") {
       this.setState({
-        partnerCitizenOrNot: "",
-        clpcmgtocanada: ""
+        spouse_citizen: "",
+        spouse_coming_canada: ""
       });
     } else {
       this.setState({
-        partnerCitizenOrNot: e.target.value,
-        clpcmgtocanada: ""
+        spouse_citizen: e.target.value,
+        spouse_coming_canada: ""
       });
     }
   }
@@ -64,11 +64,11 @@ class CalculatorPage extends React.Component {
   clpcmgtocanada(e) {
     if (e.target.value == "select") {
       this.setState({
-        clpcmgtocanada: ""
+        spouse_coming_canada: ""
       });
     } else {
       this.setState({
-        clpcmgtocanada: e.target.value
+        spouse_coming_canada: e.target.value
       });
     }
   }
@@ -81,7 +81,7 @@ class CalculatorPage extends React.Component {
 
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:3000/api/marital-status", {
+    fetch("http://localhost:5000/api/marital-status", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -114,11 +114,11 @@ class CalculatorPage extends React.Component {
         {this.state.selectedOption === "Yes" ? (
           <YesComponent
             marriedfn={this.marriedornot}
-            marriedstate={this.state.marriedornot}
+            marriedstate={this.state.marital_status_type}
             citizenfn={this.citizenofCanada}
-            partnerCitizenOrNotStateValue={this.state.partnerCitizenOrNot}
+            spouse_citizenStateValue={this.state.spouse_citizen}
             clpcmgtocanada={this.clpcmgtocanada}
-            clpcmgtocanadastate={this.state.clpcmgtocanada}
+            clpcmgtocanadastate={this.state.spouse_coming_canada}
             submitfn={this.submitData}
             submitstatedata={this.state.submitDatastate}
             loe={this.levelofeducation}

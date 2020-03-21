@@ -27,7 +27,7 @@ function Siblings(props) {
         <option value="YES">YES</option>
         <option value="NO">NO</option>
       </select>
-      <button disabled={!props.siblingsincanadastate}>
+      <button disabled={!props.siblingsincanadastate} onClick={props.apiCall}>
         Calculate Final Score
       </button>
     </>

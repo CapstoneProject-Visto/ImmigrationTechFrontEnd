@@ -5,14 +5,17 @@ function Button(props) {
   return (
     <Link
       to={{
-        pathname: `/cadedu`
+        pathname: `/ielts`,
+        ageProps: {
+          data: props.propdata
+        }
       }}
     >
       <input
         type="submit"
         name="submit"
         value="SUBMIT"
-        onClick={props.submitDataBtn}
+        onClick={props.apiCall}
       ></input>
     </Link>
   );
