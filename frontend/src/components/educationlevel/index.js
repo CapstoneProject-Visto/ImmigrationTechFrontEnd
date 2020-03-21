@@ -5,7 +5,7 @@ class EducationLevel extends React.Component {
     super();
     this.state = {
       // submitDatastate: "",
-      educationlevelstate: ""
+      level_of_education: ""
     };
     this.submitData = this.submitData.bind(this);
     this.levelofeducation = this.levelofeducation.bind(this);
@@ -14,7 +14,7 @@ class EducationLevel extends React.Component {
   levelofeducation(e) {
     console.log(e.target.value);
     this.setState({
-      educationlevelstate: e.target.value
+      level_of_education: e.target.value
     });
   }
 
@@ -37,17 +37,17 @@ class EducationLevel extends React.Component {
         <h4>Enter the highest level of education you have achieved </h4>
 
         <select onChange={this.levelofeducation}>
-          <option name="education" value="high school">
+          <option name="education" value="none">
             None, or less than secondary (high school)
           </option>
-          <option name="education" value="secondary diploma">
+          <option name="education" value="secondary">
             Secondary diploma (high school graduation)
           </option>
-          <option name="education" value="one year university">
+          <option name="education" value="one-year">
             One-year program at a university, college, trade or technical
             school, or other institute
           </option>
-          <option name="education" value="two year university">
+          <option name="education" value="two-year">
             Two-year program at a university, college, trade or technical
             school, or other institute
           </option>
@@ -55,7 +55,7 @@ class EducationLevel extends React.Component {
             Bachelor's degree (three or more year program at a university,
             college, trade or technical school, or other institute)
           </option>
-          <option name="education" value="certificate">
+          <option name="education" value="twoOrMoreCertificate">
             Two or more certificates, diplomas or degrees. One must be for a
             program of three or more years
           </option>
@@ -63,11 +63,11 @@ class EducationLevel extends React.Component {
             Master's degree, or professional degree needed to practice in a
             licensed profession (see Help)
           </option>
-          <option name="education" value="phd">
+          <option name="education" value="doctoral">
             Doctoral level university degree (PhD)
           </option>
         </select>
-        {this.state.educationlevelstate != "" ? (
+        {this.state.level_of_education != "" ? (
           <Button submitDataBtn={this.submitData} />
         ) : null}
       </>

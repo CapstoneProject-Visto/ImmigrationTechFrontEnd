@@ -11,13 +11,13 @@ function LevelOfEducation(props) {
         <option name="select" value="select">
           ---SELECT---
         </option>
-        <option name="school" value="secondary_high_school">
+        <option name="school" value="secondary">
           Secondary (high school) or less
         </option>
-        <option name="school" value="oneortwoyeardiploma">
+        <option name="school" value="one_or_two">
           One- or two-year diploma or certificate
         </option>
-        <option>
+        <option name="school" value="three_or_more_or_masters">
           Degree, diploma or certificate of three years or longer OR a Master’s,
           professional or doctoral degree of at least one academic year
         </option>

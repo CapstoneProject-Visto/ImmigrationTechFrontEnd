@@ -1,15 +1,18 @@
 import React from "react";
 import Button from "../submitbtn/certificatebutton.js";
-import AdditionalPoints from "../additionalpoints/index";
+// import AdditionalPoints from "../additionalpoints/index";
+import Age from "../agecomponent";
 
 class CertificateOrQualification extends React.Component {
   constructor() {
     super();
     this.state = {
-      certificateorqualification: "",
+      certificate_of_qualification: "",
       jobofferlmai: "",
-      nominationcertificate: "",
-      siblingsincanada: ""
+      provincial_nomination: "",
+      immediate_relative: "",
+      noc_level: "",
+      age: ""
     };
     this.certificateorqualification = this.certificateorqualification.bind(
       this
@@ -18,16 +21,42 @@ class CertificateOrQualification extends React.Component {
     this.nominationcertificate = this.nominationcertificate.bind(this);
     this.siblingsincanada = this.siblingsincanada.bind(this);
     this.submitData = this.submitData.bind(this);
+    this.noclevelfn = this.noclevelfn.bind(this);
+    this.agefn = this.agefn.bind(this);
+  }
+
+  agefn(e) {
+    if (e.target.value == "select") {
+      this.setState({
+        age: ""
+      });
+    } else {
+      this.setState({
+        age: e.target.value
+      });
+    }
+  }
+
+  noclevelfn(e) {
+    if (e.target.value == "select") {
+      this.setState({
+        noc_level: ""
+      });
+    } else {
+      this.setState({
+        noc_level: e.target.value
+      });
+    }
   }
 
   certificateorqualification(e) {
     if (e.target.value == "select") {
       this.setState({
-        certificateorqualification: ""
+        certificate_of_qualification: ""
       });
     } else {
       this.setState({
-        certificateorqualification: e.target.value
+        certificate_of_qualification: e.target.value
       });
     }
   }
@@ -47,11 +76,11 @@ class CertificateOrQualification extends React.Component {
   nominationcertificate(e) {
     if (e.target.value == "select") {
       this.setState({
-        nominationcertificate: ""
+        provincial_nomination: ""
       });
     } else {
       this.setState({
-        nominationcertificate: e.target.value
+        provincial_nomination: e.target.value
       });
     }
   }
@@ -59,11 +88,11 @@ class CertificateOrQualification extends React.Component {
   siblingsincanada(e) {
     if (e.target.value == "select") {
       this.setState({
-        siblingsincanada: ""
+        immediate_relative: ""
       });
     } else {
       this.setState({
-        siblingsincanada: e.target.value
+        immediate_relative: e.target.value
       });
     }
   }
@@ -84,6 +113,7 @@ class CertificateOrQualification extends React.Component {
   render() {
     return (
       <>
+        <h3>Additional Points</h3>
         <p>
           7) Do you have a certificate of qualification from a Canadian
           province, territory or federal body?
@@ -101,7 +131,7 @@ class CertificateOrQualification extends React.Component {
           This isn’t the same as a nomination from a province or territory.
           <br />
           <select
-            name="certificateorqualification"
+            name="certificate_of_qualification"
             onChange={this.certificateorqualification}
           >
             <option value="select">---SELECT---</option>
@@ -109,14 +139,18 @@ class CertificateOrQualification extends React.Component {
             <option value="NO">NO</option>
           </select>
         </p>
-        {this.state.certificateorqualification != "" ? (
-          <AdditionalPoints
+        {this.state.certificate_of_qualification != "" ? (
+          <Age
+            agefn={this.agefn}
+            agestate={this.state.age}
             jobofferlmaifn={this.jobofferlmai}
             jobofferlmai={this.state.jobofferlmai}
             nominationcertificatefn={this.nominationcertificate}
-            nominationcertificatestate={this.state.nominationcertificate}
+            nominationcertificatestate={this.state.provincial_nomination}
             siblingsincanadafn={this.siblingsincanada}
-            siblingsincanadastate={this.state.siblingsincanada}
+            siblingsincanadastate={this.state.immediate_relative}
+            noc_level={this.state.noc_level}
+            noc_level_fn={this.noclevelfn}
             apiCall={this.submitData}
           />
         ) : null}

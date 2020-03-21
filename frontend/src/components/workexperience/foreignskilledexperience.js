@@ -4,7 +4,7 @@ class ForeignSkillExperience extends React.Component {
   constructor() {
     super();
     this.state = {
-      internationalworkexperience: ""
+      foreign_experience: ""
     };
     this.internationalworkexperienceselected = this.internationalworkexperienceselected.bind(
       this
@@ -15,11 +15,11 @@ class ForeignSkillExperience extends React.Component {
   internationalworkexperienceselected(e) {
     if (e.target.value == "select") {
       this.setState({
-        internationalworkexperience: ""
+        foreign_experience: ""
       });
     } else {
       this.setState({
-        internationalworkexperience: e.target.value
+        foreign_experience: e.target.value
       });
     }
   }
@@ -54,13 +54,15 @@ class ForeignSkillExperience extends React.Component {
           onChange={this.internationalworkexperienceselected}
         >
           <option value="select">---SELECT---</option>
-          <option value="lessthanayear">None or less than a year</option>
-          <option value="oneyear">1 year</option>
-          <option value="twoyears">2 years</option>
-          <option value="threeyears">3 years or more</option>
+          <option value="None or less than a year">
+            None or less than a year
+          </option>
+          <option value="1 year">1 year</option>
+          <option value="2 years">2 years</option>
+          <option value="3 years or more">3 years or more</option>
         </select>
 
-        {this.state.internationalworkexperience != "" ? (
+        {this.state.foreign_experience != "" ? (
           <Button apiCall={this.submitData} />
         ) : null}
       </>

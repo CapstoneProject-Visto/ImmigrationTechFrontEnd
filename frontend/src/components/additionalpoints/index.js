@@ -1,10 +1,11 @@
 import React from "react";
-import NominationCertificate from "./nominationcerificate";
-import siblings from "./siblings";
+import NOCLevel from "./noclevel";
 function AdditionalPoints(props) {
+  {
+    console.log(props);
+  }
   return (
     <>
-      <h3>Additional Points</h3>
       <h4>
         8) Do you have a valid job offer supported by a Labour Market Impact
         Assessment (
@@ -44,7 +45,9 @@ function AdditionalPoints(props) {
       </select>
 
       {props.jobofferlmai != "" ? (
-        <NominationCertificate
+        <NOCLevel
+          noc_level_fn={props.noc_level_fn}
+          noc_level={props.noc_level}
           nominationcertificatefn={props.nominationcertificatefn}
           nominationcertificatestate={props.nominationcertificatestate}
           siblingsincanadafn={props.siblingsincanadafn}

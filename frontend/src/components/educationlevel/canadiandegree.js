@@ -7,7 +7,7 @@ class CanadianDegree extends React.Component {
     this.state = {
       submitDatastate: "",
       canadiandegree: "",
-      canadianlevelofedu: ""
+      level_of_education: ""
     };
     this.submitData = this.submitData.bind(this);
     this.canadiandegree = this.canadiandegree.bind(this);
@@ -29,11 +29,11 @@ class CanadianDegree extends React.Component {
   canadianlevelofedu(e) {
     if (e.target.value == "select") {
       this.setState({
-        canadianlevelofedu: ""
+        level_of_education: ""
       });
     } else {
       this.setState({
-        canadianlevelofedu: e.target.value
+        level_of_education: e.target.value
       });
     }
   }
@@ -93,7 +93,7 @@ class CanadianDegree extends React.Component {
                   submitData={this.submitData}
                   submitDataState={this.submitDataState}
                   canadianlevelofedufn={this.canadianlevelofedu}
-                  canadianlevelofedu={this.state.canadianlevelofedu}
+                  canadianlevelofedu={this.state.level_of_education}
                 />
               ) : (
                 <Button apiCall={this.submitData} />

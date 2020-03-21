@@ -12,10 +12,10 @@ function SpouseStatus(props) {
       </p>
       <select onChange={props.citizenfn}>
         <option value="select">-----SELECT----</option>
-        <option name="spouse_citizen" value="spouse-citizen_yes">
+        <option name="spouse_citizen" value="spouse_citizen_yes">
           Yes
         </option>
-        <option name="spouse_citizen" value="spouse-citizen_no">
+        <option name="spouse_citizen" value="spouse_citizen_no">
           No
         </option>
       </select>
