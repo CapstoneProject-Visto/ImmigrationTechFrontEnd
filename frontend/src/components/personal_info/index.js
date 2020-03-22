@@ -6,8 +6,10 @@ import { Image, Row } from "react-bootstrap";
 function PersonalInfo() {
     return(
 <>
-<h2 style={{padding:'10px'}}>Personal Information</h2>
+<div className="phead">
+<h2>Personal Information</h2>
 <hr />
+</div>
 <Col>
 <Row>
       <Image src={Img} roundedCircle height='200px' width='200px' />
