@@ -1,19 +1,28 @@
 import React, { Component } from "react";
-import Information from './info-json';
 import { ListGroup, Image, DropdownButton, Dropdown } from "react-bootstrap";
 import { InputGroup, FormControl } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import { Link } from "react-router-dom";
+import DetailedUser from "../detaileduser";
+import FileNotFound from "../filenotfound";
 
 class AdminLogin extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       search: null,
-      category: 'name'
+      category: 'name',
+      users: []
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
+  }
+
+  handleClick(id){
+       console.log(`${id} clicked`); 
   }
 
   handleChange(event) {
@@ -27,19 +36,18 @@ class AdminLogin extends Component {
     this.setState({ search: keyword })
   }
 
-  handleListClick =()=>{
-    console.log("Hi Toral!");
-    // make an API Call using ID (which u will get from token)
-
-    // get data 
-
-    // pass via props tosome component
+  componentDidMount() {
+    axios.get('http://localhost:5000/api/tasks').then(response => {
+      this.setState({ users: response.data });
+      console.log(response);
+    });
   }
 
-  render() {
 
-    const items = Information.filter((data) => {
-      if (this.state.search == null)
+  render() {
+    {/*console.log(`Torals data - ${this.state.users}`);*/}
+    const items = this.state.users.filter((data) => {
+      if (this.state.search === null)
         return data
       else if (data.name.toLowerCase().includes(this.state.search.toLowerCase()) && this.state.category === 'name') {
         return data
@@ -50,17 +58,23 @@ class AdminLogin extends Component {
       else if (data.country.toLowerCase().includes(this.state.search.toLowerCase()) && this.state.category === 'country') {
         return data
       }
-    }).map(data => {
+    }).map((data,i) => {
       return (
         <div class="d-flex justify-content-center mb-3">
           <Image src={data.image} width='100' height='100' />
           {/* TODO put onclick event */}
-          <ListGroup variant="flush" onClick={this.handleListClick}>
-            <ListGroup.Item><a href="/UserInfo">{data.name}</a>
-              <span><br /><a href="/UserInfo">{data.email}</a>
-                <br /><a href="/UserInfo">{data.country}</a></span>
+          <Link
+                to={{
+                  pathname: `/users/${data.id}` 
+                }}
+              >              
+          <ListGroup variant="flush" key={i}>
+            <ListGroup.Item>{data.name}
+              <span><br />{data.email}
+                <br />{data.country}</span>
             </ListGroup.Item>
-          </ListGroup>
+          </ListGroup> 
+          </Link>
         </div>
       )
     })
@@ -128,8 +142,9 @@ class AdminLogin extends Component {
         {items}
       </>
 
-    )
+    );
   }
 }
+
 export default AdminLogin;
 

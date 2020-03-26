@@ -2,8 +2,8 @@ import React from "react";
 import MainPage from "./pages";
 import SignupPage from "./pages/signup.js";
 import LoginPage from "./pages/login.js";
-import adminPage from "./pages/adminPage.js"; 
-import user_info from "./pages/user_info.js";  
+import adminPage from "./pages/adminPage.js";  
+import DetailedUser from "./components/detaileduser";
 import LevelOfEducation from "./components/educationlevel";
 import AgeOfUser from "./components/agecomponent";
 import Calculator from "./pages/calculator.js";
@@ -35,9 +35,7 @@ function App() {
         <Route exact path="/workexperience" component={WorkExperience} />
         <Route exact path="/additionalpoints" component={AdditionalPoints} />
         <Route exact path="/adminPage" component={adminPage} />
-        <Route exact path="/UserInfo" component={user_info} />
-      
-        <Route exact path="/personal_info" component={user_info} />
+        <Route exact path="/users/:Id" component={DetailedUser} />
         <Route
           exact
           path="/signup"
