@@ -3,8 +3,7 @@ import { ListGroup, Image, DropdownButton, Dropdown } from "react-bootstrap";
 import { InputGroup, FormControl } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import DetailedUser from "../detaileduser";
-import FileNotFound from "../filenotfound";
+import EditUser from "../Edit_User";
 
 class AdminLogin extends Component {
 
@@ -17,13 +16,17 @@ class AdminLogin extends Component {
       users: []
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-
+    this.removeUser = this.removeUser.bind(this);
   }
 
-  handleClick(id){
-       console.log(`${id} clicked`); 
-  }
+  removeUser(id) {
+    axios.delete('http://localhost:5000/api/tasks/'+ id)
+    .then(response => { console.log(response.data)});
+
+  this.setState({
+    users: this.state.users.filter(g => g.id !== id)
+  })
+  };
 
   handleChange(event) {
     this.setState({
@@ -58,23 +61,20 @@ class AdminLogin extends Component {
       else if (data.country.toLowerCase().includes(this.state.search.toLowerCase()) && this.state.category === 'country') {
         return data
       }
-    }).map((data,i) => {
+    }).map(data => {
       return (
         <div class="d-flex justify-content-center mb-3">
           <Image src={data.image} width='100' height='100' />
-          {/* TODO put onclick event */}
-          <Link
-                to={{
-                  pathname: `/users/${data.id}` 
-                }}
-              >              
-          <ListGroup variant="flush" key={i}>
+          <Link to={"/editUser/"+data.id}>         
+          <ListGroup variant="flush" key={data.id}>
             <ListGroup.Item>{data.name}
               <span><br />{data.email}
                 <br />{data.country}</span>
             </ListGroup.Item>
           </ListGroup> 
           </Link>
+          <a href="#" class="align-bottom"
+          onClick={() => { this.removeUser(data.id) }}>Delete</a>
         </div>
       )
     })
@@ -133,7 +133,6 @@ class AdminLogin extends Component {
             </label>
                   </li>
                 </ul>
-
               </Dropdown.Item>
             </DropdownButton>
             <FormControl type="text" placeholder="Search" aria-label="Search" onChange={(e) => this.searchSpace(e)} />
