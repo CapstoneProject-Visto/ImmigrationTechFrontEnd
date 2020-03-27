@@ -20,12 +20,12 @@ class AdminLogin extends Component {
   }
 
   removeUser(id) {
-    axios.delete('http://localhost:5000/api/tasks/'+ id)
-    .then(response => { console.log(response.data)});
+    axios.delete('http://localhost:5000/api/tasks/' + id)
+      .then(response => { console.log(response.data) });
 
-  this.setState({
-    users: this.state.users.filter(g => g.id !== id)
-  })
+    this.setState({
+      users: this.state.users.filter(g => g.id !== id)
+    })
   };
 
   handleChange(event) {
@@ -48,7 +48,7 @@ class AdminLogin extends Component {
 
 
   render() {
-    {/*console.log(`Torals data - ${this.state.users}`);*/}
+    {/*console.log(`Torals data - ${this.state.users}`);*/ }
     const items = this.state.users.filter((data) => {
       if (this.state.search === null)
         return data
@@ -65,16 +65,16 @@ class AdminLogin extends Component {
       return (
         <div class="d-flex justify-content-center mb-3">
           <Image src={data.image} width='100' height='100' />
-          <Link to={"/editUser/"+data.id}>         
-          <ListGroup variant="flush" key={data.id}>
-            <ListGroup.Item>{data.name}
-              <span><br />{data.email}
-                <br />{data.country}</span>
-            </ListGroup.Item>
-          </ListGroup> 
+          <Link to={"/editUser/" + data.id}>
+            <ListGroup variant="flush" key={data.id}>
+              <ListGroup.Item>{data.name}
+                <span><br />{data.email}
+                  <br />{data.country}</span>
+              </ListGroup.Item>
+            </ListGroup>
           </Link>
           <a href="#" class="align-bottom"
-          onClick={() => { this.removeUser(data.id) }}>Delete</a>
+            onClick={() => { this.removeUser(data.id) }}>Delete</a>
         </div>
       )
     })
