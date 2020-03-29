@@ -3,6 +3,8 @@ import Header from "../components/header";
 import axios from "axios";
 import YesComponent from "../components/yescomponent";
 import NoComponent from "../components/nocomponent";
+// import ErrorModal from "../components/modal/errormodal";
+import Modal from "react-bootstrap/Modal";
 class CalculatorPage extends React.Component {
   constructor() {
     super();
@@ -81,7 +83,7 @@ class CalculatorPage extends React.Component {
 
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:5000/api/marital-status", {
+    fetch("http://localhost:5001/api/marital-status", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -89,7 +91,13 @@ class CalculatorPage extends React.Component {
       body: JSON.stringify(this.state)
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.status === 1) {
+          return alert("Error in data");
+        } else {
+          alert("Successfully added");
+        }
+      });
   }
   render() {
     return (
