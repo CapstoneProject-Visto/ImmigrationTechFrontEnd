@@ -3,7 +3,7 @@ import { ListGroup, Image, DropdownButton, Dropdown } from "react-bootstrap";
 import { InputGroup, FormControl } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import EditUser from "../Edit_User";
+import Img from "../../images/profilepicture.jpg";
 
 class AdminLogin extends Component {
 
@@ -64,7 +64,7 @@ class AdminLogin extends Component {
     }).map(data => {
       return (
         <div class="d-flex justify-content-center mb-3">
-          <Image src={data.image} width='100' height='100' />
+          <Image src={Img} width='100' height='100' />
           <Link to={"/editUser/" + data.id}>
             <ListGroup variant="flush" key={data.id}>
               <ListGroup.Item>{data.name}

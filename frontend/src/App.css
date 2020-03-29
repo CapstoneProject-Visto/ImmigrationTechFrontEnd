@@ -419,3 +419,22 @@ text-decoration: none;
   margin-top: -10px;
 }
 
+.mx-auto{
+  width: 800px;
+  margin-top: 30px;
+}
+
+.mx-auto img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.user-form label{
+  font-weight: bold;
+}
+
+.container{
+  margin-top: 30px;
+}
