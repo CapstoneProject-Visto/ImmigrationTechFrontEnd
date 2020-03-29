@@ -86,7 +86,77 @@ class EditUser extends Component {
                         <input type="submit" value="Apply Changes" className="btn btn-primary" />
         </div>*/}
                     </Form>
-                    </div>
+                    <h3 class="fake-legend"><span>Education</span></h3>
+                    <div class="container">
+                    <Form className="user-form">
+                        <div >
+                            <Row className="form-group row">
+                                <label className="col-sm-2">Highest Level: </label>
+                                <input type="text"
+                                    required
+                                    className="form-control col-sm-10"
+                                  
+                                />
+
+                            </Row>
+                            <Row className="form-group row">
+                                <label className="col-sm-2">Canadian Education Level: </label>
+                                <input type="text"
+                                    required
+                                    className="form-control col-sm-10"
+                                  
+                                />
+
+                            </Row>
+                            </div>
+                            </Form>
+                            </div>
+
+                            <h3 class="fake-legend"><span>IELTS Score</span></h3>
+
+                    <div class="container">
+                    <Form className="user-form">
+                        <div >
+                            <Row className="form-group row">
+                                <label className="col-sm-2">Reading: </label>
+                                <input type="text"
+                                    required
+                                    className="form-control col-sm-10"
+                                  
+                                />
+
+                            </Row>
+                            <Row className="form-group row">
+                                <label className="col-sm-2">Speaking: </label>
+                                <input type="text"
+                                    required
+                                    className="form-control col-sm-10"
+                                  
+                                />
+                            </Row>
+
+                            <Row className="form-group row">
+                                <label className="col-sm-2">Writing: </label>
+                                <input type="text"
+                                    required
+                                    className="form-control col-sm-10"
+                                  
+                                />
+
+                            </Row>
+                            <Row className="form-group row">
+                                <label className="col-sm-2">Listening: </label>
+                                <input type="text"
+                                    required
+                                    className="form-control col-sm-10"
+                                  
+                                />
+
+                            </Row>
+                            </div>
+                            </Form>
+                            </div>
+                   </div>
                 </div>
             </>
         )
