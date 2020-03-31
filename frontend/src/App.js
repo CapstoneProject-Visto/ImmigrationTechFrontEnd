@@ -4,18 +4,21 @@ import SignupPage from "./pages/signup.js";
 import LoginPage from "./pages/login.js";
 import LevelOfEducation from "./components/educationlevel";
 import AgeOfUser from "./components/agecomponent";
+import EditUser from "./components/Edit_User";
 import Calculator from "./pages/calculator.js";
 import AboutUS from "./pages/aboutus.js";
 import Blog from "./pages/blog.js";
 import ContactUs from "./pages/contactus.js";
 import FAQ from "./pages/faq.js";
 import IELTS from "./components/ielts";
+import adminPage from "./pages/adminPage.js";
 import UserDashboard from "./pages/userdashboard";
 import CanadianDegree from "./components/educationlevel/canadiandegree";
 import AdditionalPoints from "./components/additionalpoints";
 import WorkExperience from "./components/workexperience";
 import ForeignSkillExperience from "./components/workexperience/foreignskilledexperience";
 import CertificateOrQualification from "./components/certificateorqualification";
+import FinalScorePage from "./components/finalScorePage";
 import FileNotFOund from "./components/filenotfound";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import "./App.css";
@@ -37,6 +40,9 @@ function App() {
         <Route exact path="/workexperience" component={WorkExperience} />
         <Route exact path="/additionalpoints" component={AdditionalPoints} />
         <Route exact path="/cadedu" component={CanadianDegree} />
+        <Route exact path="/finalPage" component={FinalScorePage} />
+        <Route exact path="/adminPage" component={adminPage} />
+        <Route exact path="/EditUser/:id" component={EditUser} />
         <Route
           exact
           path="/foreignworkexp"

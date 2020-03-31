@@ -12,8 +12,8 @@ function NominationCertificate(props) {
         onChange={props.nominationcertificatefn}
       >
         <option value="select">---SELECT---</option>
-        <option value="YES">YES</option>
-        <option value="NO"> NO</option>
+        <option value="provincial_nomination_yes">YES</option>
+        <option value="provincial_nomination_no"> NO</option>
       </select>
 
       {props.nominationcertificatestate != "" ? (

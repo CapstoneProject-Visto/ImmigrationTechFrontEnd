@@ -88,7 +88,7 @@ class IELTSScore extends React.Component {
 
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:5000/api/ielts", {
+    fetch("http://localhost:5001/api/ielts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -96,7 +96,13 @@ class IELTSScore extends React.Component {
       body: JSON.stringify(this.state)
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.status == 1) {
+          alert(data.message);
+        } else if (data.status == 0) {
+          window.location = "/workexperience";
+        }
+      });
   }
 
   render() {

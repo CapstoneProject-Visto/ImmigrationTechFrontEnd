@@ -27,12 +27,29 @@ class ForeignSkillExperience extends React.Component {
   submitData() {
     console.log(this.state);
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:5000/api/foreign-experience", {
+    fetch("http://localhost:5001/api/foreign-experience", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.state)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status == 1) {
+          alert(data.message);
+        } else if (data.status == 0) {
+          window.location = "/certificateorqualification";
+        }
+      });
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:5001/api/invisible", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      }
     })
       .then(res => res.json())
       .then(data => console.log(data));

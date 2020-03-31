@@ -12,8 +12,8 @@ function NOCLevel(props) {
       </p>
       <select name="noclevel" onChange={props.noc_level_fn}>
         <option value="select">---SELECT---</option>
-        <option value="0">NOC Skill Type 00</option>
-        <option value="1">
+        <option value="NOC SKill Type 00">NOC Skill Type 00</option>
+        <option value="NOC Skill Type A or B or Any Type 0 other than 00">
           NOC Skill Level A or B or any Type 0 other than 00
         </option>
         <option value="2">NOC Skill Level C or D</option>

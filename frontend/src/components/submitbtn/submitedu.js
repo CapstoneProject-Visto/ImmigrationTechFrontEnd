@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 function Button(props) {
   return (
     <Link
-      to={{
-        pathname: `/cadedu`
-      }}
+      to={
+        {
+          // pathname: `/cadedu`
+        }
+      }
     >
       <input
         type="submit"

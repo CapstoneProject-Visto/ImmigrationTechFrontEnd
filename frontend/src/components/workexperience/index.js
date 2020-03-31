@@ -26,7 +26,7 @@ class WorkExperience extends React.Component {
   submitData() {
     console.log(this.state);
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:5000/api/canadian-experience", {
+    fetch("http://localhost:5001/api/canadian-experience", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -34,7 +34,27 @@ class WorkExperience extends React.Component {
       body: JSON.stringify(this.state)
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.status == 1) {
+          alert("data not stores properly");
+        } else if (data.status == 0) {
+          fetch("http://localhost:5001/api/invisible", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.status == 0) {
+                window.location = "/foreignworkexp";
+              } else if (data.status == 1) {
+                alert("Error workexperience - 56");
+              }
+            });
+        }
+      });
   }
 
   render() {

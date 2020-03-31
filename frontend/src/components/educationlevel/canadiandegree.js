@@ -40,7 +40,7 @@ class CanadianDegree extends React.Component {
 
   TODObackendnotgettingtranslateddatajsonstringify;
   submitData() {
-    fetch("http://localhost:5000/api/canadian-education", {
+    fetch("http://localhost:5001/api/canadian-education", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -49,7 +49,13 @@ class CanadianDegree extends React.Component {
       body: JSON.stringify(this.state)
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.status == 1) {
+          alert(data.message);
+        } else if (data.status == 0) {
+          window.location = "/ielts";
+        }
+      });
   }
 
   render() {

@@ -20,7 +20,7 @@ class EducationLevel extends React.Component {
 
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:5000/api/education", {
+    fetch("http://localhost:5001/api/education", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -28,7 +28,13 @@ class EducationLevel extends React.Component {
       body: JSON.stringify(this.state)
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.status == 1) {
+          alert("Bad Data");
+        } else if (data.status == 0) {
+          window.location = "/cadedu";
+        }
+      });
   }
   render() {
     return (

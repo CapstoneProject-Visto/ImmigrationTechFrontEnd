@@ -7,7 +7,7 @@ class CertificateOrQualification extends React.Component {
   constructor() {
     super();
     this.state = {
-      certificate_of_qualification: "",
+      certification_of_qualification: "",
       jobofferlmai: "",
       provincial_nomination: "",
       immediate_relative: "",
@@ -52,11 +52,11 @@ class CertificateOrQualification extends React.Component {
   certificateorqualification(e) {
     if (e.target.value == "select") {
       this.setState({
-        certificate_of_qualification: ""
+        certification_of_qualification: ""
       });
     } else {
       this.setState({
-        certificate_of_qualification: e.target.value
+        certification_of_qualification: e.target.value
       });
     }
   }
@@ -98,7 +98,7 @@ class CertificateOrQualification extends React.Component {
   }
 
   submitData() {
-    fetch("http://localhost:5000/api/additional", {
+    fetch("http://localhost:5001/api/additional", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -107,7 +107,13 @@ class CertificateOrQualification extends React.Component {
       body: JSON.stringify(this.state)
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.status == 1) {
+          alert(data.message);
+        } else if (data.status == 0) {
+          window.location = "/finalPage";
+        }
+      });
   }
 
   render() {
@@ -131,15 +137,15 @@ class CertificateOrQualification extends React.Component {
           This isn’t the same as a nomination from a province or territory.
           <br />
           <select
-            name="certificate_of_qualification"
+            name="certification_of_qualification"
             onChange={this.certificateorqualification}
           >
             <option value="select">---SELECT---</option>
-            <option value="YES">YES</option>
-            <option value="NO">NO</option>
+            <option value="certification_of_qualification_yes">YES</option>
+            <option value="certification_of_qualification_no">NO</option>
           </select>
         </p>
-        {this.state.certificate_of_qualification != "" ? (
+        {this.state.certification_of_qualification != "" ? (
           <Age
             agefn={this.agefn}
             agestate={this.state.age}

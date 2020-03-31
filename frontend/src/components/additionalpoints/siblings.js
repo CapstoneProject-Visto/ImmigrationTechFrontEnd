@@ -24,8 +24,8 @@ function Siblings(props) {
         <br /> - adoption <br />- marriage (step-brother or step-sister)
       </p>
       <select name="" onChange={props.siblingsincanadafn}>
-        <option value="YES">YES</option>
-        <option value="NO">NO</option>
+        <option value="immediate_relative_yes">YES</option>
+        <option value="immediate_relative_no">NO</option>
       </select>
       <button disabled={!props.siblingsincanadastate} onClick={props.apiCall}>
         Calculate Final Score

@@ -3,7 +3,7 @@ import Header from "../components/header";
 import axios from "axios";
 import YesComponent from "../components/yescomponent";
 import NoComponent from "../components/nocomponent";
-// import ErrorModal from "../components/modal/errormodal";
+import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 class CalculatorPage extends React.Component {
   constructor() {
@@ -95,7 +95,7 @@ class CalculatorPage extends React.Component {
         if (data.status === 1) {
           return alert("Error in data");
         } else {
-          alert("Successfully added");
+          window.location = "/newcomponent";
         }
       });
   }
