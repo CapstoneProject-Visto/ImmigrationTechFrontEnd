@@ -19,6 +19,7 @@ import WorkExperience from "./components/workexperience";
 import ForeignSkillExperience from "./components/workexperience/foreignskilledexperience";
 import CertificateOrQualification from "./components/certificateorqualification";
 import FinalScorePage from "./components/finalScorePage";
+import Spouse from "./components/spouse";
 import FileNotFOund from "./components/filenotfound";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import "./App.css";
@@ -59,6 +60,7 @@ function App() {
           component={CertificateOrQualification}
         />
         <Route exact path="/userdashboard" component={UserDashboard} />
+        <Route exact path="/spouse" component={Spouse} />
 
         <Route component={FileNotFOund}></Route>
       </Switch>

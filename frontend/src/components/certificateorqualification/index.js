@@ -111,7 +111,8 @@ class CertificateOrQualification extends React.Component {
         if (data.status == 1) {
           alert(data.message);
         } else if (data.status == 0) {
-          window.location = "/finalPage";
+          // window.location = "/finalPage";
+          window.location = "/spouse";
         }
       });
   }
