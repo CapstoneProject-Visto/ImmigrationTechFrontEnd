@@ -2,6 +2,8 @@ import React from "react";
 import ModuleCards from "./modules";
 import { Container, Row, Col } from "react-bootstrap";
 
+import Footer from "../../components/footer";
+
 function RightComponent() {
   let cardDetails1 = [
     {
@@ -41,15 +43,9 @@ function RightComponent() {
 
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "yellow",
-          height: "70vh",
-          width: "100%"
-        }}
-      >
+      <div>
         <Container>
-          <Row style={{ justifyContent: "space-around", paddingTop: "8vh" }}>
+          <Row style={{ paddingTop: "4vh" }}>
             <Col className="infoCards">
               {cardDetails1.map(details => (
                 <ModuleCards
@@ -61,7 +57,7 @@ function RightComponent() {
               <hr></hr>
             </Col>
           </Row>
-          <Row style={{ justifyContent: "space-around", marginTop: "30px" }}>
+          <Row style={{ marginTop: "30px", marginBottom: "30px" }}>
             <Col className="infoCards">
               {cardDetails2.map(details => (
                 <ModuleCards
@@ -74,6 +70,7 @@ function RightComponent() {
             </Col>
           </Row>
         </Container>
+        <Footer />
       </div>
     </>
   );

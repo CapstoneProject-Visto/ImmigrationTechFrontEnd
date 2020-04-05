@@ -1,5 +1,6 @@
 import React from "react";
 import LoadScoreModule from "./loadscoremodules";
+import { Animated } from "react-animated-css";
 
 class IELTSScore extends React.Component {
   constructor() {
@@ -34,8 +35,6 @@ class IELTSScore extends React.Component {
         ieltsValid: e.target.value
       });
     }
-
-    console.log(this.state.ieltsValid);
   }
 
   speaking(e) {
@@ -120,18 +119,26 @@ class IELTSScore extends React.Component {
         {this.state.ieltsValid != ""
           ? [
               this.state.ieltsValid == "YES" ? (
-                <LoadScoreModule
-                  listeningfn={this.listening}
-                  listeningState={this.state.listening}
-                  readingfn={this.reading}
-                  readingState={this.state.reading}
-                  writingfn={this.writing}
-                  writingState={this.state.writing}
-                  speakingfn={this.speaking}
-                  speakingState={this.state.speaking}
-                  submitfn={this.submitData}
-                  submitstatedata={this.state.submitDatastate}
-                />
+                <Animated
+                  animationIn="fadeInDown"
+                  animationOut="zoomOutDown"
+                  animationInDuration={1000}
+                  animationOutDuration={1000}
+                  isVisible={true}
+                >
+                  <LoadScoreModule
+                    listeningfn={this.listening}
+                    listeningState={this.state.listening}
+                    readingfn={this.reading}
+                    readingState={this.state.reading}
+                    writingfn={this.writing}
+                    writingState={this.state.writing}
+                    speakingfn={this.speaking}
+                    speakingState={this.state.speaking}
+                    submitfn={this.submitData}
+                    submitstatedata={this.state.submitDatastate}
+                  />
+                </Animated>
               ) : (
                 <h4>You are not eligible for any furthur steps</h4>
               )

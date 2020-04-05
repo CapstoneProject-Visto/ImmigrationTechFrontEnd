@@ -3,6 +3,7 @@ import { ListGroup, Image, DropdownButton, Dropdown } from "react-bootstrap";
 import { InputGroup, FormControl } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Img from "../../images/profilepicture.jpg";
 
 class AdminLogin extends Component {
@@ -40,54 +41,24 @@ class AdminLogin extends Component {
   };
 
   componentDidMount() {
-    let data = [
-      {
-        id: "1",
-        name: "Yash Parekh",
-        email: "yashjp@gmail.com",
-        country: "Canada"
-      },
-      {
-        id: "2",
-        name: "Sachin",
-        email: "sachinj@gmail.com",
-        country: "Canada"
-      },
-      {
-        id: "3",
-        name: "Toral",
-        email: "toralp@gmail.com",
-        country: "Canada"
-      },
-      {
-        id: "4",
-        name: "Arun",
-        email: "arungera@gmail.com",
-        country: "India"
-      },
-      {
-        id: "5",
-        name: "Smit",
-        email: "smitpatel@gmail.com",
-        country: "Canada"
-      },
-      {
-        id: "6",
-        name: "yash patel",
-        email: "yashp@gmail.com",
-        country: "India"
+    let token = sessionStorage.getItem("token");
+    let config = {
+      headers: {
+        "x-auth-token": token,
+        "Content-Type": "application/json"
       }
-    ];
-    // axios.get('http://localhost:5000/api/tasks').then(response => {
-    this.setState({ users: data });
-    // console.log(response);
-    // });
+    };
+    axios
+      .get("http://localhost:5000/api/admin/getAllUsers", config)
+      .then(res => {
+        this.setState({
+          users: res.data.data
+        });
+      })
+      .catch(err => console.error(err));
   }
 
   render() {
-    {
-      /*console.log(`Torals data - ${this.state.users}`);*/
-    }
     const items = this.state.users
       .filter(data => {
         if (this.state.search === null) return data;
@@ -117,7 +88,7 @@ class AdminLogin extends Component {
             <Link to={"/editUser/" + data.id}>
               <ListGroup variant="flush" key={data.id}>
                 <ListGroup.Item>
-                  {data.name}
+                  {data.first_name}
                   <span>
                     <br />
                     {data.email}
@@ -131,7 +102,7 @@ class AdminLogin extends Component {
               href="#"
               class="align-bottom"
               onClick={() => {
-                this.removeUser(data.id);
+                this.removeUser(data.user_id);
               }}
             >
               Delete
@@ -209,4 +180,4 @@ class AdminLogin extends Component {
   }
 }
 
-export default AdminLogin;
+export default withRouter(AdminLogin);

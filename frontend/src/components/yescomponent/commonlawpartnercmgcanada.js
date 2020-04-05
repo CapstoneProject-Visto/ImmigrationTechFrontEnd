@@ -1,6 +1,6 @@
 import React from "react";
-// import AgeOfUser from "../agecomponent";
 import Button from "../submitbtn";
+import { Animated } from "react-animated-css";
 function CLPCmgToCanada(props) {
   return (
     <>
@@ -22,11 +22,17 @@ function CLPCmgToCanada(props) {
         <AgeOfUser loe={props.loe} loestate={props.loestate} />
       ) : null} */}
       {props.clpartnermainstate != "" ? (
-        <Button
-          apiCall={props.submitfn}
-          stateData={props.submitstatedata}
-          propdata={props}
-        />
+        <Animated
+          animationIn="fadeIn "
+          animationInDuration={1000}
+          isVisible={true}
+        >
+          <Button
+            apiCall={props.submitfn}
+            stateData={props.submitstatedata}
+            propdata={props}
+          />
+        </Animated>
       ) : null}
     </>
   );

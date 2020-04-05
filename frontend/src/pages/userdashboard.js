@@ -14,7 +14,7 @@ class UserDashboard extends React.Component {
         {/* <h3>Hello</h3> */}
         <Header />
         <UserDashboardMainPage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }

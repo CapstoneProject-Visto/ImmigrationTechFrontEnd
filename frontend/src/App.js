@@ -21,6 +21,8 @@ import CertificateOrQualification from "./components/certificateorqualification"
 import FinalScorePage from "./components/finalScorePage";
 import Spouse from "./components/spouse";
 import FileNotFOund from "./components/filenotfound";
+import Header from "./components/header";
+import Footer from "./components/footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import "./App.css";
 import "./styles/style.css";
@@ -28,15 +30,19 @@ import "./styles/style.css";
 function App() {
   return (
     <Router>
+      {/* <Header /> */}
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route exact path="/calculator" component={Calculator} />
+
         <Route exact path="/login" component={LoginPage} />
+
         <Route exact path="/aboutus" component={AboutUS} />
         <Route exact path="/contactus" component={ContactUs} />
         <Route exact path="/blog" component={Blog} />
         <Route exact path="/faq" component={FAQ} />
         <Route exact path="/newcomponent" component={LevelOfEducation} />
+
         <Route exact path="/ielts" component={IELTS} />
         <Route exact path="/workexperience" component={WorkExperience} />
         <Route exact path="/additionalpoints" component={AdditionalPoints} />
@@ -52,7 +58,8 @@ function App() {
         <Route
           exact
           path="/signup"
-          render={signup => <SignupPage></SignupPage>}
+          component={SignupPage}
+          // render={signup => <SignupPage></SignupPage>}
         />
         <Route
           exact
@@ -64,6 +71,7 @@ function App() {
 
         <Route component={FileNotFOund}></Route>
       </Switch>
+      {/* <Footer /> */}
     </Router>
   );
 }

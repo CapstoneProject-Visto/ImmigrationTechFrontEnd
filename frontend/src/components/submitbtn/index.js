@@ -12,6 +12,7 @@ function Button(props) {
       }}
     >
       <input
+        style={{ marginTop: "3vh" }}
         type="submit"
         name="submit"
         value="SUBMIT"

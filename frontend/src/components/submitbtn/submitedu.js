@@ -14,6 +14,7 @@ function Button(props) {
         type="submit"
         name="submit"
         value="SUBMIT"
+        style={{ marginTop: "3vh" }}
         onClick={props.submitDataBtn}
       ></input>
     </Link>
