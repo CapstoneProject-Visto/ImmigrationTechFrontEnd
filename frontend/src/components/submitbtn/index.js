@@ -1,26 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { Row, Col } from "react-bootstrap";
 function Button(props) {
   return (
-    <Link
-      to={{
-        // pathname: `/newcomponent`,
-        ageProps: {
-          data: props.propdata
-        }
-      }}
-    >
-      <input
-        style={{ marginTop: "3vh" }}
-        type="submit"
-        name="submit"
-        value="SUBMIT"
-        onClick={props.apiCall}
-      ></input>
-    </Link>
-
-    // </form>
+    <Row>
+      <Col md={{ span: 4, offset: 4 }} style={{ marginTop: "20px" }}>
+        <input
+          type="submit"
+          name="submit"
+          value="SUBMIT"
+          onClick={props.apiCall}
+        ></input>
+      </Col>
+    </Row>
   );
 }
 

@@ -1,9 +1,10 @@
 import React from "react";
 import YesComponent from "../yescomponent";
 import NoComponent from "../nocomponent";
-import { Link } from "react-router-dom";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { Animated } from "react-animated-css";
+import { withRouter } from "react-router-dom";
+import Footer from "../footer";
 class CalculatorPage extends React.Component {
   constructor() {
     super();
@@ -14,7 +15,7 @@ class CalculatorPage extends React.Component {
       spouse_coming_canada: "",
       notMarriedOptionValue: "",
       submitDatastate: "",
-      educationlevelstate: ""
+      educationlevelstate: "",
     };
     this.radioChange = this.radioChange.bind(this);
     this.citizenofCanada = this.citizenofCanada.bind(this);
@@ -32,51 +33,51 @@ class CalculatorPage extends React.Component {
       spouse_coming_canada: "",
       notMarriedOptionValue: "",
       submitDatastate: "",
-      educationlevelstate: ""
+      educationlevelstate: "",
     });
   }
 
   marriedornot(e) {
-    if (e.target.value == "select") {
+    if (e.target.value === "select") {
       this.setState({
-        marital_status_type: ""
+        marital_status_type: "",
       });
     } else {
       this.setState({
-        marital_status_type: e.target.value
+        marital_status_type: e.target.value,
       });
     }
   }
 
   citizenofCanada(e) {
-    if (e.target.value == "select") {
+    if (e.target.value === "select") {
       this.setState({
         spouse_citizen: "",
-        spouse_coming_canada: ""
+        spouse_coming_canada: "",
       });
     } else {
       this.setState({
         spouse_citizen: e.target.value,
-        spouse_coming_canada: ""
+        spouse_coming_canada: "",
       });
     }
   }
 
   clpcmgtocanada(e) {
-    if (e.target.value == "select") {
+    if (e.target.value === "select") {
       this.setState({
-        spouse_coming_canada: ""
+        spouse_coming_canada: "",
       });
     } else {
       this.setState({
-        spouse_coming_canada: e.target.value
+        spouse_coming_canada: e.target.value,
       });
     }
   }
 
   notmarriedstatus(e) {
     this.setState({
-      notMarriedOptionValue: e.target.value
+      notMarriedOptionValue: e.target.value,
     });
   }
 
@@ -85,17 +86,17 @@ class CalculatorPage extends React.Component {
     // fetch("http://localhost:5001/api/marital-status", {
     //   method: "POST",
     //   headers: {
-    //     "Content-Type": "application/json"
+    //     "Content-Type": "application/json",
     //   },
-    //   body: JSON.stringify(this.state)
+    //   body: JSON.stringify(this.state),
     // })
-    //   .then(res => res.json())
-    //   .then(data => {
+    //   .then((res) => res.json())
+    //   .then((data) => {
     //     if (data.status === 1) {
     //       return alert("Error in data");
     //     } else {
-    window.location = "/newcomponent";
-    // }
+    this.props.history.push("/levelofedu");
+    //   }
     // });
   }
   render() {
@@ -109,26 +110,71 @@ class CalculatorPage extends React.Component {
           }}
         > */}
         <Row style={{ width: "100%" }}>
-          <p style={{ width: "100%" }}>Are you married? </p>
-          <input
-            type="radio"
-            value="Yes"
-            checked={this.state.selectedOption === "Yes"}
-            onChange={this.radioChange}
-          />
-          Yes
-          <input
-            type="radio"
-            value="No"
-            checked={this.state.selectedOption === "No"}
-            onChange={this.radioChange}
-          />
-          No
+          <Col
+            md={{ span: 4, offset: 5 }}
+            sm={{ span: 2, offset: 5 }}
+            xs={{ span: 6, offset: 3 }}
+            style={{ marginTop: "20px" }}
+          >
+            MARITAL STATUS
+          </Col>
+          <Col
+            md={{ span: 7, offset: 5 }}
+            sm={{ span: 2, offset: 5 }}
+            xs={{ span: 6, offset: 3 }}
+            style={{ marginTop: "20px" }}
+          >
+            Are you married?{" "}
+          </Col>
+          <Col
+            md={{ span: 1, offset: 4 }}
+            sm={{ span: 2, offset: 4 }}
+            xs={{ span: 1, offset: 3 }}
+            style={{
+              marginTop: "20px",
+              textAlign: "center",
+            }}
+          >
+            <input
+              type="radio"
+              value="Yes"
+              style={{ paddingRight: "40px" }}
+              checked={this.state.selectedOption === "Yes"}
+              onChange={this.radioChange}
+            />
+            Yes
+          </Col>
+          <Col
+            md={{ span: 1 }}
+            sm={{ span: 2 }}
+            xs={{ span: 2, offset: 2 }}
+            style={{
+              marginTop: "20px",
+              textAlign: "center",
+            }}
+          >
+            <input
+              type="radio"
+              value="No"
+              checked={this.state.selectedOption === "No"}
+              onChange={this.radioChange}
+            />
+            No
+            {/* <a
+              href="#"
+              class="btn btn-success btn-lg-6"
+              data-toggle="tooltip"
+              data-placement="right"
+              title="Find us on facebook"
+            >
+              ?
+            </a> */}
+          </Col>
         </Row>
 
         {this.state.selectedOption === "Yes" ? (
           <Animated
-            animationIn="fadeInDown"
+            animationIn="fadeIn"
             animationOut="zoomOutDown"
             animationInDuration={1000}
             animationOutDuration={1000}
@@ -151,7 +197,7 @@ class CalculatorPage extends React.Component {
           [
             this.state.selectedOption === "No" ? (
               <Animated
-                animationIn="fadeInDown"
+                animationIn="fadeIn"
                 animationInDuration={1000}
                 isVisible={true}
               >
@@ -164,7 +210,7 @@ class CalculatorPage extends React.Component {
                   loestate={this.state.educationlevelstate}
                 />
               </Animated>
-            ) : null
+            ) : null,
           ]
         )}
       </>
@@ -172,4 +218,4 @@ class CalculatorPage extends React.Component {
   }
 }
 
-export default CalculatorPage;
+export default withRouter(CalculatorPage);

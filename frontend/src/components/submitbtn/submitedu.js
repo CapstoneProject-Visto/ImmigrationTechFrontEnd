@@ -1,23 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
 
 function Button(props) {
   return (
-    <Link
-      to={
-        {
-          // pathname: `/cadedu`
-        }
-      }
-    >
-      <input
-        type="submit"
-        name="submit"
-        value="SUBMIT"
-        style={{ marginTop: "3vh" }}
-        onClick={props.submitDataBtn}
-      ></input>
-    </Link>
+    <Row>
+      <Col md={{ span: 4, offset: 4 }} style={{ marginTop: "20px" }}>
+        <input
+          type="submit"
+          name="submit"
+          value="SUBMIT"
+          style={{ marginTop: "3vh" }}
+          onClick={props.submitDataBtn}
+        ></input>
+      </Col>
+    </Row>
   );
 }
 

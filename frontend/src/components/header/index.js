@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown, NavItem } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { withRouter, Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -10,13 +10,13 @@ const withoutLogin = [
   ["Blog", "/blog"],
   ["Contact Us", "/contactus"],
   ["FAQ", "/faq"],
-  ["LOGIN", "/login"]
+  ["LOGIN", "/login"],
 ];
 
 const adminLogin = [
   ["Admin Dashboard", "/"],
   ["About Us", "/aboutus"],
-  ["Blog", "/blog"]
+  ["Blog", "/blog"],
 ];
 
 const userLogin = [
@@ -24,7 +24,7 @@ const userLogin = [
   ["About Us", "/aboutus"],
   ["Blog", "/blog"],
   ["Contact Us", "/contactus"],
-  ["FAQ", "/faq"]
+  ["FAQ", "/faq"],
 ];
 
 class Header extends React.Component {
@@ -33,7 +33,7 @@ class Header extends React.Component {
 
     this.state = {
       navbarItems: [],
-      userLoggedIn: false
+      userLoggedIn: false,
     };
 
     this.handlelogoutbutton = this.handlelogoutbutton.bind(this);
@@ -42,9 +42,8 @@ class Header extends React.Component {
   handlelogoutbutton() {
     this.setState({
       navbarItems: withoutLogin,
-      userLoggedIn: false
+      userLoggedIn: false,
     });
-    // window.location = "/login";
     this.props.history.push("/login");
   }
 
@@ -57,7 +56,7 @@ class Header extends React.Component {
     ) {
       this.setState({
         navbarItems: adminLogin,
-        userLoggedIn: true
+        userLoggedIn: true,
       });
     } else if (
       sessionStorage.getItem("LoggedIn") === "true" &&
@@ -65,12 +64,12 @@ class Header extends React.Component {
     ) {
       this.setState({
         navbarItems: userLogin,
-        userLoggedIn: true
+        userLoggedIn: true,
       });
     } else if (sessionStorage.getItem("LoggedIn") === "false") {
       this.setState({
         navbarItems: withoutLogin,
-        userLoggedIn: false
+        userLoggedIn: false,
       });
     }
   }
@@ -87,7 +86,7 @@ class Header extends React.Component {
                 {this.state.navbarItems.map((navitem, index) => (
                   <Link
                     to={{
-                      pathname: navitem[1]
+                      pathname: navitem[1],
                     }}
                   >
                     {navitem[0]}

@@ -73,7 +73,7 @@ class Login extends React.Component {
     return (
       <>
         <Animated
-          animationIn="fadeInDown"
+          animationIn="fadeIn"
           animationOut="fadeInUp"
           // animationInDuration={1000}
           animationInDelay={5000}

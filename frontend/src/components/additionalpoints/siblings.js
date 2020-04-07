@@ -1,4 +1,5 @@
 import React from "react";
+import { Animated } from "react-animated-css";
 
 function Siblings(props) {
   return (
@@ -27,9 +28,16 @@ function Siblings(props) {
         <option value="immediate_relative_yes">YES</option>
         <option value="immediate_relative_no">NO</option>
       </select>
-      <button disabled={!props.siblingsincanadastate} onClick={props.apiCall}>
-        Calculate Final Score
-      </button>
+
+      <Animated
+        animationIn="fadeIn"
+        animationInDuration={1000}
+        isVisible={true}
+      >
+        <button disabled={!props.siblingsincanadastate} onClick={props.apiCall}>
+          Calculate Final Score
+        </button>
+      </Animated>
     </>
   );
 }

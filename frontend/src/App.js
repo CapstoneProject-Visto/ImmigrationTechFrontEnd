@@ -41,7 +41,7 @@ function App() {
         <Route exact path="/contactus" component={ContactUs} />
         <Route exact path="/blog" component={Blog} />
         <Route exact path="/faq" component={FAQ} />
-        <Route exact path="/newcomponent" component={LevelOfEducation} />
+        <Route exact path="/levelofedu" component={LevelOfEducation} />
 
         <Route exact path="/ielts" component={IELTS} />
         <Route exact path="/workexperience" component={WorkExperience} />

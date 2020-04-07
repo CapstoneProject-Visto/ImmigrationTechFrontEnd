@@ -2,15 +2,29 @@ import React from "react";
 import AgeOfUser from "../agecomponent";
 import CLPCmgToCanada from "./commonlawpartnercmgcanada";
 import Button from "../submitbtn";
+import { Row, Col } from "react-bootstrap";
 import { Animated } from "react-animated-css";
 function SpouseStatus(props) {
   return (
     <>
-      <div style={{ marginTop: "2.7vh" }}>
-        <p>
+      <Row>
+        <Col
+          md={{ span: 5, offset: 4 }}
+          sm={{ offset: 2 }}
+          xs={{ offset: 1 }}
+          style={{ marginTop: "20px" }}
+        >
           2.a - Is your spouse or common-law partner a citizen or permanent
           resident of Canada?
-        </p>
+        </Col>
+      </Row>
+      <Col
+        md={{ span: 4, offset: 4 }}
+        style={{
+          marginTop: "20px",
+          textAlign: "center",
+        }}
+      >
         <select onChange={props.citizenfn}>
           <option value="select">-----SELECT----</option>
           <option name="spouse_citizen" value="spouse_citizen_yes">
@@ -20,12 +34,12 @@ function SpouseStatus(props) {
             No
           </option>
         </select>
-      </div>
+      </Col>
       {props.spouse_citizenStateValue !== ""
         ? [
             props.spouse_citizenStateValue !== "spouse_citizen_yes" ? (
               <Animated
-                animationIn="fadeInDown"
+                animationIn="fadeIn"
                 animationInDuration={1000}
                 isVisible={true}
               >
@@ -49,7 +63,7 @@ function SpouseStatus(props) {
                   stateData={props.submitstatedata}
                 ></Button>
               </Animated>
-            )
+            ),
           ]
         : null}
     </>

@@ -1,7 +1,9 @@
 import React from "react";
 import LoadScoreModule from "./loadscoremodules";
 import { Animated } from "react-animated-css";
-
+import { withRouter } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
+import Header from "../header";
 class IELTSScore extends React.Component {
   constructor() {
     super();
@@ -11,7 +13,7 @@ class IELTSScore extends React.Component {
       reading: "",
       writing: "",
       submitDatastate: "",
-      listening: ""
+      listening: "",
     };
     this.ieltsValid = this.ieltsValid.bind(this);
     this.speaking = this.speaking.bind(this);
@@ -24,15 +26,15 @@ class IELTSScore extends React.Component {
   ieltsValid(e) {
     if (e.target.value == "select") {
       this.setState({
-        ieltsValid: ""
+        ieltsValid: "",
       });
     } else if (e.target.value == "No") {
       this.setState({
-        ieltsValid: "No"
+        ieltsValid: "No",
       });
     } else if (e.target.value == "YES") {
       this.setState({
-        ieltsValid: e.target.value
+        ieltsValid: e.target.value,
       });
     }
   }
@@ -40,11 +42,11 @@ class IELTSScore extends React.Component {
   speaking(e) {
     if (e.target.value == "select") {
       this.setState({
-        speaking: ""
+        speaking: "",
       });
     } else {
       this.setState({
-        speaking: e.target.value
+        speaking: e.target.value,
       });
     }
   }
@@ -52,11 +54,11 @@ class IELTSScore extends React.Component {
   reading(e) {
     if (e.target.value == "select") {
       this.setState({
-        reading: ""
+        reading: "",
       });
     } else {
       this.setState({
-        reading: e.target.value
+        reading: e.target.value,
       });
     }
   }
@@ -64,11 +66,11 @@ class IELTSScore extends React.Component {
   writing(e) {
     if (e.target.value == "select") {
       this.setState({
-        writing: ""
+        writing: "",
       });
     } else {
       this.setState({
-        writing: e.target.value
+        writing: e.target.value,
       });
     }
   }
@@ -76,51 +78,69 @@ class IELTSScore extends React.Component {
   listening(e) {
     if (e.target.value == "select") {
       this.setState({
-        listening: ""
+        listening: "",
       });
     } else {
       this.setState({
-        listening: e.target.value
+        listening: e.target.value,
       });
     }
   }
 
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:5001/api/ielts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(this.state)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status == 1) {
-          alert(data.message);
-        } else if (data.status == 0) {
-          window.location = "/workexperience";
-        }
-      });
+    // fetch("http://localhost:5001/api/ielts", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(this.state),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.status === 1) {
+    //       alert(data.message);
+    //     } else if (data.status == 0) {
+    this.props.history.push("/workexperience");
+    //   }
+    // });
   }
 
   render() {
     return (
       <>
-        <div>
-          <p>Is your IELTS Score less than two years old ?</p>
-          <select name="IELTSValid" onChange={this.ieltsValid}>
-            <option value="select">---SELECT---</option>
-            <option value="YES">Yes</option>
+        <Header />
+        <Row>
+          <Col
+            md={{ span: 6, offset: 3 }}
+            sm={{ offset: 2 }}
+            xs={{ offset: 1 }}
+            style={{ marginTop: "10vh", textAlign: "center" }}
+          >
+            <p>Have you opted for IELTS ?</p>
+          </Col>
 
-            <option value="No">No</option>
-          </select>
-        </div>
+          <Col
+            md={{ span: 8, offset: 2 }}
+            style={{
+              marginTop: "20px",
+              textAlign: "center",
+            }}
+          >
+            <select name="IELTSValid" onChange={this.ieltsValid}>
+              <option value="select">---SELECT---</option>
+              <option value="YES">Yes</option>
+
+              <option value="No">No</option>
+            </select>
+          </Col>
+        </Row>
+
         {this.state.ieltsValid != ""
           ? [
               this.state.ieltsValid == "YES" ? (
                 <Animated
-                  animationIn="fadeInDown"
+                  animationIn="fadeIn"
                   animationOut="zoomOutDown"
                   animationInDuration={1000}
                   animationOutDuration={1000}
@@ -141,7 +161,7 @@ class IELTSScore extends React.Component {
                 </Animated>
               ) : (
                 <h4>You are not eligible for any furthur steps</h4>
-              )
+              ),
             ]
           : null}
       </>
@@ -149,4 +169,4 @@ class IELTSScore extends React.Component {
   }
 }
 
-export default IELTSScore;
+export default withRouter(IELTSScore);

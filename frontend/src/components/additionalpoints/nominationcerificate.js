@@ -1,5 +1,6 @@
 import React from "react";
 import Siblings from "./siblings";
+import { Animated } from "react-animated-css";
 
 function NominationCertificate(props) {
   return (
@@ -17,11 +18,17 @@ function NominationCertificate(props) {
       </select>
 
       {props.nominationcertificatestate != "" ? (
-        <Siblings
-          apiCall={props.apiCall}
-          siblingsincanadafn={props.siblingsincanadafn}
-          siblingsincanadastate={props.siblingsincanadastate}
-        />
+        <Animated
+          animationIn="fadeIn"
+          animationInDuration={1000}
+          isVisible={true}
+        >
+          <Siblings
+            apiCall={props.apiCall}
+            siblingsincanadafn={props.siblingsincanadafn}
+            siblingsincanadastate={props.siblingsincanadastate}
+          />
+        </Animated>
       ) : null}
     </>
   );

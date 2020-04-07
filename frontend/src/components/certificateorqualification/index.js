@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "../submitbtn/certificatebutton.js";
-// import AdditionalPoints from "../additionalpoints/index";
 import Age from "../agecomponent";
+import { withRouter } from "react-router-dom";
+import { Animated } from "react-animated-css";
 
 class CertificateOrQualification extends React.Component {
   constructor() {
@@ -12,7 +12,7 @@ class CertificateOrQualification extends React.Component {
       provincial_nomination: "",
       immediate_relative: "",
       noc_level: "",
-      age: ""
+      age: "",
     };
     this.certificateorqualification = this.certificateorqualification.bind(
       this
@@ -28,11 +28,11 @@ class CertificateOrQualification extends React.Component {
   agefn(e) {
     if (e.target.value == "select") {
       this.setState({
-        age: ""
+        age: "",
       });
     } else {
       this.setState({
-        age: e.target.value
+        age: e.target.value,
       });
     }
   }
@@ -40,11 +40,11 @@ class CertificateOrQualification extends React.Component {
   noclevelfn(e) {
     if (e.target.value == "select") {
       this.setState({
-        noc_level: ""
+        noc_level: "",
       });
     } else {
       this.setState({
-        noc_level: e.target.value
+        noc_level: e.target.value,
       });
     }
   }
@@ -52,11 +52,11 @@ class CertificateOrQualification extends React.Component {
   certificateorqualification(e) {
     if (e.target.value == "select") {
       this.setState({
-        certification_of_qualification: ""
+        certification_of_qualification: "",
       });
     } else {
       this.setState({
-        certification_of_qualification: e.target.value
+        certification_of_qualification: e.target.value,
       });
     }
   }
@@ -64,11 +64,11 @@ class CertificateOrQualification extends React.Component {
   jobofferlmai(e) {
     if (e.target.value == "select") {
       this.setState({
-        jobofferlmai: ""
+        jobofferlmai: "",
       });
     } else {
       this.setState({
-        jobofferlmai: e.target.value
+        jobofferlmai: e.target.value,
       });
     }
   }
@@ -76,11 +76,11 @@ class CertificateOrQualification extends React.Component {
   nominationcertificate(e) {
     if (e.target.value == "select") {
       this.setState({
-        provincial_nomination: ""
+        provincial_nomination: "",
       });
     } else {
       this.setState({
-        provincial_nomination: e.target.value
+        provincial_nomination: e.target.value,
       });
     }
   }
@@ -88,33 +88,32 @@ class CertificateOrQualification extends React.Component {
   siblingsincanada(e) {
     if (e.target.value == "select") {
       this.setState({
-        immediate_relative: ""
+        immediate_relative: "",
       });
     } else {
       this.setState({
-        immediate_relative: e.target.value
+        immediate_relative: e.target.value,
       });
     }
   }
 
   submitData() {
-    fetch("http://localhost:5001/api/additional", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+    // fetch("http://localhost:5001/api/additional", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
 
-      body: JSON.stringify(this.state)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status == 1) {
-          alert(data.message);
-        } else if (data.status == 0) {
-          // window.location = "/finalPage";
-          window.location = "/spouse";
-        }
-      });
+    //   body: JSON.stringify(this.state),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.status === 1) {
+    //       alert(data.message);
+    //     } else if (data.status == 0) {
+    this.props.history.push("/spouse");
+    //   }
+    // });
   }
 
   render() {
@@ -147,23 +146,29 @@ class CertificateOrQualification extends React.Component {
           </select>
         </p>
         {this.state.certification_of_qualification != "" ? (
-          <Age
-            agefn={this.agefn}
-            agestate={this.state.age}
-            jobofferlmaifn={this.jobofferlmai}
-            jobofferlmai={this.state.jobofferlmai}
-            nominationcertificatefn={this.nominationcertificate}
-            nominationcertificatestate={this.state.provincial_nomination}
-            siblingsincanadafn={this.siblingsincanada}
-            siblingsincanadastate={this.state.immediate_relative}
-            noc_level={this.state.noc_level}
-            noc_level_fn={this.noclevelfn}
-            apiCall={this.submitData}
-          />
+          <Animated
+            animationIn="fadeIn"
+            animationInDuration={1000}
+            isVisible={true}
+          >
+            <Age
+              agefn={this.agefn}
+              agestate={this.state.age}
+              jobofferlmaifn={this.jobofferlmai}
+              jobofferlmai={this.state.jobofferlmai}
+              nominationcertificatefn={this.nominationcertificate}
+              nominationcertificatestate={this.state.provincial_nomination}
+              siblingsincanadafn={this.siblingsincanada}
+              siblingsincanadastate={this.state.immediate_relative}
+              noc_level={this.state.noc_level}
+              noc_level_fn={this.noclevelfn}
+              apiCall={this.submitData}
+            />
+          </Animated>
         ) : null}
       </>
     );
   }
 }
 
-export default CertificateOrQualification;
+export default withRouter(CertificateOrQualification);

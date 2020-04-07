@@ -1,5 +1,7 @@
 import React from "react";
 import NominationCertificate from "./nominationcerificate";
+import { Animated } from "react-animated-css";
+
 function NOCLevel(props) {
   {
     console.log(props);
@@ -20,13 +22,19 @@ function NOCLevel(props) {
       </select>
 
       {props.noc_level != "" ? (
-        <NominationCertificate
-          nominationcertificatefn={props.nominationcertificatefn}
-          nominationcertificatestate={props.nominationcertificatestate}
-          siblingsincanadafn={props.siblingsincanadafn}
-          siblingsincanadastate={props.siblingsincanadastate}
-          apiCall={props.apiCall}
-        />
+        <Animated
+          animationIn="fadeIn"
+          animationInDuration={1000}
+          isVisible={true}
+        >
+          <NominationCertificate
+            nominationcertificatefn={props.nominationcertificatefn}
+            nominationcertificatestate={props.nominationcertificatestate}
+            siblingsincanadafn={props.siblingsincanadafn}
+            siblingsincanadastate={props.siblingsincanadastate}
+            apiCall={props.apiCall}
+          />
+        </Animated>
       ) : null}
     </>
   );

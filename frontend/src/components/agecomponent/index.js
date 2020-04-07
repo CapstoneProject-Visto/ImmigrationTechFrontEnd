@@ -1,7 +1,9 @@
 import React from "react";
 import EducationLevel from "../educationlevel";
 import AdditionalPoints from "../additionalpoints";
-const AgeOfUser = props => {
+import { Animated } from "react-animated-css";
+
+const AgeOfUser = (props) => {
   return (
     <>
       <h3>Choose your age</h3>
@@ -51,17 +53,23 @@ const AgeOfUser = props => {
       </select>
 
       {props.agestate != "" ? (
-        <AdditionalPoints
-          jobofferlmaifn={props.jobofferlmaifn}
-          jobofferlmai={props.jobofferlmai}
-          nominationcertificatefn={props.nominationcertificatefn}
-          nominationcertificatestate={props.nominationcertificate}
-          siblingsincanadafn={props.siblingsincanadafn}
-          siblingsincanadastate={props.siblingsincanadastate}
-          noc_level={props.noc_level}
-          noc_level_fn={props.noc_level_fn}
-          apiCall={props.apiCall}
-        />
+        <Animated
+          animationIn="fadeIn"
+          animationInDuration={1000}
+          isVisible={true}
+        >
+          <AdditionalPoints
+            jobofferlmaifn={props.jobofferlmaifn}
+            jobofferlmai={props.jobofferlmai}
+            nominationcertificatefn={props.nominationcertificatefn}
+            nominationcertificatestate={props.nominationcertificate}
+            siblingsincanadafn={props.siblingsincanadafn}
+            siblingsincanadastate={props.siblingsincanadastate}
+            noc_level={props.noc_level}
+            noc_level_fn={props.noc_level_fn}
+            apiCall={props.apiCall}
+          />
+        </Animated>
       ) : null}
     </>
   );

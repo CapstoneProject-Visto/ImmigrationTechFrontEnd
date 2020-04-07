@@ -1,5 +1,7 @@
 import React from "react";
 import NOCLevel from "./noclevel";
+import { Animated } from "react-animated-css";
+
 function AdditionalPoints(props) {
   {
     console.log(props);
@@ -45,15 +47,21 @@ function AdditionalPoints(props) {
       </select>
 
       {props.jobofferlmai != "" ? (
-        <NOCLevel
-          noc_level_fn={props.noc_level_fn}
-          noc_level={props.noc_level}
-          nominationcertificatefn={props.nominationcertificatefn}
-          nominationcertificatestate={props.nominationcertificatestate}
-          siblingsincanadafn={props.siblingsincanadafn}
-          siblingsincanadastate={props.siblingsincanadastate}
-          apiCall={props.apiCall}
-        />
+        <Animated
+          animationIn="fadeIn"
+          animationInDuration={1000}
+          isVisible={true}
+        >
+          <NOCLevel
+            noc_level_fn={props.noc_level_fn}
+            noc_level={props.noc_level}
+            nominationcertificatefn={props.nominationcertificatefn}
+            nominationcertificatestate={props.nominationcertificatestate}
+            siblingsincanadafn={props.siblingsincanadafn}
+            siblingsincanadastate={props.siblingsincanadastate}
+            apiCall={props.apiCall}
+          />
+        </Animated>
       ) : null}
     </>
   );
