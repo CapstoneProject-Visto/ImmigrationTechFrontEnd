@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 
 class FormExample extends React.Component {
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     console.log(event.target.elements.password.value);
     let data = {
@@ -14,17 +14,16 @@ class FormExample extends React.Component {
       email: event.target.elements.validationCustom02.value,
       password: event.target.elements.password.value,
       country: event.target.elements.validationCustom03.value,
-      last_name: "javeri"
+      last_name: "javeri",
     };
 
     axios
       .post("http://localhost:5000/api/auth/sign-up", data)
-      .then(res => {
+      .then((res) => {
         console.log(res);
-        // console.log(this.props);
         this.props.history.push("/login");
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   };
   render() {
     return (

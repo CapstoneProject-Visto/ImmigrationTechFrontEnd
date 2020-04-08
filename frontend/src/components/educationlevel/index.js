@@ -24,22 +24,23 @@ class EducationLevel extends React.Component {
   }
 
   submitData() {
-    // console.log("State data" + JSON.stringify(this.state));
-    // fetch("http://localhost:5001/api/education", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(this.state),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.status == 1) {
-    //       alert("Bad Data");
-    //     } else if (data.status == 0) {
-    this.props.history.push("/cadedu");
-    //   }
-    // });
+    let usertoken = sessionStorage.getItem("token");
+    fetch("http://localhost:5001/api/education", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": usertoken,
+      },
+      body: JSON.stringify(this.state),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status == 1) {
+          alert("Bad Data");
+        } else if (data.status == 0) {
+          this.props.history.push("/cadedu");
+        }
+      });
   }
   render() {
     return (

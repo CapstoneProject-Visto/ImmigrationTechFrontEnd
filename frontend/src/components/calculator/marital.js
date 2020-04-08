@@ -82,22 +82,23 @@ class CalculatorPage extends React.Component {
   }
 
   submitData() {
-    // console.log("State data" + JSON.stringify(this.state));
-    // fetch("http://localhost:5001/api/marital-status", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(this.state),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.status === 1) {
-    //       return alert("Error in data");
-    //     } else {
-    this.props.history.push("/levelofedu");
-    //   }
-    // });
+    let usertoken = sessionStorage.getItem("token");
+    fetch("http://localhost:5001/api/marital-status", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": usertoken,
+      },
+      body: JSON.stringify(this.state),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 1) {
+          return alert("Error in data");
+        } else {
+          this.props.history.push("/levelofedu");
+        }
+      });
   }
   render() {
     return (

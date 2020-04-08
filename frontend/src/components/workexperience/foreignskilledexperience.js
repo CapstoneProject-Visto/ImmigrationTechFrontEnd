@@ -17,6 +17,28 @@ class ForeignSkillExperience extends React.Component {
     this.submitData = this.submitData.bind(this);
   }
 
+  componentDidMount() {
+    let usertoken = sessionStorage.getItem("token");
+    fetch("http://localhost:5001/api/invisible", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": usertoken,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status === 0) {
+          alert(
+            "Invisible route successfully executed- data stored in c_education"
+          );
+        } else if (data.status === 1) {
+          alert("Error in component did mount of foreignskilled");
+        }
+      });
+  }
+
   internationalworkexperienceselected(e) {
     if (e.target.value === "select") {
       this.setState({
@@ -30,33 +52,25 @@ class ForeignSkillExperience extends React.Component {
   }
 
   submitData() {
-    // console.log("State data" + JSON.stringify(this.state));
-    // fetch("http://localhost:5001/api/foreign-experience", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(this.state),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.status == 1) {
-    //       alert(data.message);
-    //     } else if (data.status == 0) {
-    this.props.history.push("/certificateorqualification");
-    //   }
-    // });
-  }
+    let usertoken = sessionStorage.getItem("token");
 
-  componentDidMount() {
-    // fetch("http://localhost:5001/api/invisible", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
+    console.log("State data" + JSON.stringify(this.state));
+    fetch("http://localhost:5001/api/foreign-experience", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": usertoken,
+      },
+      body: JSON.stringify(this.state),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status == 1) {
+          alert(data.message);
+        } else if (data.status == 0) {
+          this.props.history.push("/certificateorqualification");
+        }
+      });
   }
 
   render() {

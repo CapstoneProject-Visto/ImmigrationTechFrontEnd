@@ -29,38 +29,24 @@ class WorkExperience extends React.Component {
   }
 
   submitData() {
-    console.log(this.state);
-    console.log("State data" + JSON.stringify(this.state));
-    // fetch("http://localhost:5001/api/canadian-experience", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(this.state),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.status == 1) {
-    //       alert("data not stores properly");
-    //     } else if (data.status == 0) {
-    //       fetch("http://localhost:5001/api/invisible", {
-    //         method: "POST",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify(this.state),
-    //       })
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //           console.log(data);
-    //           if (data.status === 0) {
-    this.props.history.push("/foreignworkexp");
-    //   } else if (data.status === 1) {
-    //     alert("Error workexperience - 56");
-    //   }
-    // });
-    // }
-    // });
+    let usertoken = sessionStorage.getItem("token");
+
+    fetch("http://localhost:5001/api/canadian-experience", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": usertoken,
+      },
+      body: JSON.stringify(this.state),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status == 1) {
+          alert("data not stores properly");
+        } else if (data.status == 0) {
+          this.props.history.push("/foreignworkexp");
+        }
+      });
   }
 
   render() {

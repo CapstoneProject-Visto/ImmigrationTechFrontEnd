@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { easeQuadInOut } from "d3-ease";
 import { Card } from "react-bootstrap";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-
+import { Link } from "react-router-dom";
 import AnimatedProgressProvider from "./animatedProvider";
 import Footer from "../../components/footer";
 
@@ -15,10 +15,14 @@ class RightComponent extends React.Component {
   }
 
   componentDidMount() {
+    console.log(sessionStorage.getItem("LoggedIn"));
+    console.log(sessionStorage.getItem("type"));
+    let usertoken = sessionStorage.getItem("token");
     fetch("http://localhost:5001/api/score", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "x-auth-token": usertoken,
       },
     })
       .then((res) => res.json())
@@ -41,44 +45,49 @@ class RightComponent extends React.Component {
                   lg={{ span: 3, offset: 1 }}
                   md={{ span: 4, offset: 0 }}
                 >
-                  <Card
-                    style={{
-                      backgroundColor: "lightgreen",
-                    }}
-                  >
-                    <Card.Header style={{ textAlign: "center" }}>
-                      {this.state.data[0].header}
-                    </Card.Header>
-                    <Card.Body>
-                      <Card.Title>
-                        <AnimatedProgressProvider
-                          valueStart={0}
-                          valueEnd={(this.state.data[0].value * 100) / 450}
-                          duration={1.4}
-                          easingFunction={easeQuadInOut}
-                        >
-                          {(value) => {
-                            const roundedValue = Math.round(value);
-                            return (
-                              <CircularProgressbar
-                                value={value}
-                                text={`${roundedValue}%`}
-                                styles={buildStyles({
-                                  pathTransition: "none",
-                                })}
-                              />
-                            );
+                  <Link to="/login" style={{ textDecoration: "none" }}>
+                    <Card
+                      style={{
+                        backgroundColor: "lightgreen",
+                      }}
+                    >
+                      <Card.Header style={{ textAlign: "center" }}>
+                        {this.state.data[0].header}
+                      </Card.Header>
+                      <Card.Body>
+                        <Card.Title>
+                          <AnimatedProgressProvider
+                            valueStart={0}
+                            valueEnd={(this.state.data[0].value * 100) / 450}
+                            duration={1.4}
+                            easingFunction={easeQuadInOut}
+                          >
+                            {(value) => {
+                              const roundedValue = Math.round(value);
+                              return (
+                                <CircularProgressbar
+                                  value={value}
+                                  text={`${roundedValue}%`}
+                                  styles={buildStyles({
+                                    pathTransition: "none",
+                                  })}
+                                />
+                              );
+                            }}
+                          </AnimatedProgressProvider>
+                        </Card.Title>
+                        <hr></hr>
+                        <Card.Text
+                          style={{
+                            color: "green",
+                            textAlign: "center",
                           }}
-                        </AnimatedProgressProvider>
-                      </Card.Title>
-                      <hr></hr>
-                      <Card.Text
-                        style={{ color: "green", textAlign: "center" }}
-                      >
-                        {this.state.data[0].value} / 450
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
+                        >
+                          {this.state.data[0].value} / 450
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Link>
                 </Col>
                 <hr></hr>
                 {/* ***********Card 2 ******************/}

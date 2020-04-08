@@ -9,10 +9,12 @@ class FinalScorePage extends React.Component {
   }
 
   componentDidMount() {
+    let usertoken = sessionStorage.getItem("token");
     fetch("http://localhost:5001/api/score", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-auth-token": usertoken,
       },
     })
       .then((res) => res.json())

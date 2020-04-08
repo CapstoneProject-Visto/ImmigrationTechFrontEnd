@@ -108,21 +108,23 @@ class Spouse extends React.Component {
 
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
-    // fetch("http://localhost:5001/api/spouse-details", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(this.state),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.status === 1) {
-    //       alert(data.message);
-    //     } else if (data.status === 0) {
-    this.props.history.push("/finalPage");
-    //   }
-    // });
+    let usertoken = sessionStorage.getItem("token");
+    fetch("http://localhost:5001/api/spouse-details", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": usertoken,
+      },
+      body: JSON.stringify(this.state),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 1) {
+          alert(data.message);
+        } else if (data.status === 0) {
+          this.props.history.push("/finalPage");
+        }
+      });
   }
 
   render() {

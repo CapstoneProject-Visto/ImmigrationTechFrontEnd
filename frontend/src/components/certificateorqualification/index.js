@@ -100,22 +100,24 @@ class CertificateOrQualification extends React.Component {
   }
 
   submitData() {
-    // fetch("http://localhost:5001/api/additional", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
+    let usertoken = sessionStorage.getItem("token");
+    fetch("http://localhost:5001/api/additional", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": usertoken,
+      },
 
-    //   body: JSON.stringify(this.state),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.status === 1) {
-    //       alert(data.message);
-    //     } else if (data.status == 0) {
-    this.props.history.push("/spouse");
-    //   }
-    // });
+      body: JSON.stringify(this.state),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 1) {
+          alert(data.message);
+        } else if (data.status == 0) {
+          this.props.history.push("/spouse");
+        }
+      });
   }
 
   render() {
