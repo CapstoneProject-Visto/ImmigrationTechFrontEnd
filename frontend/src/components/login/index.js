@@ -5,7 +5,6 @@ import axios from "axios";
 import decode from "jwt-decode";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { Animated } from "react-animated-css";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +41,7 @@ class Login extends React.Component {
       password: document.getElementById("password").value,
     };
     axios
-      .post("http://localhost:5000/api/auth/login", data)
+      .post("http://localhost:5001/api/auth/login", data)
       .then((res) => {
         if (res.data.status == "1") {
           {
@@ -58,8 +57,8 @@ class Login extends React.Component {
           sessionStorage.setItem("LoggedIn", "true");
           sessionStorage.setItem("type", "user");
           this.props.history.push({
-            // pathname: "/userdashboard",
-            pathname: `/adminPage`,
+            pathname: "/userdashboard",
+            // pathname: `/adminPage`,
             // search: `${decodedData.user_id}`,
             // state: { details: decodedData.first_name },
             // token: { token: res.data.token }
@@ -72,49 +71,114 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <Animated
-          animationIn="fadeIn"
-          animationOut="fadeInUp"
-          // animationInDuration={1000}
-          animationInDelay={5000}
-          animationOutDuration={1000}
-          isVisible={false}
-        >
-          <Row>
-            <Col>
-              <div className="center" style={{ marginBottom: "5.5vh" }}>
-                <h3 id="logintext">LOGIN</h3>
-                <form method="post">
-                  <div id="text_field">
-                    <input
-                      type="text"
-                      id="username"
-                      placeholder="UserName"
-                      required
-                    />
+        <Row>
+          <Col lg={{ offset: 3 }} md={{ offset: 2 }} sm={{ offset: 1 }}>
+            <div id="login">
+              <h3 class="text-center text-white">Login form</h3>
+              <div class="container">
+                <div
+                  id="login-row"
+                  class="row justify-content-center align-items-center"
+                >
+                  <div id="login-column" class="col-md-12">
+                    <div id="login-box" class="col-md-12">
+                      <form
+                        id="login-form"
+                        class="form"
+                        action=""
+                        method="post"
+                      >
+                        <h3 class="text-center text-info">Login</h3>
+                        <div class="form-group">
+                          <label for="username" class="text-info">
+                            Email:
+                          </label>
+                          <br />
+                          <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="password" class="text-info">
+                            Password:
+                          </label>
+                          <br />
+                          <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="remember-me" class="text-info">
+                            <span>Remember me</span> 
+                            <span>
+                              <input
+                                id="remember-me"
+                                name="remember-me"
+                                type="checkbox"
+                              />
+                            </span>
+                          </label>
+                          <br />
+                          <input
+                            type="button"
+                            name="submit"
+                            class="btn btn-info btn-md"
+                            value="LOGIN"
+                            onClick={this.loginfunction}
+                          />
+                        </div>
+                        <div id="register-link" class="text-center">
+                          <Link to={{ pathname: "/signup" }}>Sign Up</Link>
+                        </div>
+                      </form>
+                    </div>
                   </div>
-                  <div id="text_field">
-                    <input
-                      type="password"
-                      id="password"
-                      placeholder="Password"
-                      required
-                    />
-                  </div>
-                  <div class="password">Forgot Password?</div>
-                  <input
-                    type="button"
-                    value="Login"
-                    onClick={this.loginfunction}
-                  />
-                  <div class="sign_up">
-                    Not a member yet ? <Link to="/signup">SignUp</Link>
-                  </div>
-                </form>
+                </div>
               </div>
-            </Col>
-          </Row>
-        </Animated>
+            </div>
+          </Col>
+        </Row>
+
+        {/* <Row>
+          <Col>
+            <div className="center" style={{ marginBottom: "5.5vh" }}>
+              <h3 id="logintext">LOGIN</h3>
+              <form method="post">
+                <div id="text_field">
+                  <input
+                    type="text"
+                    id="username"
+                    placeholder="UserName"
+                    required
+                  />
+                </div>
+                <div id="text_field">
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div class="password">Forgot Password?</div>
+                <input
+                  type="button"
+                  value="Login"
+                  onClick={this.loginfunction}
+                />
+                <div class="sign_up">
+                  Not a member yet ? <Link to="/signup">SignUp</Link>
+                </div>
+              </form>
+            </div>
+          </Col>
+        </Row> */}
         <Modal
           show={this.state.validateLogin}
           onHide={this.handleloginclose}

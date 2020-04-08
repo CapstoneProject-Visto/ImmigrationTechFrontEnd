@@ -1,79 +1,287 @@
 import React from "react";
 import ModuleCards from "./modules";
 import { Container, Row, Col } from "react-bootstrap";
+import { easeQuadInOut } from "d3-ease";
+import { Card } from "react-bootstrap";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
+import AnimatedProgressProvider from "./animatedProvider";
 import Footer from "../../components/footer";
 
-function RightComponent() {
-  let cardDetails1 = [
-    {
-      header: "Module 1",
-      cardTitle: "Marital Status",
-      cardText: "Complete"
-    },
-    {
-      header: "Module 2",
-      cardTitle: "Foreign Education",
-      cardText: "Complete"
-    },
-    {
-      header: "Module 3",
-      cardTitle: "Language Profiency",
-      cardText: "Complete"
-    }
-  ];
+class RightComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  let cardDetails2 = [
-    {
-      header: "Module 4",
-      cardTitle: "Canadian Education",
-      cardText: "Not Complete"
-    },
-    {
-      header: "Module 5",
-      cardTitle: "Canadian Experience",
-      cardText: "Not Complete"
-    },
-    {
-      header: "Module 6",
-      cardTitle: "Additional Points",
-      cardText: "Complete"
-    }
-  ];
+  componentDidMount() {
+    fetch("http://localhost:5001/api/score", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({ data });
+      });
+  }
+  render() {
+    return (
+      <>
+        <Container style={{ marginBottom: "40px" }}>
+          {this.state.data !== undefined ? (
+            <>
+              {/* Row 1 */}
+              <Row style={{ paddingTop: "4vh" }}>
+                <Col
+                  // className="infoCards"
+                  xl={{ span: 3, offset: 1 }}
+                  lg={{ span: 3, offset: 1 }}
+                  md={{ span: 4, offset: 0 }}
+                >
+                  <Card
+                    style={{
+                      backgroundColor: "lightgreen",
+                    }}
+                  >
+                    <Card.Header style={{ textAlign: "center" }}>
+                      {this.state.data[0].header}
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Title>
+                        <AnimatedProgressProvider
+                          valueStart={0}
+                          valueEnd={(this.state.data[0].value * 100) / 450}
+                          duration={1.4}
+                          easingFunction={easeQuadInOut}
+                        >
+                          {(value) => {
+                            const roundedValue = Math.round(value);
+                            return (
+                              <CircularProgressbar
+                                value={value}
+                                text={`${roundedValue}%`}
+                                styles={buildStyles({
+                                  pathTransition: "none",
+                                })}
+                              />
+                            );
+                          }}
+                        </AnimatedProgressProvider>
+                      </Card.Title>
+                      <hr></hr>
+                      <Card.Text
+                        style={{ color: "green", textAlign: "center" }}
+                      >
+                        {this.state.data[0].value} / 450
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <hr></hr>
+                {/* ***********Card 2 ******************/}
+                <Col
+                  // className="infoCards"
+                  xl={{ span: 3, offset: 1 }}
+                  lg={{ span: 3, offset: 1 }}
+                  md={{ span: 4, offset: 0 }}
+                >
+                  <Card
+                    style={{
+                      backgroundColor: "lightgreen",
+                    }}
+                  >
+                    <Card.Header style={{ textAlign: "center" }}>
+                      {this.state.data[1].header}
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Title>
+                        <AnimatedProgressProvider
+                          valueStart={0}
+                          valueEnd={(this.state.data[1].value * 100) / 200}
+                          duration={1.4}
+                          easingFunction={easeQuadInOut}
+                        >
+                          {(value) => {
+                            const roundedValue = Math.round(value);
+                            return (
+                              <CircularProgressbar
+                                value={value}
+                                text={`${roundedValue}%`}
+                                styles={buildStyles({
+                                  pathTransition: "none",
+                                })}
+                              />
+                            );
+                          }}
+                        </AnimatedProgressProvider>
+                      </Card.Title>
+                      <hr></hr>
+                      <Card.Text
+                        style={{ color: "green", textAlign: "center" }}
+                      >
+                        {this.state.data[1].value} / 200
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <hr></hr>
 
-  return (
-    <>
-      <div>
-        <Container>
-          <Row style={{ paddingTop: "4vh" }}>
-            <Col className="infoCards">
-              {cardDetails1.map(details => (
-                <ModuleCards
-                  header={details.header}
-                  cardTitle={details.cardTitle}
-                  cardText={details.cardText}
-                />
-              ))}
-              <hr></hr>
-            </Col>
-          </Row>
-          <Row style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <Col className="infoCards">
-              {cardDetails2.map(details => (
-                <ModuleCards
-                  header={details.header}
-                  cardTitle={details.cardTitle}
-                  cardText={details.cardText}
-                />
-              ))}
-              <hr></hr>
-            </Col>
-          </Row>
+                {/* ***********Card 3 ******************/}
+                <Col
+                  // className="infoCards"
+                  xl={{ span: 3, offset: 1 }}
+                  lg={{ span: 3, offset: 1 }}
+                  md={{ span: 4, offset: 0 }}
+                >
+                  <Card
+                    style={{
+                      backgroundColor: "lightgreen",
+                    }}
+                  >
+                    <Card.Header style={{ textAlign: "center" }}>
+                      {this.state.data[2].header}
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Title>
+                        <AnimatedProgressProvider
+                          valueStart={0}
+                          valueEnd={(this.state.data[2].value * 100) / 200}
+                          duration={1.4}
+                          easingFunction={easeQuadInOut}
+                        >
+                          {(value) => {
+                            const roundedValue = Math.round(value);
+                            return (
+                              <CircularProgressbar
+                                value={value}
+                                text={`${roundedValue}%`}
+                                styles={buildStyles({
+                                  pathTransition: "none",
+                                })}
+                              />
+                            );
+                          }}
+                        </AnimatedProgressProvider>
+                      </Card.Title>
+                      <hr></hr>
+                      <Card.Text
+                        style={{ color: "green", textAlign: "center" }}
+                      >
+                        {this.state.data[2].value} / 200
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+
+              {/* ********************************************************************************** */}
+              {/* Row 1 */}
+              <Row style={{ paddingTop: "4vh" }}>
+                {/* ***********Card 4 ******************/}
+                <Col
+                  // className="infoCards"
+                  xl={{ span: 3, offset: 1 }}
+                  lg={{ span: 3, offset: 1 }}
+                  md={{ span: 4, offset: 2 }}
+                >
+                  <Card
+                    style={{
+                      backgroundColor: "lightgreen",
+                    }}
+                  >
+                    <Card.Header style={{ textAlign: "center" }}>
+                      {this.state.data[3].header}
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Title>
+                        <AnimatedProgressProvider
+                          valueStart={0}
+                          valueEnd={(this.state.data[3].value * 100) / 800}
+                          duration={1.4}
+                          easingFunction={easeQuadInOut}
+                        >
+                          {(value) => {
+                            const roundedValue = Math.round(value);
+                            return (
+                              <CircularProgressbar
+                                value={value}
+                                text={`${roundedValue}%`}
+                                styles={buildStyles({
+                                  pathTransition: "none",
+                                })}
+                              />
+                            );
+                          }}
+                        </AnimatedProgressProvider>
+                      </Card.Title>
+                      <hr></hr>
+                      <Card.Text
+                        style={{ color: "green", textAlign: "center" }}
+                      >
+                        {this.state.data[3].value} / 800
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <hr></hr>
+
+                {/* ***********Card 5 ******************/}
+                <Col
+                  // className="infoCards"
+                  xl={{ span: 3, offset: 1 }}
+                  lg={{ span: 3, offset: 1 }}
+                  md={{ span: 4, offset: 0 }}
+                >
+                  <Card
+                    style={{
+                      backgroundColor: "lightgreen",
+                    }}
+                  >
+                    <Card.Header style={{ textAlign: "center" }}>
+                      {this.state.data[4].header}
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Title>
+                        <AnimatedProgressProvider
+                          valueStart={0}
+                          valueEnd={(this.state.data[4].value * 100) / 1650}
+                          duration={1.4}
+                          easingFunction={easeQuadInOut}
+                        >
+                          {(value) => {
+                            const roundedValue = Math.round(value);
+                            return (
+                              <CircularProgressbar
+                                value={value}
+                                text={`${roundedValue}%`}
+                                styles={buildStyles({
+                                  pathTransition: "none",
+                                })}
+                              />
+                            );
+                          }}
+                        </AnimatedProgressProvider>
+                      </Card.Title>
+                      <hr></hr>
+                      <Card.Text
+                        style={{ color: "green", textAlign: "center" }}
+                      >
+                        {this.state.data[4].value} / 1650
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </>
+          ) : null}
         </Container>
         <Footer />
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 }
 
 export default RightComponent;

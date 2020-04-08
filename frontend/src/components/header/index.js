@@ -13,19 +13,9 @@ const withoutLogin = [
   ["LOGIN", "/login"],
 ];
 
-const adminLogin = [
-  ["Admin Dashboard", "/"],
-  ["About Us", "/aboutus"],
-  ["Blog", "/blog"],
-];
+const adminLogin = [["Admin Dashboard", "/adminPage"]];
 
-const userLogin = [
-  ["User Dashboard", "/"],
-  ["About Us", "/aboutus"],
-  ["Blog", "/blog"],
-  ["Contact Us", "/contactus"],
-  ["FAQ", "/faq"],
-];
+const userLogin = [["User Dashboard", "/userdashboard"]];
 
 class Header extends React.Component {
   constructor(props) {

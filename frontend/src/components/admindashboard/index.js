@@ -13,29 +13,29 @@ class AdminLogin extends Component {
     this.state = {
       search: null,
       category: "name",
-      users: []
+      users: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.removeUser = this.removeUser.bind(this);
   }
 
   removeUser(id) {
-    axios.delete("http://localhost:5000/api/tasks/" + id).then(response => {
+    axios.delete("http://localhost:5001/api/tasks/" + id).then((response) => {
       console.log(response.data);
     });
 
     this.setState({
-      users: this.state.users.filter(g => g.id !== id)
+      users: this.state.users.filter((g) => g.id !== id),
     });
   }
 
   handleChange(event) {
     this.setState({
-      category: event.target.value
+      category: event.target.value,
     });
   }
 
-  searchSpace = event => {
+  searchSpace = (event) => {
     let keyword = event.target.value;
     this.setState({ search: keyword });
   };
@@ -45,22 +45,22 @@ class AdminLogin extends Component {
     let config = {
       headers: {
         "x-auth-token": token,
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     };
     axios
-      .get("http://localhost:5000/api/admin/getAllUsers", config)
-      .then(res => {
+      .get("http://localhost:5001/api/admin/getAllUsers", config)
+      .then((res) => {
         this.setState({
-          users: res.data.data
+          users: res.data.data,
         });
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   }
 
   render() {
     const items = this.state.users
-      .filter(data => {
+      .filter((data) => {
         if (this.state.search === null) return data;
         else if (
           data.name.toLowerCase().includes(this.state.search.toLowerCase()) &&
@@ -81,7 +81,7 @@ class AdminLogin extends Component {
           return data;
         }
       })
-      .map(data => {
+      .map((data) => {
         return (
           <div class="d-flex justify-content-center mb-3">
             <Image src={Img} width="100" height="100" />
@@ -170,7 +170,7 @@ class AdminLogin extends Component {
               type="text"
               placeholder="Search"
               aria-label="Search"
-              onChange={e => this.searchSpace(e)}
+              onChange={(e) => this.searchSpace(e)}
             />
           </InputGroup>
         </div>

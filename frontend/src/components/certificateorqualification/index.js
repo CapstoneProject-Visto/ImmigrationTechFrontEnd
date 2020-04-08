@@ -2,6 +2,8 @@ import React from "react";
 import Age from "../agecomponent";
 import { withRouter } from "react-router-dom";
 import { Animated } from "react-animated-css";
+import { Row, Col } from "react-bootstrap";
+import Header from "../header";
 
 class CertificateOrQualification extends React.Component {
   constructor() {
@@ -119,32 +121,50 @@ class CertificateOrQualification extends React.Component {
   render() {
     return (
       <>
-        <h3>Additional Points</h3>
-        <p>
-          7) Do you have a certificate of qualification from a Canadian
-          province, territory or federal body?
-        </p>
-        <p>
-          Note: A certificate of qualification lets people work in some skilled
-          trades in Canada. Only the provinces, territories and a federal body
-          can issue these certificates. To get one, a person must have them
-          assess their training, trade experience and skills to and then pass a
-          certification exam.
-          <br />
-          People usually have to go to the province or territory to be assessed.
-          They may also need experience and training from an employer in Canada.{" "}
-          <br />
-          This isn’t the same as a nomination from a province or territory.
-          <br />
-          <select
-            name="certification_of_qualification"
-            onChange={this.certificateorqualification}
+        <Header />
+        <Row>
+          <Col
+            xl={{ span: 6, offset: 3 }}
+            lg={{ span: 6, offset: 3 }}
+            md={{ span: 4, offset: 4 }}
+            style={{ marginTop: "5vh", textAlign: "center" }}
           >
-            <option value="select">---SELECT---</option>
-            <option value="certification_of_qualification_yes">YES</option>
-            <option value="certification_of_qualification_no">NO</option>
-          </select>
-        </p>
+            <h3>Additional Points</h3>
+            <p>
+              7) Do you have a certificate of qualification from a Canadian
+              province, territory or federal body?
+            </p>
+            <p>
+              Note: A certificate of qualification lets people work in some
+              skilled trades in Canada. Only the provinces, territories and a
+              federal body can issue these certificates. To get one, a person
+              must have them assess their training, trade experience and skills
+              to and then pass a certification exam.
+              <br />
+              People usually have to go to the province or territory to be
+              assessed. They may also need experience and training from an
+              employer in Canada. <br />
+              This isn’t the same as a nomination from a province or territory.
+              <br />
+            </p>
+          </Col>
+          <Col
+            xl={{ span: 2, offset: 5 }}
+            lg={{ span: 2, offset: 5 }}
+            md={{ span: 4, offset: 4 }}
+            style={{ textAlign: "center" }}
+          >
+            <select
+              name="certification_of_qualification"
+              onChange={this.certificateorqualification}
+              style={{ width: "300px" }}
+            >
+              <option value="select">---SELECT---</option>
+              <option value="certification_of_qualification_yes">YES</option>
+              <option value="certification_of_qualification_no">NO</option>
+            </select>
+          </Col>
+        </Row>
         {this.state.certification_of_qualification != "" ? (
           <Animated
             animationIn="fadeIn"

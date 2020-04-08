@@ -41,6 +41,10 @@
   font-size: medium;
 }
 
+.col {
+  padding: 0px;
+}
+
 .container {
   margin-left: 0px !important;
   margin-right: 0px !important;
