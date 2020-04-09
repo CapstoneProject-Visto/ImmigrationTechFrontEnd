@@ -39,6 +39,7 @@ class Login extends React.Component {
     let data = {
       email: document.getElementById("username").value,
       password: document.getElementById("password").value,
+      user_type: "user",
     };
     axios
       .post("http://localhost:5001/api/auth/login", data)
@@ -57,6 +58,7 @@ class Login extends React.Component {
           sessionStorage.setItem("token", res.data.token);
           sessionStorage.setItem("LoggedIn", "true");
           sessionStorage.setItem("type", "user");
+
           this.props.history.push({
             pathname: "/userdashboard",
             // pathname: `/adminPage`,

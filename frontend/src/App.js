@@ -19,6 +19,12 @@ import WorkExperience from "./components/workexperience";
 import ForeignSkillExperience from "./components/workexperience/foreignskilledexperience";
 import CertificateOrQualification from "./components/certificateorqualification";
 import FinalScorePage from "./components/finalScorePage";
+import CadEduUpdate from "./pages/update/cadedu_userdashboard";
+import CadForeignEduUpdate from "./pages/update/foreignedu";
+import ForeignWorkExp from "./pages/update/foreign_work_exp";
+import UpdateCadWorkExp from "./pages/update/cad_work_exp";
+import LanguageScore from "./pages/update/official_language_score";
+import UpdateAdditional from "./pages/update/update_additional_points";
 import Spouse from "./components/spouse";
 import FileNotFOund from "./components/filenotfound";
 import Header from "./components/header";
@@ -47,6 +53,16 @@ function App() {
         <Route exact path="/workexperience" component={WorkExperience} />
         <Route exact path="/additionalpoints" component={AdditionalPoints} />
         <Route exact path="/cadedu" component={CanadianDegree} />
+        <Route exact path="/cadeduupdate" component={CadEduUpdate} />
+        <Route
+          exact
+          path="/cadforeigneduupdate"
+          component={CadForeignEduUpdate}
+        />
+        <Route exact path="/updateforeignworkexp" component={ForeignWorkExp} />
+        <Route exact path="/updatecadworkexp" component={UpdateCadWorkExp} />
+        <Route exact path="/updatelanguage" component={LanguageScore} />
+        <Route exact path="/updateadditional" component={UpdateAdditional} />
         <Route exact path="/finalPage" component={FinalScorePage} />
         <Route exact path="/adminPage" component={adminPage} />
         <Route exact path="/EditUser/:id" component={EditUser} />
