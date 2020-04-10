@@ -2,7 +2,20 @@ import React from "react";
 import CalculatorPage from "../components/calculatorcomponent/calculator/marital";
 import { Row, Col } from "react-bootstrap";
 import Header from "../components/header";
+import { withRouter } from "react-router-dom";
 class Calculator extends React.Component {
+  state = {
+    loggedIn: "",
+  };
+
+  componentDidMount() {
+    if (sessionStorage.getItem("LoggedIn") !== "false") {
+      this.setState({ loggedIn: "true" });
+    } else {
+      this.setState({ loggedIn: "false" });
+    }
+  }
+
   render() {
     return (
       <>
@@ -22,7 +35,16 @@ class Calculator extends React.Component {
             xs={10}
             style={{ height: "auto" }}
           >
-            <CalculatorPage />
+            {console.log(this.state.loggedIn)}
+            {this.state.loggedIn != ""
+              ? [
+                  this.state.loggedIn != "false" ? (
+                    <CalculatorPage />
+                  ) : (
+                    this.props.history.push("/login")
+                  ),
+                ]
+              : null}
           </Col>
         </Row>
       </>
@@ -30,4 +52,4 @@ class Calculator extends React.Component {
   }
 }
 
-export default Calculator;
+export default withRouter(Calculator);
