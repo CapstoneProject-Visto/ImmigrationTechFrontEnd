@@ -38,6 +38,14 @@ body {
   display: flex;
 }
 
+/* .col-md-4 {
+  padding: 1rem;
+  background-color: #33b5e5;
+  border: 2px solid #fff;
+  color: #fff;
+  text-align: center;
+  } */
+
 .md-form {
   position: relative;
   margin-top: 2.5rem !important;
