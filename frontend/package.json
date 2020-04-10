@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "d3-ease": "^1.0.6",
     "jwt-decode": "^2.2.0",
+    "mdbreact": "^4.25.5",
     "react": "^16.13.0",
     "react-animated-css": "^1.2.1",
     "react-animations": "^1.0.0",

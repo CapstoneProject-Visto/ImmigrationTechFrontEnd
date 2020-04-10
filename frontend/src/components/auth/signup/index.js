@@ -4,101 +4,175 @@ import Form from "react-bootstrap/Form";
 import { withRouter } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+} from "mdbreact";
 class FormExample extends React.Component {
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target.elements.password.value);
-    let data = {
-      first_name: event.target.elements.validationCustom01.value,
-      email: event.target.elements.validationCustom02.value,
-      password: event.target.elements.password.value,
-      country: event.target.elements.validationCustom03.value,
-      last_name: "javeri",
+  constructor(props) {
+    super(props);
+    this.state = {
+      user_type: "",
     };
 
+    this.setUserInput = this.setUserInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  setUserInput(e) {
+    console.log(e.target.id);
+    this.setState({
+      user_type: e.target.id,
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    let data = {
+      first_name: document.getElementById("first_name").value,
+      last_name: document.getElementById("last_name").value,
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
+      country: document.getElementById("country").value,
+      user_type: this.state.user_type,
+    };
+
+    console.log(data);
     axios
-      .post("http://localhost:5000/api/auth/sign-up", data)
+      .post("http://localhost:5001/api/auth/sign-up", data)
       .then((res) => {
         console.log(res);
         this.props.history.push("/login");
       })
       .catch((err) => console.error(err));
-  };
+  }
   render() {
     return (
-      <Row>
-        <div style={{ color: "orange", textAlign: "center" }}>Sign Up</div>
-        <Col>
-          <div className="center">
-            <Form noValidate onSubmit={this.handleSubmit}>
-              {/* Name */}
-              <Form.Row>
-                <Form.Group as={Col} md="12" controlId="validationCustom01">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control required type="text" placeholder="Name" />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                </Form.Group>
-              </Form.Row>
+      <>
+        <Row>
+          <Col xl={{ offset: "4", span: "3" }}>
+            <p className="h5 text-center ">Sign up</p>
+          </Col>
+        </Row>
+        <Row>
+          <MDBContainer>
+            <MDBRow>
+              <Col xl={{ span: "4", offset: "4" }}>
+                <MDBCard style={{ marginTop: "30px", marginBottom: "30px" }}>
+                  <MDBCardBody>
+                    <form>
+                      <div className="grey-text">
+                        <Row>
+                          <Col
+                            style={{ marginTop: "10px", marginBottom: "20px" }}
+                            xl={{ span: "5", offset: "2" }}
+                          >
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input
+                                type="radio"
+                                class="custom-control-input"
+                                id="user"
+                                name="type"
+                                onClick={this.setUserInput}
+                              />
+                              <label class="custom-control-label" for="user">
+                                User
+                              </label>
+                            </div>
+                          </Col>
+                          <Col
+                            style={{ marginTop: "10px", marginBottom: "20px" }}
+                            xl={{ span: "4" }}
+                          >
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input
+                                type="radio"
+                                class="custom-control-input"
+                                id="admin"
+                                name="type"
+                                onClick={this.setUserInput}
+                              />
+                              <label class="custom-control-label" for="admin">
+                                Admin
+                              </label>
+                            </div>
+                          </Col>
+                        </Row>
 
-              {/* Email */}
-              <Form.Row>
-                <Form.Group as={Col} md="12" controlId="validationCustom02">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control required type="text" placeholder="Email" />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                </Form.Group>
-              </Form.Row>
-
-              {/* Password */}
-              <Form.Row>
-                <Form.Group as={Col} md="6" controlId="password">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control required type="text" placeholder="Password" />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                </Form.Group>
-
-                {/* Confirm Password */}
-
-                <Form.Group
-                  as={Col}
-                  md="6"
-                  controlId="validationCustomUsername"
-                >
-                  <Form.Label>Confirm Password</Form.Label>
-                  <Form.Control
-                    required
-                    type="text"
-                    placeholder="Confirm Password"
-                  />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                </Form.Group>
-              </Form.Row>
-
-              {/* Gender */}
-
-              {/* City */}
-              <Form.Row>
-                <Form.Group as={Col} md="12" controlId="validationCustom03">
-                  <Form.Label>City</Form.Label>
-                  <Form.Control type="text" placeholder="City" required />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide a valid city.
-                  </Form.Control.Feedback>
-                </Form.Group>
-              </Form.Row>
-              <Form.Group>
-                <Form.Check
-                  required
-                  label="Agree to terms and conditions"
-                  feedback="You must agree before submitting."
-                />
-              </Form.Group>
-              <Button type="submit">Submit form</Button>
-            </Form>
-          </div>
-        </Col>
-      </Row>
+                        <Row>
+                          <Col xl={{ span: "6" }}>
+                            <MDBInput
+                              label="First Name"
+                              group
+                              type="text"
+                              id="first_name"
+                            />
+                          </Col>
+                          <Col xl={{ span: "6" }}>
+                            <MDBInput
+                              label="Last Name"
+                              group
+                              type="text"
+                              id="last_name"
+                            />
+                          </Col>
+                          <Col xl={{ span: "12" }}>
+                            <MDBInput
+                              label="Your email"
+                              group
+                              type="email"
+                              id="email"
+                            />
+                          </Col>
+                          <Col xl={{ span: "12" }}>
+                            <MDBInput
+                              label="Country"
+                              group
+                              type="text"
+                              id="country"
+                            />
+                          </Col>
+                          <Col xl={{ span: "6" }} className="passwordclass">
+                            <MDBInput
+                              label="Password"
+                              group
+                              type="password"
+                              id="password"
+                            />
+                          </Col>
+                          <Col xl={{ span: "6" }}>
+                            <MDBInput
+                              label="Confirm password"
+                              group
+                              type="password"
+                              validate
+                            />
+                          </Col>
+                        </Row>
+                        <div className="text-center">
+                          <MDBBtn
+                            color="cyan"
+                            type="submit"
+                            onClick={this.handleSubmit}
+                          >
+                            Register
+                          </MDBBtn>
+                        </div>
+                      </div>
+                    </form>
+                  </MDBCardBody>
+                </MDBCard>
+              </Col>
+            </MDBRow>
+          </MDBContainer>
+        </Row>
+      </>
     );
   }
 }

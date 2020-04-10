@@ -1,10 +1,10 @@
 import React from "react";
-import YesComponent from "../yescomponent";
-import NoComponent from "../nocomponent";
+import YesComponent from "../../yescomponent";
+import NoComponent from "../../nocomponent";
 import { Row, Col } from "react-bootstrap";
 import { Animated } from "react-animated-css";
 import { withRouter } from "react-router-dom";
-import Footer from "../footer";
+import Footer from "../../footer";
 class CalculatorPage extends React.Component {
   constructor() {
     super();

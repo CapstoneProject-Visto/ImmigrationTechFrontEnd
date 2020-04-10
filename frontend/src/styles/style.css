@@ -30,6 +30,20 @@ body {
   padding-right: 0px !important;
 }
 
+.md-form .prefix ~ input {
+  margin-left: 1rem;
+}
+
+.passwordclass {
+  display: flex;
+}
+
+.md-form {
+  position: relative;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
 #maincontent {
   height: 50vh;
   margin-top: 10%;

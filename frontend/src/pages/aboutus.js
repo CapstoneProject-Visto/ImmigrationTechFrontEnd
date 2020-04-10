@@ -16,6 +16,12 @@ class AboutUS extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    fetch("http://localhost:5000/api/contacts")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
+
   render() {
     return (
       <>
@@ -98,7 +104,7 @@ class AboutUS extends React.Component {
               <h1
                 style={{
                   textAlign: "center",
-                  marginTop: "30px"
+                  marginTop: "30px",
                 }}
               >
                 Our Team

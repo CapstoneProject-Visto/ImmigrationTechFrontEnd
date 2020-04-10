@@ -1,5 +1,5 @@
 import React from "react";
-import CalculatorPage from "../components/calculator/marital";
+import CalculatorPage from "../components/calculatorcomponent/calculator/marital";
 import { Row, Col } from "react-bootstrap";
 import Header from "../components/header";
 class Calculator extends React.Component {

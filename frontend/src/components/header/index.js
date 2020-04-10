@@ -69,7 +69,12 @@ class Header extends React.Component {
       <>
         <Col style={{ backgroundColor: "purple", padding: "0px" }}>
           <Navbar collapseOnSelect bg="light" variant="dark">
-            <Navbar.Brand href="/">Visto.AI</Navbar.Brand>
+            <Navbar.Brand href="/">
+              <img
+                src="https://visto.ai/wp-content/uploads/2019/10/wide_logo.svg"
+                style={{ height: "30px" }}
+              />
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
@@ -78,18 +83,22 @@ class Header extends React.Component {
                     to={{
                       pathname: navitem[1],
                     }}
+                    style={{ textDecoration: "none", paddingTop: "8px" }}
                   >
-                    {navitem[0]}
+                    <span style={{ color: "black" }}>{navitem[0]}</span>
                   </Link>
                 ))}
                 {this.state.userLoggedIn === true ? (
-                  <Button
+                  <button
                     type="submit"
-                    className="btn btn-info"
+                    variant="outline-light"
+                    // className="btn"
+                    style={{ backgroundColor: "#E0E0E0  ", color: "black" }}
                     onClick={this.handlelogoutbutton}
+                    value="LOGOUT"
                   >
                     LOGOUT
-                  </Button>
+                  </button>
                 ) : null}
               </Nav>
             </Navbar.Collapse>
