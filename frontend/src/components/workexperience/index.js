@@ -124,17 +124,6 @@ class WorkExperience extends React.Component {
             <Button apiCall={this.submitData} />
           </Animated>
         ) : null}
-        {/* {this.state.years != "" ? (
-          <ForeignSkillExperience
-            internationalworkexperiencestate={
-              this.state.internationalworkexperience
-            }
-            internationalworkexperiencefn={
-              this.internationalworkexperienceselected
-            }
-            submitDatafn={this.submitData}
-          />
-        ) : null} */}
       </>
     );
   }

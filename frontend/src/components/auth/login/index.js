@@ -19,6 +19,14 @@ class UserLogin extends React.Component {
     this.handleModelOpenfn = this.handleModelOpenfn.bind(this);
     this.handleloginclose = this.handleloginclose.bind(this);
     this.setUserType = this.setUserType.bind(this);
+    this.clearData = this.clearData.bind(this);
+  }
+
+  clearData() {
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("user").checked = false;
+    document.getElementById("admin").checked = false;
   }
 
   componentWillMount() {
@@ -27,10 +35,14 @@ class UserLogin extends React.Component {
   }
 
   handleloginclose() {
-    console.log("inside handle loginclose");
-    this.setState({
-      validateLogin: false,
-    });
+    this.setState(
+      {
+        validateLogin: false,
+      },
+      () => {
+        this.clearData();
+      }
+    );
   }
 
   handleModelOpenfn() {
@@ -93,16 +105,16 @@ class UserLogin extends React.Component {
       <>
         <Row>
           <Col
-            style={{ marginTop: "50px" }}
+            style={{ marginTop: "30px" }}
             xl={{ span: "3", offset: "4" }}
             md={{ span: "2", offset: "5" }}
           >
-            <p className="h5 text-center">Sign in Type</p>
+            <p className="h5 text-center">LOGIN IN</p>
           </Col>
         </Row>
         <Row>
           <Col
-            style={{ marginTop: "50px" }}
+            style={{ marginTop: "40px" }}
             xl={{ span: "2", offset: "4" }}
             md={{ span: "2", offset: "4" }}
             xs={{ span: "2", offset: "4" }}
@@ -121,7 +133,7 @@ class UserLogin extends React.Component {
             </div>
           </Col>
           <Col
-            style={{ marginTop: "50px" }}
+            style={{ marginTop: "40px" }}
             xl={{ span: "2", offset: "0" }}
             md={{ span: "2" }}
             xs={{ span: "2" }}
@@ -144,44 +156,52 @@ class UserLogin extends React.Component {
             <MDBRow
               style={{
                 width: "70%",
-                height: "46vh",
+                height: "50.3vh",
               }}
               center="true"
             >
               <Col
-                xl={{ offset: "4" }}
+                xl={{ offset: "4", span: "5" }}
                 md={{ offset: "5", span: "10" }}
                 xs={{ offset: "6", span: "12" }}
               >
-                <form style={{ marginTop: "50px" }}>
+                <form style={{ marginTop: "5vh" }}>
                   <div className="grey-text">
                     <MDBInput label="Type your email" id="username" />
-                    <MDBInput label="Type your password" id="password" />
+                    <MDBInput
+                      type="password"
+                      label="Type your password"
+                      id="password"
+                    />
                   </div>
                   <div className="text-center">
-                    <MDBBtn onClick={this.loginfunction}>Login</MDBBtn>
+                    <MDBBtn
+                      style={{ marginTop: "7vh" }}
+                      onClick={this.loginfunction}
+                    >
+                      Login
+                    </MDBBtn>
                   </div>
                 </form>
+                <Row>
+                  <div style={{ display: "flex" }}>
+                    <Col
+                      style={{ marginTop: "25px" }}
+                      xl={{ span: "7", offset: "3" }}
+                    >
+                      <h6>Forgot Password</h6>
+                    </Col>
+                    <Col xl={{ span: "6", offset: "0" }}>
+                      <Link to={{ pathname: "/signup" }}>
+                        <h6 style={{ color: "blue" }}>Sign Up here</h6>
+                      </Link>
+                    </Col>
+                  </div>
+                </Row>
               </Col>
             </MDBRow>
           </MDBContainer>
         </Row>
-        <Modal
-          show={this.state.validateLogin}
-          onHide={this.handleloginclose}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Header>
-            <Modal.Title id="contained-modal-title-center">
-              <span style={{ color: "red" }}>{this.state.errorMsg}</span>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Footer>
-            <Button onClick={this.handleloginclose}>OK</Button>
-          </Modal.Footer>
-        </Modal>
         <Modal
           show={this.state.validateLogin}
           onHide={this.handleloginclose}

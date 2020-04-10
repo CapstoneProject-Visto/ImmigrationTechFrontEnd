@@ -187,7 +187,7 @@ class RightComponent extends React.Component {
                                 "Foreign work experience"
                               ] *
                                 100) /
-                              200
+                              50
                             }
                             duration={1.4}
                             easingFunction={easeQuadInOut}
@@ -215,7 +215,7 @@ class RightComponent extends React.Component {
                               "Foreign work experience"
                             ]
                           }{" "}
-                          / 200
+                          / 50
                         </Card.Text>
                       </Card.Body>
                     </Card>
@@ -254,7 +254,7 @@ class RightComponent extends React.Component {
                                 "Canadian work experience"
                               ] *
                                 100) /
-                              450
+                              80
                             }
                             duration={1.4}
                             easingFunction={easeQuadInOut}
@@ -285,7 +285,7 @@ class RightComponent extends React.Component {
                               "Canadian work experience"
                             ]
                           }{" "}
-                          / 450
+                          / 80
                         </Card.Text>
                       </Card.Body>
                     </Card>
@@ -391,7 +391,7 @@ class RightComponent extends React.Component {
                                   "Sibling in Canada"
                                 ]) *
                                 100) /
-                              1000
+                              975
                             }
                             duration={1.4}
                             easingFunction={easeQuadInOut}
@@ -425,7 +425,7 @@ class RightComponent extends React.Component {
                             this.state.data.subtotal[3][
                               "Sibling in Canada"
                             ]}{" "}
-                          / 1000
+                          / 975
                         </Card.Text>
                       </Card.Body>
                     </Card>

@@ -96,10 +96,6 @@ class UpdateForeignEdu extends React.Component {
                 Bachelor's degree (three or more year program at a university,
                 college, trade or technical school, or other institute)
               </option>
-              <option name="education" value="twoOrMoreCertificate">
-                Two or more certificates, diplomas or degrees. One must be for a
-                program of three or more years
-              </option>
               <option name="education" value="masters">
                 Master's degree, or professional degree needed to practice in a
                 licensed profession (see Help)

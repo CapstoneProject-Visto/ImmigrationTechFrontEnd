@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { withRouter } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import {
@@ -17,11 +18,43 @@ class FormExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      validateSignUp: false,
       user_type: "",
+      errorMsg: "",
     };
 
     this.setUserInput = this.setUserInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleModelOpenfn = this.handleModelOpenfn.bind(this);
+    this.handleSignUpclose = this.handleSignUpclose.bind(this);
+    this.removeallData = this.removeallData.bind(this);
+  }
+
+  handleSignUpclose() {
+    this.setState(
+      {
+        validateSignUp: false,
+      },
+      () => {
+        this.removeallData();
+      }
+    );
+  }
+  removeallData() {
+    document.getElementById("first_name").value = "";
+    document.getElementById("last_name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("country").value = "";
+    document.getElementById("confmpassword").value = "";
+    document.getElementById("user").checked = false;
+    document.getElementById("admin").checked = false;
+  }
+
+  handleModelOpenfn() {
+    this.setState({
+      validateSignUp: true,
+    });
   }
 
   setUserInput(e) {
@@ -42,13 +75,17 @@ class FormExample extends React.Component {
       country: document.getElementById("country").value,
       user_type: this.state.user_type,
     };
-
-    console.log(data);
     axios
       .post("http://localhost:5001/api/auth/sign-up", data)
       .then((res) => {
-        console.log(res);
-        this.props.history.push("/login");
+        if (res.data["status"] == "0") {
+          this.setState({
+            errorMsg: res.data.message,
+          });
+          this.handleModelOpenfn();
+        } else if (res.data["staus"] == "1") {
+          this.props.history.push("/login");
+        }
       })
       .catch((err) => console.error(err));
   }
@@ -56,15 +93,15 @@ class FormExample extends React.Component {
     return (
       <>
         <Row>
-          <Col xl={{ offset: "4", span: "3" }}>
-            <p className="h5 text-center ">Sign up</p>
+          <Col style={{ marginTop: "20px" }} xl={{ offset: "4", span: "4" }}>
+            <p className="h5 text-center">Sign up</p>
           </Col>
         </Row>
         <Row>
           <MDBContainer>
             <MDBRow>
               <Col xl={{ span: "4", offset: "4" }}>
-                <MDBCard style={{ marginTop: "30px", marginBottom: "30px" }}>
+                <MDBCard style={{ marginTop: "10px", marginBottom: "30px" }}>
                   <MDBCardBody>
                     <form>
                       <div className="grey-text">
@@ -128,6 +165,7 @@ class FormExample extends React.Component {
                               group
                               type="email"
                               id="email"
+                              placeholder="sachinjav@gmail.com"
                             />
                           </Col>
                           <Col xl={{ span: "12" }}>
@@ -151,6 +189,7 @@ class FormExample extends React.Component {
                               label="Confirm password"
                               group
                               type="password"
+                              id="confmpassword"
                               validate
                             />
                           </Col>
@@ -172,6 +211,22 @@ class FormExample extends React.Component {
             </MDBRow>
           </MDBContainer>
         </Row>
+        <Modal
+          show={this.state.validateSignUp}
+          onHide={this.handleSignUpclose}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header>
+            <Modal.Title id="contained-modal-title-center">
+              <span style={{ color: "red" }}>{this.state.errorMsg}</span>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Footer>
+            <Button onClick={this.handleSignUpclose}>OK</Button>
+          </Modal.Footer>
+        </Modal>
       </>
     );
   }

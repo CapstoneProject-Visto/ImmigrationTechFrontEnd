@@ -83,7 +83,7 @@ class Header extends React.Component {
                     to={{
                       pathname: navitem[1],
                     }}
-                    style={{ textDecoration: "none", paddingTop: "8px" }}
+                    style={{ textDecoration: "none" }}
                   >
                     <span style={{ color: "black" }}>{navitem[0]}</span>
                   </Link>
@@ -92,8 +92,11 @@ class Header extends React.Component {
                   <button
                     type="submit"
                     variant="outline-light"
-                    // className="btn"
-                    style={{ backgroundColor: "#E0E0E0  ", color: "black" }}
+                    style={{
+                      border: "none",
+                      backgroundColor: "#E0E0E0  ",
+                      color: "black",
+                    }}
                     onClick={this.handlelogoutbutton}
                     value="LOGOUT"
                   >
