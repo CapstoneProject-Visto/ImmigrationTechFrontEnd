@@ -1,0 +1,24 @@
+.contact-item{
+  margin: 10px 0;
+}
+
+.edit-contact{
+  max-width: 30%;
+  margin: 0 auto;
+
+ /* background-color: darkblue; */
+  /* text-align: center; */
+}
+
+.delete-contact{
+  max-width: 30%;
+  /* background-color: crimson; */
+  margin: 0 auto;
+}
+
+.bookmark-contact{
+  max-width: 30%;
+  /* background-color: crimson; */
+  margin: 0 auto;
+}
+
