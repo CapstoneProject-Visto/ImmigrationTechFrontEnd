@@ -61,53 +61,63 @@ class UpdateForeignEdu extends React.Component {
         <Header />
         <Row
           style={{
-            backgroundColor: "white",
-            minHeight: "calc(67.5vh)",
+            backgroundColor: "lightgreen",
+            minHeight: "calc(70.3vh)",
           }}
         >
           <Col
-            md={{ span: 5, offset: 4 }}
-            sm={{ offset: 2 }}
-            xs={{ offset: 1 }}
-            style={{ marginTop: "10vh" }}
+            xl={{ span: "4", offset: "4" }}
+            // md={{ span: 5, offset: 4 }}
+            // sm={{ offset: 2 }}
+            // xs={{ offset: 1 }}
+            style={{
+              backgroundColor: "white",
+              marginTop: "20px",
+              marginBottom: "20px",
+              boxShadow: "5px 5px #888888",
+            }}
           >
-            <h3>4. What is the level of education ?</h3>
-            <h4>Enter the highest level of education you have achieved </h4>
-
-            <select
-              style={{ width: "450px", marginTop: "4vh" }}
-              onChange={this.levelofeducation}
+            <Col
+              md={{ span: 11, offset: 0 }}
+              style={{ textAlign: "center", marginTop: "10vh" }}
             >
-              <option name="select" value="select">
-                ---SELECT---
-              </option>
-              <option name="education" value="none">
-                None, or less than secondary (high school)
-              </option>
-              <option name="education" value="secondary">
-                Secondary diploma (high school graduation)
-              </option>
-              <option name="education" value="one-year">
-                One-year program at a university, college, trade or technical
-                school, or other institute
-              </option>
-              <option name="education" value="two-year">
-                Two-year program at a university, college, trade or technical
-                school, or other institute
-              </option>
-              <option name="education" value="bachelors">
-                Bachelor's degree (three or more year program at a university,
-                college, trade or technical school, or other institute)
-              </option>
-              <option name="education" value="masters">
-                Master's degree, or professional degree needed to practice in a
-                licensed profession (see Help)
-              </option>
-              <option name="education" value="doctoral">
-                Doctoral level university degree (PhD)
-              </option>
-            </select>
+              <h3>4. What is the level of education ?</h3>
+              <h4>Enter the highest level of education you have achieved </h4>
 
+              <select
+                style={{ width: "450px", marginTop: "4vh" }}
+                onChange={this.levelofeducation}
+              >
+                <option name="select" value="select">
+                  ---SELECT---
+                </option>
+                <option name="education" value="none">
+                  None, or less than secondary (high school)
+                </option>
+                <option name="education" value="secondary">
+                  Secondary diploma (high school graduation)
+                </option>
+                <option name="education" value="one-year">
+                  One-year program at a university, college, trade or technical
+                  school, or other institute
+                </option>
+                <option name="education" value="two-year">
+                  Two-year program at a university, college, trade or technical
+                  school, or other institute
+                </option>
+                <option name="education" value="bachelors">
+                  Bachelor's degree (three or more year program at a university,
+                  college, trade or technical school, or other institute)
+                </option>
+                <option name="education" value="masters">
+                  Master's degree, or professional degree needed to practice in
+                  a licensed profession (see Help)
+                </option>
+                <option name="education" value="doctoral">
+                  Doctoral level university degree (PhD)
+                </option>
+              </select>
+            </Col>
             {this.state.level_of_education != "" ? (
               <div style={{ marginTop: "20px" }}>
                 <Button apiCall={this.submitData} />

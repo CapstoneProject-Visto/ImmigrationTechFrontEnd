@@ -103,105 +103,117 @@ class UserLogin extends React.Component {
   render() {
     return (
       <>
-        <Row>
-          <Col
-            style={{ marginTop: "30px" }}
-            xl={{ span: "3", offset: "4" }}
-            md={{ span: "2", offset: "5" }}
-          >
-            <p className="h5 text-center">LOGIN IN</p>
-          </Col>
-        </Row>
-        <Row>
-          <Col
-            style={{ marginTop: "40px" }}
-            xl={{ span: "2", offset: "4" }}
-            md={{ span: "2", offset: "4" }}
-            xs={{ span: "2", offset: "4" }}
-          >
-            <div class="form-check">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="user"
-                name="materialExampleRadios"
-                onClick={this.setUserType}
-              />
-              <label class="form-check-label" for="user">
-                User
-              </label>
-            </div>
-          </Col>
-          <Col
-            style={{ marginTop: "40px" }}
-            xl={{ span: "2", offset: "0" }}
-            md={{ span: "2" }}
-            xs={{ span: "2" }}
-          >
-            <div class="form-check">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="admin"
-                name="materialExampleRadios"
-                onClick={this.setUserType}
-              />
-              <label class="form-check-label" for="admin">
-                Admin
-              </label>
-            </div>
-          </Col>
-
-          <MDBContainer>
-            <MDBRow
-              style={{
-                width: "70%",
-                height: "50.3vh",
-              }}
-              center="true"
+        <Col
+          style={{
+            marginBottom: "20px",
+            backgroundColor: "white",
+            boxShadow: "3px 4px 3px black",
+            marginTop: "15px",
+          }}
+          xl={{ span: 4, offset: "4" }}
+          lg={{ span: 4, offset: "4" }}
+          md={{ offset: "3", span: "6" }}
+        >
+          <Row>
+            <Col
+              style={{ marginTop: "30px" }}
+              xl={{ span: "4", offset: "4" }}
+              md={{ span: "6", offset: "3" }}
             >
-              <Col
-                xl={{ offset: "4", span: "5" }}
-                md={{ offset: "5", span: "10" }}
-                xs={{ offset: "6", span: "12" }}
+              <p className="h5 text-center">LOGIN IN</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              style={{ marginTop: "40px" }}
+              xl={{ span: "4", offset: "3" }}
+              md={{ span: "3", offset: "2" }}
+              xs={{ span: "2", offset: "4" }}
+            >
+              <div class="form-check">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="user"
+                  name="materialExampleRadios"
+                  onClick={this.setUserType}
+                />
+                <label class="form-check-label" for="user">
+                  User
+                </label>
+              </div>
+            </Col>
+            <Col
+              style={{ marginTop: "40px" }}
+              xl={{ offset: "0" }}
+              md={{ span: "2", offset: "1" }}
+              xs={{ span: "2" }}
+            >
+              <div class="form-check">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="admin"
+                  name="materialExampleRadios"
+                  onClick={this.setUserType}
+                />
+                <label class="form-check-label" for="admin">
+                  Admin
+                </label>
+              </div>
+            </Col>
+
+            <MDBContainer>
+              <MDBRow
+                style={{
+                  width: "80%",
+                  height: "50.3vh",
+                }}
+                center="true"
               >
-                <form style={{ marginTop: "5vh" }}>
-                  <div className="grey-text">
-                    <MDBInput label="Type your email" id="username" />
-                    <MDBInput
-                      type="password"
-                      label="Type your password"
-                      id="password"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <MDBBtn
-                      style={{ marginTop: "7vh" }}
-                      onClick={this.loginfunction}
-                    >
-                      Login
-                    </MDBBtn>
-                  </div>
-                </form>
-                <Row>
-                  <div style={{ display: "flex" }}>
-                    <Col
-                      style={{ marginTop: "25px" }}
-                      xl={{ span: "7", offset: "3" }}
-                    >
-                      <h6>Forgot Password</h6>
-                    </Col>
-                    <Col xl={{ span: "6", offset: "0" }}>
-                      <Link to={{ pathname: "/signup" }}>
-                        <h6 style={{ color: "blue" }}>Sign Up here</h6>
-                      </Link>
-                    </Col>
-                  </div>
-                </Row>
-              </Col>
-            </MDBRow>
-          </MDBContainer>
-        </Row>
+                <Col
+                  xl={{ offset: "4", span: "10" }}
+                  md={{ offset: "4", span: "11" }}
+                  xs={{ offset: "6", span: "12" }}
+                >
+                  <form style={{ marginTop: "5vh" }}>
+                    <div className="grey-text">
+                      <MDBInput label="Type your email" id="username" />
+                      <MDBInput
+                        type="password"
+                        label="Type your password"
+                        id="password"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <MDBBtn
+                        style={{ marginTop: "5vh" }}
+                        onClick={this.loginfunction}
+                      >
+                        Login
+                      </MDBBtn>
+                    </div>
+                  </form>
+                  <Row>
+                    <div style={{ display: "flex" }}>
+                      <Col
+                        style={{ marginTop: "3.5vh" }}
+                        xl={{ span: "7", offset: "0" }}
+                      >
+                        <h6>Forgot Password</h6>
+                      </Col>
+                      <Col xl={{ span: "6", offset: "0" }}>
+                        <Link to={{ pathname: "/signup" }}>
+                          <h6 style={{ color: "blue" }}>Sign Up here</h6>
+                        </Link>
+                      </Col>
+                    </div>
+                  </Row>
+                </Col>
+              </MDBRow>
+            </MDBContainer>
+          </Row>
+        </Col>
         <Modal
           show={this.state.validateLogin}
           onHide={this.handleloginclose}

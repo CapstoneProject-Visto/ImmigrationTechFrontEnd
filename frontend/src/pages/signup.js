@@ -6,9 +6,11 @@ import Footer from "../components/footer";
 function SignupPage() {
   return (
     <>
-      <Header />
-      <SignUpForm />
-      <Footer />
+      <div style={{ backgroundColor: "#2ddfff" }}>
+        <Header />
+        <SignUpForm />
+        <Footer />
+      </div>
     </>
   );
 }

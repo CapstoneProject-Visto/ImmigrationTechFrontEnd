@@ -37,6 +37,7 @@ class FormExample extends React.Component {
       },
       () => {
         this.removeallData();
+        this.props.history.push("/login");
       }
     );
   }
@@ -81,6 +82,7 @@ class FormExample extends React.Component {
         data
       )
       .then((res) => {
+        console.log(res.data);
         if (res.data["status"] == "0") {
           this.setState({
             errorMsg: res.data.message,
@@ -104,7 +106,13 @@ class FormExample extends React.Component {
           <MDBContainer>
             <MDBRow>
               <Col xl={{ span: "4", offset: "4" }}>
-                <MDBCard style={{ marginTop: "10px", marginBottom: "30px" }}>
+                <MDBCard
+                  style={{
+                    marginTop: "10px",
+                    boxShadow: "3px 4px 3px black",
+                    marginBottom: "30px",
+                  }}
+                >
                   <MDBCardBody>
                     <form>
                       <div className="grey-text">

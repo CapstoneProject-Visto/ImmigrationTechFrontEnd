@@ -31,6 +31,13 @@ body {
   padding-right: 0px !important;
 }
 
+.footer_contact {
+  text-align: center;
+  padding-top: 10px;
+  color: white;
+  font-size: small;
+}
+
 .md-form .prefix ~ input {
   margin-left: 1rem;
 }

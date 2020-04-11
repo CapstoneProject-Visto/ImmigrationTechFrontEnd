@@ -57,59 +57,71 @@ class UpdateCadWorkExp extends React.Component {
         <Header />
         <Row
           style={{
-            backgroundColor: "white",
-            minHeight: "calc(67.5vh)",
+            backgroundColor: "lightgreen",
+            minHeight: "calc(70.3vh)",
           }}
         >
           <Col
-            md={{ span: 5, offset: 4 }}
-            sm={{ offset: 2 }}
-            xs={{ offset: 1 }}
-            style={{ marginTop: "10vh" }}
+            xl={{ span: "4", offset: "4" }}
+            // md={{ span: 5, offset: 4 }}
+            // sm={{ offset: 2 }}
+            // xs={{ offset: 1 }}
+            style={{
+              backgroundColor: "white",
+              marginTop: "10px",
+              marginBottom: "20px",
+              boxShadow: "5px 5px #888888",
+            }}
           >
-            <div>6 . Work Experience</div>
-            <p>
-              i. In the last ten years, how many years of skilled work
-              experience in Canada do you have?
-            </p>
-            <p>
-              It must have been paid and full-time (or an equal amount in
-              part-time).
-            </p>
-            <p>
-              Note: In Canada, the National Occupational Classification (NOC) is
-              the official list of all the jobs in the Canadian labour market.
-              It describes each job according to skill type, group and level.
-            </p>
-            <p>
-              "Skilled work" in the NOC is:
-              <br />
-              managerial jobs (NOC Skill Level 0)
-              <br />
-              professional jobs (NOC Skill Type A)
-              <br />
-              technical jobs and skilled trades/manual work (NOC Skill Type B)
-              <br />
-            </p>
-            <sup style={{ color: "red" }}>*</sup> If you aren’t sure of the NOC
-            level for this job, you can{" "}
-            <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/find-national-occupation-code.html">
-              find your NOC.
-            </a>
-            <select
-              name="workexperienceoptions"
-              onChange={this.canadianexpselected}
+            <Col
+              md={{ span: 11, offset: 0 }}
+              style={{ textAlign: "center", marginTop: "3vh" }}
             >
-              <option value="select">---SELECT---</option>
-              <option value="none or less than a year">
-                None or less than a year
-              </option>
-              <option value="1 year">1 year</option>
-              <option value="2 years">2 years</option>
-              <option value="3 years">3 years</option>
-              <option value="4 years">4 years</option>
-              <option value="5 years or more">5 years or more</option>
-            </select>
+              <div>6 . Work Experience</div>
+              <p>
+                i. In the last ten years, how many years of skilled work
+                experience in Canada do you have?
+              </p>
+              <p>
+                It must have been paid and full-time (or an equal amount in
+                part-time).
+              </p>
+              <p>
+                Note: In Canada, the National Occupational Classification (NOC)
+                is the official list of all the jobs in the Canadian labour
+                market. It describes each job according to skill type, group and
+                level.
+              </p>
+              <p>
+                "Skilled work" in the NOC is:
+                <br />
+                managerial jobs (NOC Skill Level 0)
+                <br />
+                professional jobs (NOC Skill Type A)
+                <br />
+                technical jobs and skilled trades/manual work (NOC Skill Type B)
+                <br />
+              </p>
+              <sup style={{ color: "red" }}>*</sup> If you aren’t sure of the
+              NOC level for this job, you can{" "}
+              <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/find-national-occupation-code.html">
+                find your NOC.
+              </a>
+              <select
+                name="workexperienceoptions"
+                onChange={this.canadianexpselected}
+              >
+                <option value="select">---SELECT---</option>
+                <option value="none or less than a year">
+                  None or less than a year
+                </option>
+                <option value="1 year">1 year</option>
+                <option value="2 years">2 years</option>
+                <option value="3 years">3 years</option>
+                <option value="4 years">4 years</option>
+                <option value="5 years or more">5 years or more</option>
+              </select>
+            </Col>
             {this.state.years !== "" ? (
               <Animated
                 animationIn="fadeIn"
@@ -118,7 +130,9 @@ class UpdateCadWorkExp extends React.Component {
                 animationOutDuration={1000}
                 isVisible={true}
               >
-                <Button apiCall={this.submitData} />
+                <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+                  <Button apiCall={this.submitData} />
+                </div>
               </Animated>
             ) : null}
           </Col>

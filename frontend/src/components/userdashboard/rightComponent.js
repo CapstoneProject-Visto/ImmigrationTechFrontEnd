@@ -36,406 +36,435 @@ class RightComponent extends React.Component {
       <>
         <Header />
         {console.log("This state" + JSON.stringify(this.state))}
-        <Container style={{ marginBottom: "40px" }}>
-          {this.state.data !== undefined ? (
-            <>
-              {console.log(this.state.data)}
-              {/* Row 1 */}
-              <Row style={{ paddingTop: "4vh" }}>
-                <Col
-                  // className="infoCards"
-                  xl={{ span: 3, offset: 1 }}
-                  lg={{ span: 3, offset: 1 }}
-                  md={{ span: 4, offset: 0 }}
-                >
-                  <Link to="/cadeduupdate" style={{ textDecoration: "none" }}>
-                    <Card
-                      style={{
-                        backgroundColor: "lightgreen",
-                      }}
-                    >
-                      <Card.Header style={{ textAlign: "center" }}>
-                        {/* {this.state.data[0].header} */}
-                        Canadian Education
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Title>
-                          <AnimatedProgressProvider
-                            valueStart={0}
-                            valueEnd={
-                              (this.state.data.subtotal[3]["Study in Canada"] *
-                                100) /
-                              30
-                            }
-                            duration={1.4}
-                            easingFunction={easeQuadInOut}
-                          >
-                            {(value) => {
-                              const roundedValue = Math.round(value);
-                              return (
-                                <CircularProgressbar
-                                  value={value}
-                                  text={`${roundedValue}%`}
-                                  styles={buildStyles({
-                                    pathTransition: "none",
-                                  })}
-                                />
-                              );
-                            }}
-                          </AnimatedProgressProvider>
-                        </Card.Title>
-                        <hr></hr>
-                        <Card.Text
-                          style={{
-                            color: "green",
-                            textAlign: "center",
-                          }}
-                        >
-                          {this.state.data.subtotal[3]["Study in Canada"]} / 30
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                </Col>
-                <hr></hr>
-                {/* ***********Card 2 ******************/}
-                <Col
-                  // className="infoCards"
-                  xl={{ span: 3, offset: 1 }}
-                  lg={{ span: 3, offset: 1 }}
-                  md={{ span: 4, offset: 0 }}
-                >
-                  <Link
-                    to="/cadforeigneduupdate"
-                    style={{ textDecoration: "none" }}
+        <Container style={{ backgroundColor: "grey" }}>
+          <span style={{ height: "10px" }}></span>
+          <div
+            style={{
+              marginLeft: "auto",
+              boxShadow: "1px solid black",
+              width: "90%",
+              backgroundColor: "white",
+            }}
+          >
+            <Row>
+              <Col
+                style={{
+                  marginTop: "15px",
+                  fontSize: "30px",
+                  fontFamily: "Times New Roman, Times, serif",
+                  color: "blue",
+                }}
+                xl={{ offset: "6" }}
+              >
+                User DashBoard
+              </Col>
+            </Row>
+            {this.state.data !== undefined ? (
+              <>
+                {console.log(this.state.data)}
+                {/* Row 1 */}
+                <Row>
+                  <Col
+                    // className="infoCards"
+                    xl={{ span: 3, offset: 1 }}
+                    lg={{ span: 3, offset: 1 }}
+                    md={{ span: 4, offset: 0 }}
                   >
-                    <Card
-                      style={{
-                        backgroundColor: "lightgreen",
-                      }}
-                    >
-                      <Card.Header style={{ textAlign: "center" }}>
-                        {/* {this.state.data[1].header} */}
-                        Foreign Education
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Title>
-                          <AnimatedProgressProvider
-                            valueStart={0}
-                            valueEnd={
-                              (this.state.data.subtotal[0][
-                                "Level of Education"
-                              ] *
-                                100) /
-                              150
-                            }
-                            duration={1.4}
-                            easingFunction={easeQuadInOut}
-                          >
-                            {(value) => {
-                              const roundedValue = Math.round(value);
-                              return (
-                                <CircularProgressbar
-                                  value={value}
-                                  text={`${roundedValue}%`}
-                                  styles={buildStyles({
-                                    pathTransition: "none",
-                                  })}
-                                />
-                              );
+                    <Link to="/cadeduupdate" style={{ textDecoration: "none" }}>
+                      <Card
+                        style={{
+                          backgroundColor: "lightgreen",
+                        }}
+                      >
+                        <Card.Header style={{ textAlign: "center" }}>
+                          {/* {this.state.data[0].header} */}
+                          Canadian Education
+                        </Card.Header>
+                        <Card.Body>
+                          <Card.Title>
+                            <AnimatedProgressProvider
+                              valueStart={0}
+                              valueEnd={
+                                (this.state.data.subtotal[3][
+                                  "Study in Canada"
+                                ] *
+                                  100) /
+                                30
+                              }
+                              duration={1.4}
+                              easingFunction={easeQuadInOut}
+                            >
+                              {(value) => {
+                                const roundedValue = Math.round(value);
+                                return (
+                                  <CircularProgressbar
+                                    value={value}
+                                    text={`${roundedValue}%`}
+                                    styles={buildStyles({
+                                      pathTransition: "none",
+                                    })}
+                                  />
+                                );
+                              }}
+                            </AnimatedProgressProvider>
+                          </Card.Title>
+                          <hr></hr>
+                          <Card.Text
+                            style={{
+                              color: "green",
+                              textAlign: "center",
                             }}
-                          </AnimatedProgressProvider>
-                        </Card.Title>
-                        <hr></hr>
-                        <Card.Text
-                          style={{ color: "green", textAlign: "center" }}
-                        >
-                          {this.state.data.subtotal[0]["Level of Education"]} /
-                          150
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                </Col>
-                <hr></hr>
-
-                {/* ***********Card 3 ******************/}
-
-                <Col
-                  // className="infoCards"
-                  xl={{ span: 3, offset: 1 }}
-                  lg={{ span: 3, offset: 1 }}
-                  md={{ span: 4, offset: 0 }}
-                >
-                  <Link
-                    to="/updateforeignworkexp"
-                    style={{ textDecoration: "none" }}
+                          >
+                            {this.state.data.subtotal[3]["Study in Canada"]} /
+                            30
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Link>
+                  </Col>
+                  <hr></hr>
+                  {/* ***********Card 2 ******************/}
+                  <Col
+                    // className="infoCards"
+                    xl={{ span: 3, offset: 1 }}
+                    lg={{ span: 3, offset: 1 }}
+                    md={{ span: 4, offset: 0 }}
                   >
-                    <Card
-                      style={{
-                        backgroundColor: "lightgreen",
-                      }}
+                    <Link
+                      to="/cadforeigneduupdate"
+                      style={{ textDecoration: "none" }}
                     >
-                      <Card.Header style={{ textAlign: "center" }}>
-                        {/* {this.state.data[2].header} */}
-                        Foreign Work Experience
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Title>
-                          <AnimatedProgressProvider
-                            valueStart={0}
-                            valueEnd={
-                              (this.state.data.subtotal[2][
+                      <Card
+                        style={{
+                          backgroundColor: "lightgreen",
+                        }}
+                      >
+                        <Card.Header style={{ textAlign: "center" }}>
+                          {/* {this.state.data[1].header} */}
+                          Foreign Education
+                        </Card.Header>
+                        <Card.Body>
+                          <Card.Title>
+                            <AnimatedProgressProvider
+                              valueStart={0}
+                              valueEnd={
+                                (this.state.data.subtotal[0][
+                                  "Level of Education"
+                                ] *
+                                  100) /
+                                150
+                              }
+                              duration={1.4}
+                              easingFunction={easeQuadInOut}
+                            >
+                              {(value) => {
+                                const roundedValue = Math.round(value);
+                                return (
+                                  <CircularProgressbar
+                                    value={value}
+                                    text={`${roundedValue}%`}
+                                    styles={buildStyles({
+                                      pathTransition: "none",
+                                    })}
+                                  />
+                                );
+                              }}
+                            </AnimatedProgressProvider>
+                          </Card.Title>
+                          <hr></hr>
+                          <Card.Text
+                            style={{ color: "green", textAlign: "center" }}
+                          >
+                            {this.state.data.subtotal[0]["Level of Education"]}{" "}
+                            / 150
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Link>
+                  </Col>
+                  <hr></hr>
+
+                  {/* ***********Card 3 ******************/}
+
+                  <Col
+                    // className="infoCards"
+                    xl={{ span: 3, offset: 1 }}
+                    lg={{ span: 3, offset: 1 }}
+                    md={{ span: 4, offset: 0 }}
+                  >
+                    <Link
+                      to="/updateforeignworkexp"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Card
+                        style={{
+                          backgroundColor: "lightgreen",
+                        }}
+                      >
+                        <Card.Header style={{ textAlign: "center" }}>
+                          {/* {this.state.data[2].header} */}
+                          Foreign Work Experience
+                        </Card.Header>
+                        <Card.Body>
+                          <Card.Title>
+                            <AnimatedProgressProvider
+                              valueStart={0}
+                              valueEnd={
+                                (this.state.data.subtotal[2][
+                                  "Foreign work experience"
+                                ] *
+                                  100) /
+                                50
+                              }
+                              duration={1.4}
+                              easingFunction={easeQuadInOut}
+                            >
+                              {(value) => {
+                                const roundedValue = Math.round(value);
+                                return (
+                                  <CircularProgressbar
+                                    value={value}
+                                    text={`${roundedValue}%`}
+                                    styles={buildStyles({
+                                      pathTransition: "none",
+                                    })}
+                                  />
+                                );
+                              }}
+                            </AnimatedProgressProvider>
+                          </Card.Title>
+                          <hr></hr>
+                          <Card.Text
+                            style={{ color: "green", textAlign: "center" }}
+                          >
+                            {
+                              this.state.data.subtotal[2][
                                 "Foreign work experience"
-                              ] *
-                                100) /
-                              50
-                            }
-                            duration={1.4}
-                            easingFunction={easeQuadInOut}
-                          >
-                            {(value) => {
-                              const roundedValue = Math.round(value);
-                              return (
-                                <CircularProgressbar
-                                  value={value}
-                                  text={`${roundedValue}%`}
-                                  styles={buildStyles({
-                                    pathTransition: "none",
-                                  })}
-                                />
-                              );
-                            }}
-                          </AnimatedProgressProvider>
-                        </Card.Title>
-                        <hr></hr>
-                        <Card.Text
-                          style={{ color: "green", textAlign: "center" }}
-                        >
-                          {
-                            this.state.data.subtotal[2][
-                              "Foreign work experience"
-                            ]
-                          }{" "}
-                          / 50
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                </Col>
-              </Row>
-              {/* ********************************************************************************** */}
-              {/* Row 2 */}
+                              ]
+                            }{" "}
+                            / 50
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Link>
+                  </Col>
+                </Row>
+                {/* ********************************************************************************** */}
+                {/* Row 2 */}
 
-              <Row style={{ paddingTop: "4vh" }}>
-                <Col
-                  // className="infoCards"
-                  xl={{ span: 3, offset: 1 }}
-                  lg={{ span: 3, offset: 1 }}
-                  md={{ span: 4, offset: 0 }}
-                >
-                  <Link
-                    to="/updatecadworkexp"
-                    style={{ textDecoration: "none" }}
+                <Row>
+                  <Col
+                    // className="infoCards"
+                    xl={{ span: 3, offset: 1 }}
+                    lg={{ span: 3, offset: 1 }}
+                    md={{ span: 4, offset: 0 }}
                   >
-                    <Card
-                      style={{
-                        backgroundColor: "lightgreen",
-                      }}
+                    <Link
+                      to="/updatecadworkexp"
+                      style={{ textDecoration: "none" }}
                     >
-                      <Card.Header style={{ textAlign: "center" }}>
-                        {/* {this.state.data[0].header} */}
-                        Canadian Work Experience
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Title>
-                          <AnimatedProgressProvider
-                            valueStart={0}
-                            valueEnd={
-                              (this.state.data.subtotal[0][
+                      <Card
+                        style={{
+                          backgroundColor: "lightgreen",
+                        }}
+                      >
+                        <Card.Header style={{ textAlign: "center" }}>
+                          {/* {this.state.data[0].header} */}
+                          Canadian Work Experience
+                        </Card.Header>
+                        <Card.Body>
+                          <Card.Title>
+                            <AnimatedProgressProvider
+                              valueStart={0}
+                              valueEnd={
+                                (this.state.data.subtotal[0][
+                                  "Canadian work experience"
+                                ] *
+                                  100) /
+                                80
+                              }
+                              duration={1.4}
+                              easingFunction={easeQuadInOut}
+                            >
+                              {(value) => {
+                                const roundedValue = Math.round(value);
+                                return (
+                                  <CircularProgressbar
+                                    value={value}
+                                    text={`${roundedValue}%`}
+                                    styles={buildStyles({
+                                      pathTransition: "none",
+                                    })}
+                                  />
+                                );
+                              }}
+                            </AnimatedProgressProvider>
+                          </Card.Title>
+                          <hr></hr>
+                          <Card.Text
+                            style={{
+                              color: "green",
+                              textAlign: "center",
+                            }}
+                          >
+                            {
+                              this.state.data.subtotal[0][
                                 "Canadian work experience"
-                              ] *
-                                100) /
-                              80
-                            }
-                            duration={1.4}
-                            easingFunction={easeQuadInOut}
-                          >
-                            {(value) => {
-                              const roundedValue = Math.round(value);
-                              return (
-                                <CircularProgressbar
-                                  value={value}
-                                  text={`${roundedValue}%`}
-                                  styles={buildStyles({
-                                    pathTransition: "none",
-                                  })}
-                                />
-                              );
-                            }}
-                          </AnimatedProgressProvider>
-                        </Card.Title>
-                        <hr></hr>
-                        <Card.Text
-                          style={{
-                            color: "green",
-                            textAlign: "center",
-                          }}
-                        >
-                          {
-                            this.state.data.subtotal[0][
-                              "Canadian work experience"
-                            ]
-                          }{" "}
-                          / 80
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                </Col>
-                <hr></hr>
-                {/* ***********Card 2 ******************/}
-                <Col
-                  // className="infoCards"
-                  xl={{ span: 3, offset: 1 }}
-                  lg={{ span: 3, offset: 1 }}
-                  md={{ span: 4, offset: 0 }}
-                >
-                  <Link to="/updatelanguage" style={{ textDecoration: "none" }}>
-                    <Card
-                      style={{
-                        backgroundColor: "lightgreen",
-                      }}
-                    >
-                      <Card.Header style={{ textAlign: "center" }}>
-                        {/* {this.state.data[1].header} */}
-                        Official Language
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Title>
-                          <AnimatedProgressProvider
-                            valueStart={0}
-                            valueEnd={
-                              (this.state.data.subtotal[0][
-                                "Official languages proficiency"
-                              ] *
-                                100) /
-                              136
-                            }
-                            duration={1.4}
-                            easingFunction={easeQuadInOut}
-                          >
-                            {(value) => {
-                              const roundedValue = Math.round(value);
-                              return (
-                                <CircularProgressbar
-                                  value={value}
-                                  text={`${roundedValue}%`}
-                                  styles={buildStyles({
-                                    pathTransition: "none",
-                                  })}
-                                />
-                              );
-                            }}
-                          </AnimatedProgressProvider>
-                        </Card.Title>
-                        <hr></hr>
-                        <Card.Text
-                          style={{ color: "green", textAlign: "center" }}
-                        >
-                          {
-                            this.state.data.subtotal[0][
-                              "Official languages proficiency"
-                            ]
-                          }{" "}
-                          / 136
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                </Col>
-                <hr></hr>
-
-                {/* ***********Card 3 ******************/}
-                <Col
-                  // className="infoCards"
-                  xl={{ span: 3, offset: 1 }}
-                  lg={{ span: 3, offset: 1 }}
-                  md={{ span: 4, offset: 0 }}
-                >
-                  <Link
-                    to="/updateadditional"
-                    style={{ textDecoration: "none" }}
+                              ]
+                            }{" "}
+                            / 80
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Link>
+                  </Col>
+                  <hr></hr>
+                  {/* ***********Card 2 ******************/}
+                  <Col
+                    // className="infoCards"
+                    xl={{ span: 3, offset: 1 }}
+                    lg={{ span: 3, offset: 1 }}
+                    md={{ span: 4, offset: 0 }}
                   >
-                    <Card
-                      style={{
-                        backgroundColor: "lightgreen",
-                      }}
+                    <Link
+                      to="/updatelanguage"
+                      style={{ textDecoration: "none" }}
                     >
-                      <Card.Header style={{ textAlign: "center" }}>
-                        {/* {this.state.data[2].header} */}
-                        Additional Points
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Title>
-                          <AnimatedProgressProvider
-                            valueStart={0}
-                            valueEnd={
-                              ((this.state.data.subtotal[0].Age +
-                                this.state.data.subtotal[2][
-                                  "Certificate of qualification"
-                                ] +
-                                this.state.data.subtotal[3][
-                                  "Provincial nomination"
-                                ] +
-                                this.state.data.subtotal[3]["Job offer"] +
-                                this.state.data.subtotal[3][
-                                  "Sibling in Canada"
-                                ]) *
-                                100) /
-                              975
-                            }
-                            duration={1.4}
-                            easingFunction={easeQuadInOut}
+                      <Card
+                        style={{
+                          backgroundColor: "lightgreen",
+                        }}
+                      >
+                        <Card.Header style={{ textAlign: "center" }}>
+                          {/* {this.state.data[1].header} */}
+                          Official Language
+                        </Card.Header>
+                        <Card.Body>
+                          <Card.Title>
+                            <AnimatedProgressProvider
+                              valueStart={0}
+                              valueEnd={
+                                (this.state.data.subtotal[0][
+                                  "Official languages proficiency"
+                                ] *
+                                  100) /
+                                136
+                              }
+                              duration={1.4}
+                              easingFunction={easeQuadInOut}
+                            >
+                              {(value) => {
+                                const roundedValue = Math.round(value);
+                                return (
+                                  <CircularProgressbar
+                                    value={value}
+                                    text={`${roundedValue}%`}
+                                    styles={buildStyles({
+                                      pathTransition: "none",
+                                    })}
+                                  />
+                                );
+                              }}
+                            </AnimatedProgressProvider>
+                          </Card.Title>
+                          <hr></hr>
+                          <Card.Text
+                            style={{ color: "green", textAlign: "center" }}
                           >
-                            {(value) => {
-                              const roundedValue = Math.round(value);
-                              return (
-                                <CircularProgressbar
-                                  value={value}
-                                  text={`${roundedValue}%`}
-                                  styles={buildStyles({
-                                    pathTransition: "none",
-                                  })}
-                                />
-                              );
-                            }}
-                          </AnimatedProgressProvider>
-                        </Card.Title>
-                        <hr></hr>
-                        <Card.Text
-                          style={{ color: "green", textAlign: "center" }}
-                        >
-                          {this.state.data.subtotal[0].Age +
-                            this.state.data.subtotal[2][
-                              "Certificate of qualification"
-                            ] +
-                            this.state.data.subtotal[3][
-                              "Provincial nomination"
-                            ] +
-                            this.state.data.subtotal[3]["Job offer"] +
-                            this.state.data.subtotal[3][
-                              "Sibling in Canada"
-                            ]}{" "}
-                          / 975
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                </Col>
-              </Row>
-            </>
-          ) : null}
+                            {
+                              this.state.data.subtotal[0][
+                                "Official languages proficiency"
+                              ]
+                            }{" "}
+                            / 136
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Link>
+                  </Col>
+                  <hr></hr>
+
+                  {/* ***********Card 3 ******************/}
+                  <Col
+                    // className="infoCards"
+                    xl={{ span: 3, offset: 1 }}
+                    lg={{ span: 3, offset: 1 }}
+                    md={{ span: 4, offset: 0 }}
+                  >
+                    <Link
+                      to="/updateadditional"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Card
+                        style={{
+                          backgroundColor: "lightgreen",
+                        }}
+                      >
+                        <Card.Header style={{ textAlign: "center" }}>
+                          {/* {this.state.data[2].header} */}
+                          Additional Points
+                        </Card.Header>
+                        <Card.Body>
+                          <Card.Title>
+                            <AnimatedProgressProvider
+                              valueStart={0}
+                              valueEnd={
+                                ((this.state.data.subtotal[0].Age +
+                                  this.state.data.subtotal[2][
+                                    "Certificate of qualification"
+                                  ] +
+                                  this.state.data.subtotal[3][
+                                    "Provincial nomination"
+                                  ] +
+                                  this.state.data.subtotal[3]["Job offer"] +
+                                  this.state.data.subtotal[3][
+                                    "Sibling in Canada"
+                                  ]) *
+                                  100) /
+                                975
+                              }
+                              duration={1.4}
+                              easingFunction={easeQuadInOut}
+                            >
+                              {(value) => {
+                                const roundedValue = Math.round(value);
+                                return (
+                                  <CircularProgressbar
+                                    value={value}
+                                    text={`${roundedValue}%`}
+                                    styles={buildStyles({
+                                      pathTransition: "none",
+                                    })}
+                                  />
+                                );
+                              }}
+                            </AnimatedProgressProvider>
+                          </Card.Title>
+                          <hr></hr>
+                          <Card.Text
+                            style={{ color: "green", textAlign: "center" }}
+                          >
+                            {this.state.data.subtotal[0].Age +
+                              this.state.data.subtotal[2][
+                                "Certificate of qualification"
+                              ] +
+                              this.state.data.subtotal[3][
+                                "Provincial nomination"
+                              ] +
+                              this.state.data.subtotal[3]["Job offer"] +
+                              this.state.data.subtotal[3][
+                                "Sibling in Canada"
+                              ]}{" "}
+                            / 975
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Link>
+                  </Col>
+                </Row>
+              </>
+            ) : null}
+          </div>
         </Container>
         <Footer />
       </>

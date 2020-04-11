@@ -5,9 +5,11 @@ import Login from "../components/auth/login";
 function LoginPage() {
   return (
     <>
-      <Header />
-      <Login />
-      <Footer />
+      <div style={{ backgroundColor: "#49b6ff" }}>
+        <Header />
+        <Login />
+        <Footer />
+      </div>
     </>
   );
 }

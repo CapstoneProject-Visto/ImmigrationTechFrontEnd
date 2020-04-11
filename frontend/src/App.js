@@ -28,6 +28,7 @@ import UpdateAdditional from "./pages/update/update_additional_points";
 import Spouse from "./components/spouse";
 import RightComponent from "./components/userdashboard/rightComponent";
 import UserItem from "./components/admindashboard/UserItem";
+import UserInfo from "./components/ContactItem/user_info";
 import FileNotFOund from "./components/filenotfound";
 import UserDashboardWithoutIELTS from "./components/userdashboard/noieltsdashboard";
 import Header from "./components/header";
@@ -81,6 +82,7 @@ function App() {
           component={SignupPage}
           // render={signup => <SignupPage></SignupPage>}
         />
+        <Route exact path="/userinfo" component={UserInfo} />
         <Route
           exact
           path="/certificateorqualification"

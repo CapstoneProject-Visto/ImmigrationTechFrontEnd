@@ -61,15 +61,22 @@ class UpdateForeignWorkExp extends React.Component {
         <Header />
         <Row
           style={{
-            backgroundColor: "white",
-            minHeight: "calc(67.5vh)",
+            backgroundColor: "lightgreen",
+            minHeight: "calc(70.3vh)",
           }}
         >
           <Col
-            md={{ span: 5, offset: 4 }}
-            sm={{ offset: 2 }}
-            xs={{ offset: 1 }}
-            style={{ marginTop: "10vh" }}
+            xl={{ span: "4", offset: "4" }}
+            // md={{ span: 5, offset: 4 }}
+            // sm={{ offset: 2 }}
+            // xs={{ offset: 1 }}
+            style={{
+              backgroundColor: "white",
+              marginTop: "20px",
+              marginBottom: "20px",
+              boxShadow: "5px 5px #888888",
+              padding: "50px",
+            }}
           >
             <p>
               ii. In the last 10 years, how many total years of foreign skilled

@@ -65,35 +65,45 @@ class UpdateEdu extends React.Component {
         <Header />
         <Row
           style={{
-            backgroundColor: "white",
-            minHeight: "calc(67.5vh)",
+            minHeight: "calc(70.3vh)",
+            backgroundColor: "yellow",
           }}
         >
           <Col
-            md={{ span: 4, offset: 4 }}
-            style={{ textAlign: "center", marginTop: "10vh" }}
+            xl={{ span: "4", offset: "4" }}
+            style={{
+              backgroundColor: "white",
+              marginTop: "20px",
+              marginBottom: "20px",
+              boxShadow: "5px 5px #888888",
+            }}
           >
-            4 c) - Choose the best answer to describe the level of your
-            education
-            <select
-              style={{ width: "200px", marginTop: "50px" }}
-              onChange={this.canadianlevelofedu}
+            <Col
+              md={{ span: 6, offset: 3 }}
+              style={{ textAlign: "center", marginTop: "10vh" }}
             >
-              <option name="select" value="select">
-                ---SELECT---
-              </option>
-              <option name="school" value="secondary">
-                Secondary (high school) or less
-              </option>
-              <option name="school" value="one_or_two">
-                One- or two-year diploma or certificate
-              </option>
-              <option name="school" value="three_or_more_or_masters">
-                Degree, diploma or certificate of three years or longer OR a
-                Master’s, professional or doctoral degree of at least one
-                academic year
-              </option>
-            </select>
+              4 c) - Choose the best answer to describe the level of your
+              education
+              <select
+                style={{ width: "200px", marginTop: "50px" }}
+                onChange={this.canadianlevelofedu}
+              >
+                <option name="select" value="select">
+                  ---SELECT---
+                </option>
+                <option name="school" value="secondary">
+                  Secondary (high school) or less
+                </option>
+                <option name="school" value="one_or_two">
+                  One- or two-year diploma or certificate
+                </option>
+                <option name="school" value="three_or_more_or_masters">
+                  Degree, diploma or certificate of three years or longer OR a
+                  Master’s, professional or doctoral degree of at least one
+                  academic year
+                </option>
+              </select>
+            </Col>
             {this.state.level_of_education != "" ? (
               <div style={{ marginTop: "20px" }}>
                 <Button apiCall={this.submitData} />
