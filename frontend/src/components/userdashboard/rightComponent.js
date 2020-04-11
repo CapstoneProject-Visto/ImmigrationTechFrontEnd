@@ -7,6 +7,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { Link } from "react-router-dom";
 import AnimatedProgressProvider from "./animatedProvider";
 import Footer from "../../components/footer";
+import Header from "../header";
 
 class RightComponent extends React.Component {
   constructor(props) {
@@ -14,11 +15,11 @@ class RightComponent extends React.Component {
     this.state = {};
   }
 
-  componentWillMount() {
+  componentDidMount() {
     console.log(sessionStorage.getItem("LoggedIn"));
-    console.log(sessionStorage.getItem("type"));
+    console.log(sessionStorage.getItem("token"));
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/check-score", {
+    fetch("https://capestone-visto-server.herokuapp.com/api/check-score", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -27,13 +28,14 @@ class RightComponent extends React.Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data.subtotal[0]);
         this.setState({ data });
       });
   }
   render() {
     return (
       <>
+        <Header />
+        {console.log("This state" + JSON.stringify(this.state))}
         <Container style={{ marginBottom: "40px" }}>
           {this.state.data !== undefined ? (
             <>

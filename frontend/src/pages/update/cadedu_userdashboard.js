@@ -3,13 +3,16 @@ import UpdateEdu from "../../components/update/cadedu";
 class CadEduUpdate extends React.Component {
   componentDidMount() {
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/canadian-education", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": usertoken,
-      },
-    })
+    fetch(
+      "https://capestone-visto-server.herokuapp.com/api/canadian-education",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": usertoken,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

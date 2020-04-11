@@ -2,6 +2,9 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import Button from "../../submitbtn/index";
+import Header from "../../header";
+import Footer from "../../footer";
+
 class UpdateEdu extends React.Component {
   constructor(props) {
     super(props);
@@ -33,15 +36,18 @@ class UpdateEdu extends React.Component {
 
     let usertoken = sessionStorage.getItem("token");
 
-    fetch("http://localhost:5001/api/canadian-education", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": usertoken,
-      },
+    fetch(
+      "https://capestone-visto-server.herokuapp.com/api/canadian-education",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": usertoken,
+        },
 
-      body: JSON.stringify(this.state),
-    })
+        body: JSON.stringify(this.state),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 1) {
@@ -56,24 +62,21 @@ class UpdateEdu extends React.Component {
   render() {
     return (
       <>
-        <Row>
+        <Header />
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
-            md={{ span: 6, offset: 3 }}
-            style={{ textAlign: "center", marginTop: "20px" }}
+            md={{ span: 4, offset: 4 }}
+            style={{ textAlign: "center", marginTop: "10vh" }}
           >
             4 c) - Choose the best answer to describe the level of your
             education
-          </Col>
-          <Col
-            md={{ offset: 1, span: 5 }}
-            lg={{ offset: 3, span: 6 }}
-            style={{
-              textAlign: "center",
-              marginTop: "20px",
-            }}
-          >
             <select
-              style={{ width: "200px" }}
+              style={{ width: "200px", marginTop: "50px" }}
               onChange={this.canadianlevelofedu}
             >
               <option name="select" value="select">
@@ -91,11 +94,14 @@ class UpdateEdu extends React.Component {
                 academic year
               </option>
             </select>
+            {this.state.level_of_education != "" ? (
+              <div style={{ marginTop: "20px" }}>
+                <Button apiCall={this.submitData} />
+              </div>
+            ) : null}
           </Col>
         </Row>
-        {this.state.level_of_education != "" ? (
-          <Button apiCall={this.submitData} />
-        ) : null}
+        <Footer />
       </>
     );
   }

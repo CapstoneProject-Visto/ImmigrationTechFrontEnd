@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Animated } from "react-animated-css";
 import Button from "../../submitbtn/index";
 import Header from "../../header";
+import Footer from "../../footer";
 class UpdateCadWorkExp extends React.Component {
   constructor(props) {
     super(props);
@@ -29,14 +30,17 @@ class UpdateCadWorkExp extends React.Component {
   submitData() {
     let usertoken = sessionStorage.getItem("token");
 
-    fetch("http://localhost:5001/api/canadian-experience", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": usertoken,
-      },
-      body: JSON.stringify(this.state),
-    })
+    fetch(
+      "https://capestone-visto-server.herokuapp.com/api/canadian-experience",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": usertoken,
+        },
+        body: JSON.stringify(this.state),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.status == 1) {
@@ -51,7 +55,12 @@ class UpdateCadWorkExp extends React.Component {
     return (
       <>
         <Header />
-        <Row>
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
             md={{ span: 5, offset: 4 }}
             sm={{ offset: 2 }}
@@ -87,14 +96,6 @@ class UpdateCadWorkExp extends React.Component {
             <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/find-national-occupation-code.html">
               find your NOC.
             </a>
-          </Col>
-          <Col
-            md={{ span: 8, offset: 2 }}
-            style={{
-              marginTop: "20px",
-              textAlign: "center",
-            }}
-          >
             <select
               name="workexperienceoptions"
               onChange={this.canadianexpselected}
@@ -109,19 +110,20 @@ class UpdateCadWorkExp extends React.Component {
               <option value="4 years">4 years</option>
               <option value="5 years or more">5 years or more</option>
             </select>
+            {this.state.years !== "" ? (
+              <Animated
+                animationIn="fadeIn"
+                animationOut="zoomOutDown"
+                animationInDuration={1000}
+                animationOutDuration={1000}
+                isVisible={true}
+              >
+                <Button apiCall={this.submitData} />
+              </Animated>
+            ) : null}
           </Col>
         </Row>
-        {this.state.years !== "" ? (
-          <Animated
-            animationIn="fadeIn"
-            animationOut="zoomOutDown"
-            animationInDuration={1000}
-            animationOutDuration={1000}
-            isVisible={true}
-          >
-            <Button apiCall={this.submitData} />
-          </Animated>
-        ) : null}
+        <Footer />
       </>
     );
   }

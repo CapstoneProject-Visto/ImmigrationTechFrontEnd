@@ -12,18 +12,22 @@ class UserDashboardMainPage extends React.Component {
       email: "sachinjav@gmail.com",
       password: "12345",
       user_type: "user",
+      headers: {
+        "x-auth-token": sessionStorage.getItem("token"),
+      },
     };
-    fetch("http://localhost:5001/api/misc/isFirstTime", data)
+    // this.props.history.push("/noIeltsDashboard");
+    fetch(
+      "https://capestone-visto-server.herokuapp.com/api/misc/isFirstTime",
+      data
+    )
       .then((res) => res.json())
       .then((fdata) => {
-        if (fdata.status == "0") {
-          this.setState({
-            forward: "false",
-          });
-        } else if (fdata.status == "1") {
-          this.setState({
-            forward: "true",
-          });
+        console.log("Fdata " + fdata);
+        if (fdata.status === 0) {
+          this.props.history.push("/RightComponent");
+        } else if (fdata.status === 1) {
+          this.props.history.push("/noIeltsDashboard");
         }
       });
   }
@@ -31,7 +35,7 @@ class UserDashboardMainPage extends React.Component {
   render() {
     return (
       <>
-        <div
+        {/* <div
           style={{
             height: "auto",
             width: "100%",
@@ -52,7 +56,7 @@ class UserDashboardMainPage extends React.Component {
               </Col>
             </Row>
           </Container>
-        </div>
+        </div> */}
       </>
     );
   }

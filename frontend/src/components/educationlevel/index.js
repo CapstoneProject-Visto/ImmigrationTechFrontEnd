@@ -4,6 +4,7 @@ import { Animated } from "react-animated-css";
 import { withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Header from "../header";
+import Footer from "../footer";
 
 class EducationLevel extends React.Component {
   constructor() {
@@ -25,7 +26,7 @@ class EducationLevel extends React.Component {
 
   submitData() {
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/education", {
+    fetch("https://capestone-visto-server.herokuapp.com/api/education", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,24 +47,24 @@ class EducationLevel extends React.Component {
     return (
       <>
         <Header />
-        <Row>
-          <Col
-            md={{ span: 5, offset: 4 }}
-            sm={{ offset: 2 }}
-            xs={{ offset: 1 }}
-            style={{ marginTop: "10vh" }}
-          >
-            <h3>4. What is the level of education ?</h3>
-            <h4>Enter the highest level of education you have achieved </h4>
-          </Col>
 
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
             md={{ span: 8, offset: 2 }}
             style={{
-              marginTop: "20px",
+              marginTop: "10vh",
               textAlign: "center",
             }}
           >
+            <h3>4. What is the level of education ?</h3>
+            <h4>Enter the highest level of education you have achieved </h4>
+            <br></br>
+            <br></br>
             <select style={{ width: "450px" }} onChange={this.levelofeducation}>
               <option name="select" value="select">
                 ---SELECT---
@@ -98,21 +99,24 @@ class EducationLevel extends React.Component {
                 Doctoral level university degree (PhD)
               </option>
             </select>
+
+            {this.state.level_of_education !== ""
+              ? [
+                  this.state.level_of_education !== "select" ? (
+                    <Animated
+                      animationIn="fadeIn"
+                      animationInDuration={1000}
+                      isVisible={true}
+                    >
+                      <Button submitDataBtn={this.submitData} />
+                    </Animated>
+                  ) : null,
+                ]
+              : null}
           </Col>
         </Row>
-        {this.state.level_of_education !== ""
-          ? [
-              this.state.level_of_education !== "select" ? (
-                <Animated
-                  animationIn="fadeIn"
-                  animationInDuration={1000}
-                  isVisible={true}
-                >
-                  <Button submitDataBtn={this.submitData} />
-                </Animated>
-              ) : null,
-            ]
-          : null}
+
+        <Footer />
       </>
     );
   }

@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Animated } from "react-animated-css";
 import { Row, Col } from "react-bootstrap";
 import Header from "../../header";
-
+import Footer from "../../footer";
 class CertificateOrQualification extends React.Component {
   constructor() {
     super();
@@ -102,7 +102,7 @@ class CertificateOrQualification extends React.Component {
   submitData() {
     // FIXMEAlertifnosessionstoragefound;
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/additional", {
+    fetch("https://capestone-visto-server.herokuapp.com/api/additional", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -125,7 +125,13 @@ class CertificateOrQualification extends React.Component {
     return (
       <>
         <Header />
-        <Row>
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+            marginBottom: "30px",
+          }}
+        >
           <Col
             xl={{ span: 6, offset: 3 }}
             lg={{ span: 6, offset: 3 }}
@@ -150,13 +156,7 @@ class CertificateOrQualification extends React.Component {
               This isn’t the same as a nomination from a province or territory.
               <br />
             </p>
-          </Col>
-          <Col
-            xl={{ span: 2, offset: 5 }}
-            lg={{ span: 2, offset: 5 }}
-            md={{ span: 4, offset: 4 }}
-            style={{ textAlign: "center" }}
-          >
+
             <select
               name="certification_of_qualification"
               onChange={this.certificateorqualification}
@@ -166,29 +166,31 @@ class CertificateOrQualification extends React.Component {
               <option value="certification_of_qualification_yes">YES</option>
               <option value="certification_of_qualification_no">NO</option>
             </select>
+
+            {this.state.certification_of_qualification != "" ? (
+              <Animated
+                animationIn="fadeIn"
+                animationInDuration={1000}
+                isVisible={true}
+              >
+                <Age
+                  agefn={this.agefn}
+                  agestate={this.state.age}
+                  jobofferlmaifn={this.jobofferlmai}
+                  jobofferlmai={this.state.jobofferlmai}
+                  nominationcertificatefn={this.nominationcertificate}
+                  nominationcertificatestate={this.state.provincial_nomination}
+                  siblingsincanadafn={this.siblingsincanada}
+                  siblingsincanadastate={this.state.immediate_relative}
+                  noc_level={this.state.noc_level}
+                  noc_level_fn={this.noclevelfn}
+                  apiCall={this.submitData}
+                />
+              </Animated>
+            ) : null}
           </Col>
         </Row>
-        {this.state.certification_of_qualification != "" ? (
-          <Animated
-            animationIn="fadeIn"
-            animationInDuration={1000}
-            isVisible={true}
-          >
-            <Age
-              agefn={this.agefn}
-              agestate={this.state.age}
-              jobofferlmaifn={this.jobofferlmai}
-              jobofferlmai={this.state.jobofferlmai}
-              nominationcertificatefn={this.nominationcertificate}
-              nominationcertificatestate={this.state.provincial_nomination}
-              siblingsincanadafn={this.siblingsincanada}
-              siblingsincanadastate={this.state.immediate_relative}
-              noc_level={this.state.noc_level}
-              noc_level_fn={this.noclevelfn}
-              apiCall={this.submitData}
-            />
-          </Animated>
-        ) : null}
+        <Footer />
       </>
     );
   }

@@ -76,7 +76,10 @@ class FormExample extends React.Component {
       user_type: this.state.user_type,
     };
     axios
-      .post("http://localhost:5001/api/auth/sign-up", data)
+      .post(
+        "https://capestone-visto-server.herokuapp.com/api/auth/sign-up",
+        data
+      )
       .then((res) => {
         if (res.data["status"] == "0") {
           this.setState({

@@ -4,6 +4,8 @@ import { Animated } from "react-animated-css";
 import { withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Header from "../header";
+import Button from "../submitbtn/index";
+import Footer from "../footer";
 class IELTSScore extends React.Component {
   constructor() {
     super();
@@ -89,14 +91,29 @@ class IELTSScore extends React.Component {
 
   submitData() {
     let usertoken = sessionStorage.getItem("token");
-    console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:5001/api/ielts", {
+    let data;
+    if (this.state.ieltsValid == "No") {
+      data = {
+        listening: "6",
+        reading: "6",
+        writing: "6",
+        speaking: "6",
+      };
+    } else if (this.state.ieltsValid == "YES") {
+      data = {
+        listening: this.state.listening,
+        reading: this.state.reading,
+        writing: this.state.writing,
+        speaking: this.state.speaking,
+      };
+    }
+    fetch("https://capestone-visto-server.herokuapp.com/api/ielts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "x-auth-token": usertoken,
       },
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -112,7 +129,12 @@ class IELTSScore extends React.Component {
     return (
       <>
         <Header />
-        <Row>
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
             md={{ span: 6, offset: 3 }}
             sm={{ offset: 2 }}
@@ -120,52 +142,46 @@ class IELTSScore extends React.Component {
             style={{ marginTop: "10vh", textAlign: "center" }}
           >
             <p>Have you opted for IELTS ?</p>
-          </Col>
 
-          <Col
-            md={{ span: 8, offset: 2 }}
-            style={{
-              marginTop: "20px",
-              textAlign: "center",
-            }}
-          >
             <select name="IELTSValid" onChange={this.ieltsValid}>
               <option value="select">---SELECT---</option>
               <option value="YES">Yes</option>
 
               <option value="No">No</option>
             </select>
+
+            {this.state.ieltsValid != ""
+              ? [
+                  this.state.ieltsValid == "YES" ? (
+                    <Animated
+                      animationIn="fadeIn"
+                      animationOut="zoomOutDown"
+                      animationInDuration={1000}
+                      animationOutDuration={1000}
+                      isVisible={true}
+                    >
+                      <LoadScoreModule
+                        listeningfn={this.listening}
+                        listeningState={this.state.listening}
+                        readingfn={this.reading}
+                        readingState={this.state.reading}
+                        writingfn={this.writing}
+                        writingState={this.state.writing}
+                        speakingfn={this.speaking}
+                        speakingState={this.state.speaking}
+                        submitfn={this.submitData}
+                        submitstatedata={this.state.submitDatastate}
+                      />
+                    </Animated>
+                  ) : (
+                    // <h4>You are not eligible for any furthur steps</h4>
+                    <Button apiCall={this.submitData} />
+                  ),
+                ]
+              : null}
           </Col>
         </Row>
-
-        {this.state.ieltsValid != ""
-          ? [
-              this.state.ieltsValid == "YES" ? (
-                <Animated
-                  animationIn="fadeIn"
-                  animationOut="zoomOutDown"
-                  animationInDuration={1000}
-                  animationOutDuration={1000}
-                  isVisible={true}
-                >
-                  <LoadScoreModule
-                    listeningfn={this.listening}
-                    listeningState={this.state.listening}
-                    readingfn={this.reading}
-                    readingState={this.state.reading}
-                    writingfn={this.writing}
-                    writingState={this.state.writing}
-                    speakingfn={this.speaking}
-                    speakingState={this.state.speaking}
-                    submitfn={this.submitData}
-                    submitstatedata={this.state.submitDatastate}
-                  />
-                </Animated>
-              ) : (
-                <h4>You are not eligible for any furthur steps</h4>
-              ),
-            ]
-          : null}
+        <Footer />
       </>
     );
   }

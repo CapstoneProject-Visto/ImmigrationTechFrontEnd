@@ -9,7 +9,7 @@ function SpouseStatus(props) {
     <>
       <Row>
         <Col
-          md={{ span: 5, offset: 4 }}
+          md={{ span: 7, offset: 3 }}
           sm={{ offset: 2 }}
           xs={{ offset: 1 }}
           style={{ marginTop: "20px" }}

@@ -7,7 +7,7 @@ function YesComponent(props) {
     <>
       <Row>
         <Col
-          md={{ span: 5, offset: 4 }}
+          md={{ span: 7, offset: 3 }}
           sm={{ offset: 2 }}
           xs={{ offset: 1, span: 10 }}
           style={{ marginTop: "20px" }}
@@ -15,7 +15,7 @@ function YesComponent(props) {
           Are you married or Have Common Law Partner
         </Col>
         <Col
-          md={{ span: 4, offset: 4 }}
+          md={{ span: 5, offset: 4 }}
           style={{
             marginTop: "20px",
             textAlign: "center",

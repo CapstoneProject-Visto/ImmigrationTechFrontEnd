@@ -3,6 +3,7 @@ import CalculatorPage from "../components/calculatorcomponent/calculator/marital
 import { Row, Col } from "react-bootstrap";
 import Header from "../components/header";
 import { withRouter } from "react-router-dom";
+import Footer from "../components/footer";
 class Calculator extends React.Component {
   state = {
     loggedIn: "",
@@ -22,24 +23,27 @@ class Calculator extends React.Component {
         <Header />
         <Row
           style={{
-            backgroundColor: "yellow",
-            height: "75.2vh",
-            margin: "auto",
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
           }}
         >
           <Col
             className="center calc"
-            lg={8}
+            lg={5}
             md={8}
             sm={10}
             xs={10}
-            style={{ height: "auto" }}
+            // style={{ backgroundColor: "#68B684" }}
           >
             {console.log(this.state.loggedIn)}
             {this.state.loggedIn != ""
               ? [
                   this.state.loggedIn != "false" ? (
-                    <CalculatorPage />
+                    <div
+                      style={{ backgroundColor: "yellow", minHeight: "55vh" }}
+                    >
+                      <CalculatorPage />
+                    </div>
                   ) : (
                     this.props.history.push("/login")
                   ),
@@ -47,6 +51,8 @@ class Calculator extends React.Component {
               : null}
           </Col>
         </Row>
+
+        <Footer />
       </>
     );
   }

@@ -4,7 +4,7 @@ import { Animated } from "react-animated-css";
 import { withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Header from "../header";
-
+import Footer from "../footer";
 class ForeignSkillExperience extends React.Component {
   constructor() {
     super();
@@ -19,7 +19,7 @@ class ForeignSkillExperience extends React.Component {
 
   componentDidMount() {
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/invisible", {
+    fetch("https://capestone-visto-server.herokuapp.com/api/invisible", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,9 +30,6 @@ class ForeignSkillExperience extends React.Component {
       .then((data) => {
         console.log(data);
         if (data.status === 0) {
-          alert(
-            "Invisible route successfully executed- data stored in c_education"
-          );
         } else if (data.status === 1) {
           alert("Error in component did mount of foreignskilled");
         }
@@ -55,14 +52,17 @@ class ForeignSkillExperience extends React.Component {
     let usertoken = sessionStorage.getItem("token");
 
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:5001/api/foreign-experience", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": usertoken,
-      },
-      body: JSON.stringify(this.state),
-    })
+    fetch(
+      "https://capestone-visto-server.herokuapp.com/api/foreign-experience",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": usertoken,
+        },
+        body: JSON.stringify(this.state),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.status == 1) {
@@ -77,7 +77,12 @@ class ForeignSkillExperience extends React.Component {
     return (
       <>
         <Header />
-        <Row>
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
             md={{ span: 5, offset: 4 }}
             sm={{ offset: 2 }}
@@ -92,14 +97,7 @@ class ForeignSkillExperience extends React.Component {
               It must have been paid, full-time (or an equal amount in
               part-time), and in only one occupation (NOC skill type 0, A or B).
             </p>
-          </Col>
-          <Col
-            md={{ span: 8, offset: 2 }}
-            style={{
-              marginTop: "20px",
-              textAlign: "center",
-            }}
-          >
+
             <select
               name="internationalexperience"
               onChange={this.internationalworkexperienceselected}
@@ -112,17 +110,21 @@ class ForeignSkillExperience extends React.Component {
               <option value="2 years">2 years</option>
               <option value="3 years or more">3 years or more</option>
             </select>
+
+            {this.state.foreign_experience !== "" ? (
+              <Animated
+                animationIn="fadeIn"
+                animationInDuration={1000}
+                isVisible={true}
+              >
+                <div style={{ margin: "20px auto" }}>
+                  <Button apiCall={this.submitData} />
+                </div>
+              </Animated>
+            ) : null}
           </Col>
         </Row>
-        {this.state.foreign_experience !== "" ? (
-          <Animated
-            animationIn="fadeIn"
-            animationInDuration={1000}
-            isVisible={true}
-          >
-            <Button apiCall={this.submitData} />
-          </Animated>
-        ) : null}
+        <Footer />
       </>
     );
   }

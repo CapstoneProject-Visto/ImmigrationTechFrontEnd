@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Animated } from "react-animated-css";
 import { Row, Col } from "react-bootstrap";
 import Header from "../header";
-
+import Footer from "../footer";
 class CertificateOrQualification extends React.Component {
   constructor() {
     super();
@@ -101,14 +101,23 @@ class CertificateOrQualification extends React.Component {
 
   submitData() {
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/additional", {
+
+    let data = {
+      certification_of_qualification: this.state.certification_of_qualification,
+      provincial_nomination: this.state.provincial_nomination,
+      immediate_relative: this.state.immediate_relative,
+      noc_level: this.state.noc_level,
+      age: this.state.age,
+    };
+
+    fetch("https://capestone-visto-server.herokuapp.com/api/additional", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "x-auth-token": usertoken,
       },
 
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -124,9 +133,14 @@ class CertificateOrQualification extends React.Component {
     return (
       <>
         <Header />
-        <Row>
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
-            xl={{ span: 6, offset: 3 }}
+            xl={{ span: 8, offset: 2 }}
             lg={{ span: 6, offset: 3 }}
             md={{ span: 4, offset: 4 }}
             style={{ marginTop: "5vh", textAlign: "center" }}
@@ -149,13 +163,7 @@ class CertificateOrQualification extends React.Component {
               This isn’t the same as a nomination from a province or territory.
               <br />
             </p>
-          </Col>
-          <Col
-            xl={{ span: 2, offset: 5 }}
-            lg={{ span: 2, offset: 5 }}
-            md={{ span: 4, offset: 4 }}
-            style={{ textAlign: "center" }}
-          >
+
             <select
               name="certification_of_qualification"
               onChange={this.certificateorqualification}
@@ -165,29 +173,35 @@ class CertificateOrQualification extends React.Component {
               <option value="certification_of_qualification_yes">YES</option>
               <option value="certification_of_qualification_no">NO</option>
             </select>
+
+            {this.state.certification_of_qualification != "" ? (
+              <Animated
+                animationIn="fadeIn"
+                animationInDuration={1000}
+                isVisible={true}
+              >
+                <div style={{ margin: "10px auto" }}>
+                  <Age
+                    agefn={this.agefn}
+                    agestate={this.state.age}
+                    jobofferlmaifn={this.jobofferlmai}
+                    jobofferlmai={this.state.jobofferlmai}
+                    nominationcertificatefn={this.nominationcertificate}
+                    nominationcertificatestate={
+                      this.state.provincial_nomination
+                    }
+                    siblingsincanadafn={this.siblingsincanada}
+                    siblingsincanadastate={this.state.immediate_relative}
+                    noc_level={this.state.noc_level}
+                    noc_level_fn={this.noclevelfn}
+                    apiCall={this.submitData}
+                  />
+                </div>
+              </Animated>
+            ) : null}
           </Col>
         </Row>
-        {this.state.certification_of_qualification != "" ? (
-          <Animated
-            animationIn="fadeIn"
-            animationInDuration={1000}
-            isVisible={true}
-          >
-            <Age
-              agefn={this.agefn}
-              agestate={this.state.age}
-              jobofferlmaifn={this.jobofferlmai}
-              jobofferlmai={this.state.jobofferlmai}
-              nominationcertificatefn={this.nominationcertificate}
-              nominationcertificatestate={this.state.provincial_nomination}
-              siblingsincanadafn={this.siblingsincanada}
-              siblingsincanadastate={this.state.immediate_relative}
-              noc_level={this.state.noc_level}
-              noc_level_fn={this.noclevelfn}
-              apiCall={this.submitData}
-            />
-          </Animated>
-        ) : null}
+        <Footer />
       </>
     );
   }

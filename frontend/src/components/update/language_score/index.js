@@ -1,6 +1,10 @@
 import React from "react";
 import LoadScoreModule from "../../ielts/loadscoremodules";
+import { Row, Col } from "react-bootstrap";
+
 import { withRouter } from "react-router-dom";
+import Header from "../../header";
+import Footer from "../../footer";
 class UpdateLanguageScore extends React.Component {
   constructor(props) {
     super(props);
@@ -69,7 +73,7 @@ class UpdateLanguageScore extends React.Component {
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/ielts", {
+    fetch("https://capestone-visto-server.herokuapp.com/api/ielts", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -91,18 +95,29 @@ class UpdateLanguageScore extends React.Component {
   render() {
     return (
       <>
-        <LoadScoreModule
-          listeningfn={this.listening}
-          listeningState={this.state.listening}
-          readingfn={this.reading}
-          readingState={this.state.reading}
-          writingfn={this.writing}
-          writingState={this.state.writing}
-          speakingfn={this.speaking}
-          speakingState={this.state.speaking}
-          submitfn={this.submitData}
-          submitstatedata={this.state.submitDatastate}
-        />
+        <Header />
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
+          <Col style={{ offset: "3", marginTop: "25px" }}>
+            <LoadScoreModule
+              listeningfn={this.listening}
+              listeningState={this.state.listening}
+              readingfn={this.reading}
+              readingState={this.state.reading}
+              writingfn={this.writing}
+              writingState={this.state.writing}
+              speakingfn={this.speaking}
+              speakingState={this.state.speaking}
+              submitfn={this.submitData}
+              submitstatedata={this.state.submitDatastate}
+            />
+          </Col>
+        </Row>
+        <Footer />
       </>
     );
   }

@@ -5,6 +5,7 @@ import { Animated } from "react-animated-css";
 import { withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Header from "../header";
+import Footer from "../footer";
 
 class CanadianDegree extends React.Component {
   constructor() {
@@ -46,16 +47,22 @@ class CanadianDegree extends React.Component {
   TODObackendnotgettingtranslateddatajsonstringify;
   submitData() {
     let usertoken = sessionStorage.getItem("token");
+    let data = {
+      // canadiandegree: this.state.canadiandegree,
+      level_of_education: this.state.level_of_education,
+    };
+    fetch(
+      "https://capestone-visto-server.herokuapp.com/api/canadian-education",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": usertoken,
+        },
 
-    fetch("http://localhost:5001/api/canadian-education", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": usertoken,
-      },
-
-      body: JSON.stringify(this.state),
-    })
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 1) {
@@ -71,22 +78,20 @@ class CanadianDegree extends React.Component {
       <>
         <Header />
 
-        <Row>
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
-            md={{ span: 4, offset: 4 }}
+            md={{ span: 6, offset: 3 }}
             sm={{ offset: 2 }}
             xs={{ offset: 0 }}
             style={{ textAlign: "center", marginTop: "20px" }}
           >
             <h4>Please select your status</h4>
-          </Col>
-          <Col
-            md={{ span: 10, offset: 1 }}
-            style={{
-              marginTop: "20px",
-              textAlign: "center",
-            }}
-          >
+
             <p>
               4 b) Have you earned a Canadian degree, diploma or certificate?
             </p>
@@ -101,16 +106,7 @@ class CanadianDegree extends React.Component {
               least eight months, and have been physically present in Canada for
               at least eight months
             </p>
-          </Col>
-        </Row>
-        <Row>
-          <Col
-            md={{ span: 6, offset: 3 }}
-            style={{
-              textAlign: "center",
-              marginTop: "20px",
-            }}
-          >
+
             <select style={{ width: "100px" }} onChange={this.canadiandegree}>
               <option name="select" value="select">
                 ---SELECT---
@@ -128,36 +124,40 @@ class CanadianDegree extends React.Component {
                 YES
               </option>
             </select>
+
+            {console.log(this.state)}
+            {this.state.canadiandegree != ""
+              ? [
+                  this.state.canadiandegree ==
+                  "canadian_degree_diploma_certificate_yes" ? (
+                    <Animated
+                      animationIn="fadeIn"
+                      animationInDuration={1000}
+                      isVisible={true}
+                    >
+                      <div style={{ marginBottom: "20px" }}>
+                        <LevelOfEducation
+                          submitData={this.submitData}
+                          submitDataState={this.submitDataState}
+                          canadianlevelofedufn={this.canadianlevelofedu}
+                          canadianlevelofedu={this.state.level_of_education}
+                        />
+                      </div>
+                    </Animated>
+                  ) : (
+                    <Animated
+                      animationIn="fadeIn"
+                      animationInDuration={1000}
+                      isVisible={true}
+                    >
+                      <Button apiCall={this.submitData} />
+                    </Animated>
+                  ),
+                ]
+              : null}
           </Col>
         </Row>
-        {console.log(this.state)}
-        {this.state.canadiandegree != ""
-          ? [
-              this.state.canadiandegree ==
-              "canadian_degree_diploma_certificate_yes" ? (
-                <Animated
-                  animationIn="fadeIn"
-                  animationInDuration={1000}
-                  isVisible={true}
-                >
-                  <LevelOfEducation
-                    submitData={this.submitData}
-                    submitDataState={this.submitDataState}
-                    canadianlevelofedufn={this.canadianlevelofedu}
-                    canadianlevelofedu={this.state.level_of_education}
-                  />
-                </Animated>
-              ) : (
-                <Animated
-                  animationIn="fadeIn"
-                  animationInDuration={1000}
-                  isVisible={true}
-                >
-                  <Button apiCall={this.submitData} />
-                </Animated>
-              ),
-            ]
-          : null}
+        <Footer />
       </>
     );
   }

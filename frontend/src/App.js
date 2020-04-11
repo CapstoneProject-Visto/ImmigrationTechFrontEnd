@@ -26,8 +26,10 @@ import UpdateCadWorkExp from "./pages/update/cad_work_exp";
 import LanguageScore from "./pages/update/official_language_score";
 import UpdateAdditional from "./pages/update/update_additional_points";
 import Spouse from "./components/spouse";
+import RightComponent from "./components/userdashboard/rightComponent";
 import UserItem from "./components/admindashboard/UserItem";
 import FileNotFOund from "./components/filenotfound";
+import UserDashboardWithoutIELTS from "./components/userdashboard/noieltsdashboard";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -72,6 +74,7 @@ function App() {
           path="/foreignworkexp"
           component={ForeignSkillExperience}
         />
+        <Route exact path="/RightComponent" component={RightComponent} />
         <Route
           exact
           path="/signup"
@@ -84,8 +87,15 @@ function App() {
           component={CertificateOrQualification}
         />
         <Route exact path="/userdashboard" component={UserDashboard} />
+        <Route
+          exact
+          path="/noIeltsDashboard"
+          component={UserDashboardWithoutIELTS}
+        />
+
         <Route exact path="/spouse" component={Spouse} />
         <Route exact path="/useritem" component={UserItem} />
+
         <Route component={FileNotFOund}></Route>
       </Switch>
       {/* <Footer /> */}

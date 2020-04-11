@@ -65,27 +65,27 @@ class UserLogin extends React.Component {
       user_type: this.state.user_type,
     };
     axios
-      .post("http://localhost:5001/api/auth/login", data)
+      .post("https://capestone-visto-server.herokuapp.com/api/auth/login", data)
       .then((res) => {
         console.log(res);
-        if (res.data.status == "1") {
+        if (res.data.status === 1) {
           {
             this.setState({
               errorMsg: res.data.message,
             });
             this.handleModelOpenfn();
           }
-        } else if (res.data.status == "0") {
-          if (res.data.user_type == "user") {
+        } else if (res.data.status === 0) {
+          if (this.state.user_type == "user") {
             let decodedData = decode(res.data.token);
             console.log(decodedData);
             sessionStorage.setItem("token", res.data.token);
             sessionStorage.setItem("LoggedIn", "true");
-            sessionStorage.setItem("type", "user");
+            sessionStorage.setItem("type", this.state.user_type);
             this.props.history.push({
               pathname: "/userdashboard",
             });
-          } else if (res.data.user_type == "admin") {
+          } else if (this.state.user_type == "admin") {
             let decodedData = decode(res.data.token);
             console.log(decodedData);
             sessionStorage.setItem("token", res.data.token);

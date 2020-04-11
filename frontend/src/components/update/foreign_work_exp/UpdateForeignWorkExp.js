@@ -5,6 +5,7 @@ import { Animated } from "react-animated-css";
 import { Row, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import Header from "../../header";
+import Footer from "../../footer";
 class UpdateForeignWorkExp extends React.Component {
   constructor(props) {
     super(props);
@@ -33,14 +34,17 @@ class UpdateForeignWorkExp extends React.Component {
     let usertoken = sessionStorage.getItem("token");
 
     console.log("State data" + JSON.stringify(this.state));
-    fetch("http://localhost:5001/api/foreign-experience", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": usertoken,
-      },
-      body: JSON.stringify(this.state),
-    })
+    fetch(
+      "https://capestone-visto-server.herokuapp.com/api/foreign-experience",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": usertoken,
+        },
+        body: JSON.stringify(this.state),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.status == 1) {
@@ -55,7 +59,12 @@ class UpdateForeignWorkExp extends React.Component {
     return (
       <>
         <Header />
-        <Row>
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
             md={{ span: 5, offset: 4 }}
             sm={{ offset: 2 }}
@@ -70,14 +79,7 @@ class UpdateForeignWorkExp extends React.Component {
               It must have been paid, full-time (or an equal amount in
               part-time), and in only one occupation (NOC skill type 0, A or B).
             </p>
-          </Col>
-          <Col
-            md={{ span: 8, offset: 2 }}
-            style={{
-              marginTop: "20px",
-              textAlign: "center",
-            }}
-          >
+
             <select
               name="internationalexperience"
               onChange={this.internationalworkexperienceselected}
@@ -90,17 +92,19 @@ class UpdateForeignWorkExp extends React.Component {
               <option value="2 years">2 years</option>
               <option value="3 years or more">3 years or more</option>
             </select>
+
+            {this.state.foreign_experience !== "" ? (
+              <Animated
+                animationIn="fadeIn"
+                animationInDuration={1000}
+                isVisible={true}
+              >
+                <Button apiCall={this.submitData} />
+              </Animated>
+            ) : null}
           </Col>
         </Row>
-        {this.state.foreign_experience !== "" ? (
-          <Animated
-            animationIn="fadeIn"
-            animationInDuration={1000}
-            isVisible={true}
-          >
-            <Button apiCall={this.submitData} />
-          </Animated>
-        ) : null}
+        <Footer />
       </>
     );
   }

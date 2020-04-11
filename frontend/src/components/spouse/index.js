@@ -4,6 +4,7 @@ import { Animated } from "react-animated-css";
 import { withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Header from "../header";
+import Footer from "../footer";
 class Spouse extends React.Component {
   constructor() {
     super();
@@ -106,10 +107,29 @@ class Spouse extends React.Component {
     }
   }
 
+  componentDidMount() {
+    fetch(
+      "https://capestone-visto-server.herokuapp.com/api/misc/isSpouseComing",
+      {
+        "Content-Type": "application/json",
+        headers: {
+          "x-auth-token": sessionStorage.getItem("token"),
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status == "1") {
+          this.props.history.push("/finalPage");
+        } else if (data.status == "0") {
+        }
+      });
+  }
+
   submitData() {
     console.log("State data" + JSON.stringify(this.state));
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/spouse-details", {
+    fetch("https://capestone-visto-server.herokuapp.com/api/spouse-details", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -131,7 +151,12 @@ class Spouse extends React.Component {
     return (
       <>
         <Header />
-        <Row>
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
             md={{ span: 5, offset: 4 }}
             sm={{ offset: 2 }}
@@ -151,14 +176,7 @@ class Spouse extends React.Component {
               diploma, choose – “Two or more certificates, diplomas, or degrees.
               One must be for a program of three or more years.”
             </p>
-          </Col>
-          <Col
-            md={{ span: 7, offset: 3 }}
-            style={{
-              marginTop: "20px",
-              textAlign: "center",
-            }}
-          >
+
             <select style={{ width: "400px" }} onChange={this.spouseedulevel}>
               FIXMEMake the option as common component for spouse education and
               education above in the calculator
@@ -195,29 +213,33 @@ class Spouse extends React.Component {
                 Doctoral level university degree (PhD)
               </option>
             </select>
+
+            {this.state.education !== "" ? (
+              <Animated
+                animationIn="fadeIn"
+                animationInDuration={1000}
+                isVisible={true}
+              >
+                <div style={{ margin: "10px auto" }}>
+                  <SpouseWorkExp
+                    spouseworkexperiencefn={this.spouseworkexperience}
+                    spouseworkexperiencestate={this.state.work_experience}
+                    speakingState={this.state.speaking}
+                    speakingfn={this.speaking}
+                    listeningState={this.state.listening}
+                    listeningfn={this.listening}
+                    readingState={this.state.reading}
+                    readingfn={this.reading}
+                    writingfn={this.writing}
+                    writingState={this.state.writing}
+                    submitfn={this.submitData}
+                  />
+                </div>
+              </Animated>
+            ) : null}
           </Col>
         </Row>
-        {this.state.education !== "" ? (
-          <Animated
-            animationIn="fadeIn"
-            animationInDuration={1000}
-            isVisible={true}
-          >
-            <SpouseWorkExp
-              spouseworkexperiencefn={this.spouseworkexperience}
-              spouseworkexperiencestate={this.state.work_experience}
-              speakingState={this.state.speaking}
-              speakingfn={this.speaking}
-              listeningState={this.state.listening}
-              listeningfn={this.listening}
-              readingState={this.state.reading}
-              readingfn={this.reading}
-              writingfn={this.writing}
-              writingState={this.state.writing}
-              submitfn={this.submitData}
-            />
-          </Animated>
-        ) : null}
+        <Footer />
       </>
     );
   }

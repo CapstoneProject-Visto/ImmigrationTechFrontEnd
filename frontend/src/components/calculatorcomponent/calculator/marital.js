@@ -83,16 +83,23 @@ class CalculatorPage extends React.Component {
 
   submitData() {
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/marital-status", {
+    let data = {
+      marital_status_type: this.state.marital_status_type,
+      spouse_citizen: this.state.spouse_citizen,
+      spouse_coming_canada: this.state.spouse_coming_canada,
+    };
+    console.log(data);
+    fetch("https://capestone-visto-server.herokuapp.com/api/marital-status", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "x-auth-token": usertoken,
       },
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         if (data.status === 1) {
           return alert("Error in data");
         } else {
@@ -112,7 +119,7 @@ class CalculatorPage extends React.Component {
         > */}
         <Row style={{ width: "100%" }}>
           <Col
-            md={{ span: 4, offset: 5 }}
+            md={{ span: 5, offset: 4 }}
             sm={{ span: 2, offset: 5 }}
             xs={{ span: 6, offset: 3 }}
             style={{ marginTop: "20px" }}
@@ -120,7 +127,7 @@ class CalculatorPage extends React.Component {
             MARITAL STATUS
           </Col>
           <Col
-            md={{ span: 7, offset: 5 }}
+            md={{ span: 7, offset: 4 }}
             sm={{ span: 2, offset: 5 }}
             xs={{ span: 6, offset: 3 }}
             style={{ marginTop: "20px" }}
@@ -128,7 +135,7 @@ class CalculatorPage extends React.Component {
             Are you married?{" "}
           </Col>
           <Col
-            md={{ span: 1, offset: 4 }}
+            md={{ span: 3, offset: 2 }}
             sm={{ span: 2, offset: 4 }}
             xs={{ span: 1, offset: 3 }}
             style={{
@@ -146,7 +153,7 @@ class CalculatorPage extends React.Component {
             Yes
           </Col>
           <Col
-            md={{ span: 1 }}
+            md={{ span: 0 }}
             sm={{ span: 2 }}
             xs={{ span: 2, offset: 2 }}
             style={{
@@ -161,15 +168,6 @@ class CalculatorPage extends React.Component {
               onChange={this.radioChange}
             />
             No
-            {/* <a
-              href="#"
-              class="btn btn-success btn-lg-6"
-              data-toggle="tooltip"
-              data-placement="right"
-              title="Find us on facebook"
-            >
-              ?
-            </a> */}
           </Col>
         </Row>
 

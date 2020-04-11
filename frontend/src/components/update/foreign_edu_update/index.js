@@ -2,6 +2,8 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import Button from "../../submitbtn/index";
+import Header from "../../header";
+import Footer from "../../footer";
 class UpdateForeignEdu extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,7 @@ class UpdateForeignEdu extends React.Component {
 
     let usertoken = sessionStorage.getItem("token");
 
-    fetch("http://localhost:5001/api/education", {
+    fetch("https://capestone-visto-server.herokuapp.com/api/education", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +58,13 @@ class UpdateForeignEdu extends React.Component {
   render() {
     return (
       <>
-        <Row>
+        <Header />
+        <Row
+          style={{
+            backgroundColor: "white",
+            minHeight: "calc(67.5vh)",
+          }}
+        >
           <Col
             md={{ span: 5, offset: 4 }}
             sm={{ offset: 2 }}
@@ -65,16 +73,11 @@ class UpdateForeignEdu extends React.Component {
           >
             <h3>4. What is the level of education ?</h3>
             <h4>Enter the highest level of education you have achieved </h4>
-          </Col>
 
-          <Col
-            md={{ span: 8, offset: 2 }}
-            style={{
-              marginTop: "20px",
-              textAlign: "center",
-            }}
-          >
-            <select style={{ width: "450px" }} onChange={this.levelofeducation}>
+            <select
+              style={{ width: "450px", marginTop: "4vh" }}
+              onChange={this.levelofeducation}
+            >
               <option name="select" value="select">
                 ---SELECT---
               </option>
@@ -104,11 +107,15 @@ class UpdateForeignEdu extends React.Component {
                 Doctoral level university degree (PhD)
               </option>
             </select>
+
+            {this.state.level_of_education != "" ? (
+              <div style={{ marginTop: "20px" }}>
+                <Button apiCall={this.submitData} />
+              </div>
+            ) : null}
           </Col>
         </Row>
-        {this.state.level_of_education != "" ? (
-          <Button apiCall={this.submitData} />
-        ) : null}
+        <Footer />
       </>
     );
   }

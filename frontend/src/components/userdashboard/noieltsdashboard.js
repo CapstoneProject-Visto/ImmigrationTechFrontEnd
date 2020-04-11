@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import decode from "jwt-decode";
 import Animate from "animate.css-react";
+import Footer from "../footer";
 
 class UserDashboardWithoutIELTS extends Component {
   state = {
@@ -36,6 +37,7 @@ class UserDashboardWithoutIELTS extends Component {
             </Link>
           </Animate>
         </div>
+        <Footer />
       </>
     );
   }

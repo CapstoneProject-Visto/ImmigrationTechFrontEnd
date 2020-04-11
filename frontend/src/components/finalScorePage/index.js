@@ -5,12 +5,15 @@ import CountUp from "react-countup";
 class FinalScorePage extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      subtotal: [],
+      grandtotal: "",
+    };
   }
 
   componentDidMount() {
     let usertoken = sessionStorage.getItem("token");
-    fetch("http://localhost:5001/api/score", {
+    fetch("https://capestone-visto-server.herokuapp.com/api/score", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,6 +23,15 @@ class FinalScorePage extends React.Component {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+
+        if (data.status == "1") {
+          alert("Duplicate Data found");
+        } else if (data.status == "0") {
+          this.setState({
+            subtotal: data.subtotal,
+            grandtotal: data.GrandTotal,
+          });
+        }
       });
   }
 
@@ -42,7 +54,12 @@ class FinalScorePage extends React.Component {
             md={{ span: 4, offset: 4 }}
             style={{ textAlign: "center" }}
           >
-            <CountUp start={500} end={1000} delay={0} duration={3}>
+            <CountUp
+              start={500}
+              end={this.state.grandtotal}
+              delay={0}
+              duration={3}
+            >
               {({ countUpRef }) => (
                 <h3>
                   <div>
