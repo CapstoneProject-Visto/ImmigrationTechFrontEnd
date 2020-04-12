@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../submitbtn/submitcadedu";
+import Button from "../submitbtn/index";
 import { Animated } from "react-animated-css";
 import { Row, Col } from "react-bootstrap";
 

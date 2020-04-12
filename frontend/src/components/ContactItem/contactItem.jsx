@@ -8,85 +8,188 @@ import "./contactItem.css";
 import { Container } from "react-bootstrap";
 
 const ContactItem = (props) => {
-  {
-    console.log(props);
-  }
   return (
-    <div style={{ width: "60%", margin: "20px auto" }}>
-      <Row>
-        <Col style={{ backgroundColor: "red", textAlign: "center" }}>
-          {props.country}
-        </Col>
-        <Col style={{ backgroundColor: "yellow", textAlign: "center" }}>
-          {props.name}
-        </Col>
-        <Col style={{ backgroundColor: "blue", textAlign: "center" }}>
-          {props.email}
-        </Col>
-      </Row>
-      <Row>
+    <>
+      <div
+        style={{
+          width: "60%",
+          backgroundColor: "lightgrey",
+          boxShadow: "1px 1px black",
+          margin: "20px auto",
+        }}
+        id="div"
+      >
+        <Row style={{ borderBottom: "1.5px solid white" }}>
+          <Col
+            style={{
+              textAlign: "center",
+              marginTop: "10px",
+              marginBottom: "7px",
+            }}
+            lg={{ span: 3 }}
+          >
+            Country
+          </Col>
+          <Col
+            style={{
+              textAlign: "center",
+              marginTop: "10px",
+              marginBottom: "7px",
+            }}
+          >
+            Name
+          </Col>
+          <Col
+            style={{
+              textAlign: "center",
+              marginTop: "10px",
+              marginBottom: "7px",
+            }}
+          >
+            Email
+          </Col>
+        </Row>
+        <Row>
+          <Col
+            style={{
+              marginTop: "15px ",
+              marginBottom: "15px",
+              textAlign: "center",
+              borderRight: "1px solid black",
+            }}
+          >
+            {props.country}
+          </Col>
+          <Col
+            style={{
+              marginTop: "15px ",
+              marginBottom: "15px",
+              textAlign: "center",
+              borderRight: "1px solid black",
+            }}
+          >
+            {props.name}
+          </Col>
+          <Col
+            style={{
+              marginTop: "15px ",
+              marginBottom: "15px",
+              textAlign: "center",
+            }}
+          >
+            {props.email}
+          </Col>
+        </Row>
         {props.crs_score != null ? (
           <>
-            <Col style={{ backgroundColor: "green", textAlign: "center" }}>
-              <Row>
-                <Col>Module 1</Col>
-              </Row>
-              <Row>{props.crs_score.section_a}</Row>
+            <Row
+              style={{
+                borderBottom: "1.5px solid white",
+                borderTop: "1px solid black",
+              }}
+            >
+              <Col
+                style={{
+                  marginTop: "15px ",
+                  marginBottom: "15px",
+                  textAlign: "center",
+                  borderRight: "1px solid black",
+                }}
+              >
+                <Row>
+                  <Col>Module 1</Col>
+                </Row>
+                <Row>
+                  <Col style={{ borderTop: "1px solid black" }}>
+                    {props.crs_score.section_a}
+                  </Col>
+                </Row>
+              </Col>
+              <Col
+                style={{
+                  marginTop: "15px ",
+                  marginBottom: "15px",
+                  textAlign: "center",
+                  borderRight: "1px solid black",
+                }}
+              >
+                <Row>
+                  <Col>Module 2</Col>
+                </Row>
+                <Row>
+                  <Col style={{ borderTop: "1px solid black" }}>
+                    {props.crs_score.section_b}
+                  </Col>
+                </Row>
+              </Col>
+              <Col
+                style={{
+                  marginTop: "15px ",
+                  marginBottom: "15px",
+                  textAlign: "center",
+                  borderRight: "1px solid black",
+                }}
+              >
+                <Row>
+                  <Col>Module 3</Col>
+                </Row>
+                <Row>
+                  <Col style={{ borderTop: "1px solid black" }}>
+                    {props.crs_score.section_c}
+                  </Col>
+                </Row>
+              </Col>
+              <Col
+                style={{
+                  marginTop: "15px ",
+                  marginBottom: "15px",
+                  textAlign: "center",
+                  borderRight: "1px solid black",
+                }}
+              >
+                <Row>
+                  <Col>Module 4</Col>
+                </Row>
+                <Row>
+                  <Col style={{ borderTop: "1px solid black" }}>
+                    {props.crs_score.section_d}
+                  </Col>
+                </Row>
+              </Col>
+              <Col
+                style={{
+                  marginTop: "15px ",
+                  marginBottom: "15px",
+                  textAlign: "center",
+                }}
+              >
+                <Row>
+                  <Col>Grand Total</Col>
+                </Row>
+                <Row>
+                  <Col style={{ borderTop: "1px solid black" }}>
+                    {props.crs_score.crs_score}
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+            <Col>
+              <button
+                type="button"
+                class="btn btn-info"
+                style={{ textAlign: "right" }}
+                id={props.id}
+                onClick={props.handlebuttonclick}
+              >
+                Info
+              </button>
             </Col>
-            <Col style={{ backgroundColor: "pink", textAlign: "center" }}>
-              <Row>
-                <Col>Module 2</Col>
-              </Row>
-              <Row>
-                <Col>{props.crs_score.section_b}</Col>
-              </Row>
-            </Col>
-            <Col style={{ backgroundColor: "violet", textAlign: "center" }}>
-              <Row>
-                <Col>Module 3</Col>
-              </Row>
-              <Row>
-                <Col>{props.crs_score.section_c}</Col>
-              </Row>
-            </Col>
-            <Col style={{ backgroundColor: "purple", textAlign: "center" }}>
-              <Row>
-                <Col>Module 4</Col>
-              </Row>
-              <Row>
-                <Col>{props.crs_score.section_d}</Col>
-              </Row>
-            </Col>
-            <Col style={{ backgroundColor: "magenta", textAlign: "center" }}>
-              <Row>
-                <Col>Grand Total</Col>
-              </Row>
-              <Row>
-                <Col>{props.crs_score.crs_score}</Col>
-              </Row>
-            </Col>
+            <Row></Row>
           </>
         ) : null}
-      </Row>
-      <Row>
-        <Col>
-          <button
-            type="button"
-            class="btn btn-info"
-            style={{ textAlign: "right" }}
-            id={props.id}
-            onClick={props.handlebuttonclick}
-          >
-            Info
-          </button>
-        </Col>
-      </Row>
-    </div>
+      </div>
+    </>
   );
 };
-// const ContactItem = ()=>(
-//  <Container>
 
-//  </Container>
-// );
 export default ContactItem;

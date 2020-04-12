@@ -81,11 +81,11 @@ class UpdateForeignEdu extends React.Component {
               md={{ span: 11, offset: 0 }}
               style={{ textAlign: "center", marginTop: "10vh" }}
             >
-              <h3>4. What is the level of education ?</h3>
-              <h4>Enter the highest level of education you have achieved </h4>
+              <h5>What is the level of education ?</h5>
+              <h5>Enter the highest level of education you have achieved </h5>
 
               <select
-                style={{ width: "450px", marginTop: "4vh" }}
+                style={{ width: "400px", marginTop: "4vh" }}
                 onChange={this.levelofeducation}
               >
                 <option name="select" value="select">
@@ -98,20 +98,16 @@ class UpdateForeignEdu extends React.Component {
                   Secondary diploma (high school graduation)
                 </option>
                 <option name="education" value="one-year">
-                  One-year program at a university, college, trade or technical
-                  school, or other institute
+                  One-year program at a university, college
                 </option>
                 <option name="education" value="two-year">
-                  Two-year program at a university, college, trade or technical
-                  school, or other institute
+                  Two-year program at a university, college
                 </option>
                 <option name="education" value="bachelors">
-                  Bachelor's degree (three or more year program at a university,
-                  college, trade or technical school, or other institute)
+                  Bachelor's degree (3+ years university, college)
                 </option>
                 <option name="education" value="masters">
-                  Master's degree, or professional degree needed to practice in
-                  a licensed profession (see Help)
+                  Master's degree/licensed practice
                 </option>
                 <option name="education" value="doctoral">
                   Doctoral level university degree (PhD)

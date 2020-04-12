@@ -59,45 +59,58 @@ class UserLogin extends React.Component {
   }
 
   loginfunction = (props) => {
-    let data = {
-      email: document.getElementById("username").value,
-      password: document.getElementById("password").value,
-      user_type: this.state.user_type,
-    };
-    axios
-      .post("https://capestone-visto-server.herokuapp.com/api/auth/login", data)
-      .then((res) => {
-        console.log(res);
-        if (res.data.status === 1) {
-          {
-            this.setState({
-              errorMsg: res.data.message,
-            });
-            this.handleModelOpenfn();
+    if (
+      document.getElementById("username").value === "" ||
+      document.getElementById("password").value === ""
+    ) {
+      this.setState({
+        errorMsg: "Please Provide Both Values",
+      });
+      this.handleModelOpenfn();
+    } else {
+      let data = {
+        email: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        user_type: this.state.user_type,
+      };
+      axios
+        .post(
+          "https://capestone-visto-server.herokuapp.com/api/auth/login",
+          data
+        )
+        .then((res) => {
+          console.log(res);
+          if (res.data.status === 1) {
+            {
+              this.setState({
+                errorMsg: res.data.message,
+              });
+              this.handleModelOpenfn();
+            }
+          } else if (res.data.status === 0) {
+            if (this.state.user_type == "user") {
+              let password = document.getElementById("password").value;
+              let decodedData = decode(res.data.token);
+              sessionStorage.setItem("token", res.data.token);
+              sessionStorage.setItem("LoggedIn", "true");
+              sessionStorage.setItem("type", this.state.user_type);
+              this.props.history.push({
+                pathname: "/userdashboard",
+                state: { password: password },
+              });
+            } else if (this.state.user_type == "admin") {
+              let decodedData = decode(res.data.token);
+              sessionStorage.setItem("token", res.data.token);
+              sessionStorage.setItem("LoggedIn", "true");
+              sessionStorage.setItem("type", "admin");
+              this.props.history.push({
+                pathname: "/adminPage",
+              });
+            }
           }
-        } else if (res.data.status === 0) {
-          if (this.state.user_type == "user") {
-            let decodedData = decode(res.data.token);
-            console.log(decodedData);
-            sessionStorage.setItem("token", res.data.token);
-            sessionStorage.setItem("LoggedIn", "true");
-            sessionStorage.setItem("type", this.state.user_type);
-            this.props.history.push({
-              pathname: "/userdashboard",
-            });
-          } else if (this.state.user_type == "admin") {
-            let decodedData = decode(res.data.token);
-            console.log(decodedData);
-            sessionStorage.setItem("token", res.data.token);
-            sessionStorage.setItem("LoggedIn", "true");
-            sessionStorage.setItem("type", "admin");
-            this.props.history.push({
-              pathname: "/adminPage",
-            });
-          }
-        }
-      })
-      .catch((err) => console.error(err));
+        })
+        .catch((err) => console.error(err));
+    }
   };
 
   render() {
@@ -126,7 +139,7 @@ class UserLogin extends React.Component {
           <Row>
             <Col
               style={{ marginTop: "40px" }}
-              xl={{ span: "4", offset: "3" }}
+              xl={{ span: "1", offset: "3" }}
               md={{ span: "3", offset: "2" }}
               xs={{ span: "2", offset: "4" }}
             >

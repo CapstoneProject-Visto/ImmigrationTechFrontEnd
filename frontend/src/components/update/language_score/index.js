@@ -98,23 +98,38 @@ class UpdateLanguageScore extends React.Component {
         <Header />
         <Row
           style={{
-            backgroundColor: "white",
+            backgroundColor: "lightgreen",
             minHeight: "calc(67.5vh)",
           }}
         >
-          <Col style={{ offset: "3", marginTop: "25px" }}>
-            <LoadScoreModule
-              listeningfn={this.listening}
-              listeningState={this.state.listening}
-              readingfn={this.reading}
-              readingState={this.state.reading}
-              writingfn={this.writing}
-              writingState={this.state.writing}
-              speakingfn={this.speaking}
-              speakingState={this.state.speaking}
-              submitfn={this.submitData}
-              submitstatedata={this.state.submitDatastate}
-            />
+          <Col
+            xl={{ span: "4", offset: "4" }}
+            style={{
+              backgroundColor: "white",
+              marginTop: "10px",
+              marginBottom: "20px",
+              boxShadow: "5px 5px #888888",
+            }}
+          >
+            <Col
+              md={{ span: 11, offset: 0 }}
+              style={{ textAlign: "center", marginTop: "3vh" }}
+            >
+              <Col style={{ offset: "3", marginTop: "25px" }}>
+                <LoadScoreModule
+                  listeningfn={this.listening}
+                  listeningState={this.state.listening}
+                  readingfn={this.reading}
+                  readingState={this.state.reading}
+                  writingfn={this.writing}
+                  writingState={this.state.writing}
+                  speakingfn={this.speaking}
+                  speakingState={this.state.speaking}
+                  submitfn={this.submitData}
+                  submitstatedata={this.state.submitDatastate}
+                />
+              </Col>
+            </Col>
           </Col>
         </Row>
         <Footer />

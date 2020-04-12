@@ -95,7 +95,10 @@ class Header extends React.Component {
                     style={{
                       border: "none",
                       backgroundColor: "#E0E0E0  ",
-                      color: "black",
+                      color: "lightblack",
+                      fontWeight: "10",
+                      marginRight: "20px",
+                      marginLeft: "20px",
                     }}
                     onClick={this.handlelogoutbutton}
                     value="LOGOUT"

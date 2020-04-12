@@ -66,7 +66,7 @@ class UpdateEdu extends React.Component {
         <Row
           style={{
             minHeight: "calc(70.3vh)",
-            backgroundColor: "yellow",
+            backgroundColor: "#32705e",
           }}
         >
           <Col
@@ -82,8 +82,7 @@ class UpdateEdu extends React.Component {
               md={{ span: 6, offset: 3 }}
               style={{ textAlign: "center", marginTop: "10vh" }}
             >
-              4 c) - Choose the best answer to describe the level of your
-              education
+              Choose the best answer to describe the level of your education
               <select
                 style={{ width: "200px", marginTop: "50px" }}
                 onChange={this.canadianlevelofedu}
@@ -98,9 +97,7 @@ class UpdateEdu extends React.Component {
                   One- or two-year diploma or certificate
                 </option>
                 <option name="school" value="three_or_more_or_masters">
-                  Degree, diploma or certificate of three years or longer OR a
-                  Master’s, professional or doctoral degree of at least one
-                  academic year
+                  Certificate(3 years)/Master’s/Doctoral
                 </option>
               </select>
             </Col>

@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import decode from "jwt-decode";
 import Animate from "animate.css-react";
 import Footer from "../footer";
-
+import Header from "../header";
 class UserDashboardWithoutIELTS extends Component {
   state = {
     username: "",
   };
 
   componentDidMount() {
-    console.log(decode(sessionStorage.getItem("token")).first_name);
     this.setState({
       username: decode(sessionStorage.getItem("token")).first_name,
     });
@@ -19,13 +18,14 @@ class UserDashboardWithoutIELTS extends Component {
   render() {
     return (
       <>
+        <Header />
         <div
           style={{
             width: "50%",
             margin: " 20vh auto",
           }}
         >
-          <Animate appear="fadeInDown" durationAppear={1000} component="div">
+          <Animate appear="fadeInDown" durationAppear={2500} component="div">
             <h3>Welcome {this.state.username} !!</h3>
             <h3>Looks like you are new to here !!</h3>
             <h3>Lets Get You Started</h3>

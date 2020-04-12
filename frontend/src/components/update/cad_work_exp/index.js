@@ -63,9 +63,6 @@ class UpdateCadWorkExp extends React.Component {
         >
           <Col
             xl={{ span: "4", offset: "4" }}
-            // md={{ span: 5, offset: 4 }}
-            // sm={{ offset: 2 }}
-            // xs={{ offset: 1 }}
             style={{
               backgroundColor: "white",
               marginTop: "10px",
@@ -80,27 +77,13 @@ class UpdateCadWorkExp extends React.Component {
               <div>6 . Work Experience</div>
               <p>
                 i. In the last ten years, how many years of skilled work
-                experience in Canada do you have?
-              </p>
-              <p>
-                It must have been paid and full-time (or an equal amount in
-                part-time).
+                experience in Canada do you have (full time/part time)?
               </p>
               <p>
                 Note: In Canada, the National Occupational Classification (NOC)
                 is the official list of all the jobs in the Canadian labour
                 market. It describes each job according to skill type, group and
                 level.
-              </p>
-              <p>
-                "Skilled work" in the NOC is:
-                <br />
-                managerial jobs (NOC Skill Level 0)
-                <br />
-                professional jobs (NOC Skill Type A)
-                <br />
-                technical jobs and skilled trades/manual work (NOC Skill Type B)
-                <br />
               </p>
               <sup style={{ color: "red" }}>*</sup> If you aren’t sure of the
               NOC level for this job, you can{" "}

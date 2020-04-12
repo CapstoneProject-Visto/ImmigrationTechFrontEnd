@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../submitbtn/localworkexbtn";
+import Button from "../submitbtn/index";
 import { Animated } from "react-animated-css";
 import { withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";

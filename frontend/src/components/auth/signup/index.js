@@ -21,6 +21,7 @@ class FormExample extends React.Component {
       validateSignUp: false,
       user_type: "",
       errorMsg: "",
+      modalactive: "false",
     };
 
     this.setUserInput = this.setUserInput.bind(this);
@@ -31,15 +32,30 @@ class FormExample extends React.Component {
   }
 
   handleSignUpclose() {
-    this.setState(
-      {
-        validateSignUp: false,
-      },
-      () => {
-        this.removeallData();
-        this.props.history.push("/login");
-      }
-    );
+    if (this.state.modalactive == "true") {
+      console.log(this.state.validateSignUp);
+      this.setState(
+        {
+          validateSignUp: false,
+        },
+        () => {
+          document.getElementById("user").checked = false;
+          document.getElementById("admin").checked = false;
+          this.props.history.push("/signup");
+        }
+      );
+    } else if (this.state.modalactive == "false") {
+      this.setState(
+        {
+          validateSignUp: true,
+        },
+        () => {
+          document.getElementById("user").checked = false;
+          document.getElementById("admin").checked = false;
+          this.props.history.push("/login");
+        }
+      );
+    }
   }
   removeallData() {
     document.getElementById("first_name").value = "";
@@ -48,8 +64,6 @@ class FormExample extends React.Component {
     document.getElementById("password").value = "";
     document.getElementById("country").value = "";
     document.getElementById("confmpassword").value = "";
-    document.getElementById("user").checked = false;
-    document.getElementById("admin").checked = false;
   }
 
   handleModelOpenfn() {
@@ -59,7 +73,6 @@ class FormExample extends React.Component {
   }
 
   setUserInput(e) {
-    console.log(e.target.id);
     this.setState({
       user_type: e.target.id,
     });
@@ -67,33 +80,52 @@ class FormExample extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    let data = {
-      first_name: document.getElementById("first_name").value,
-      last_name: document.getElementById("last_name").value,
-      email: document.getElementById("email").value,
-      password: document.getElementById("password").value,
-      country: document.getElementById("country").value,
-      user_type: this.state.user_type,
-    };
-    axios
-      .post(
-        "https://capestone-visto-server.herokuapp.com/api/auth/sign-up",
-        data
-      )
-      .then((res) => {
-        console.log(res.data);
-        if (res.data["status"] == "0") {
-          this.setState({
-            errorMsg: res.data.message,
-          });
-          this.handleModelOpenfn();
-        } else if (res.data["staus"] == "1") {
-          this.props.history.push("/login");
-        }
-      })
-      .catch((err) => console.error(err));
+    if (
+      document.getElementById("password").value != "" &&
+      document.getElementById("email").value != "" &&
+      document.getElementById("first_name").value != "" &&
+      document.getElementById("last_name").value != "" &&
+      document.getElementById("country").value != "" &&
+      document.getElementById("confmpassword").value != ""
+    ) {
+      let data = {
+        first_name: document.getElementById("first_name").value,
+        last_name: document.getElementById("last_name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        country: document.getElementById("country").value,
+        user_type: this.state.user_type,
+      };
+      axios
+        .post(
+          "https://capestone-visto-server.herokuapp.com/api/auth/sign-up",
+          data
+        )
+        .then((res) => {
+          console.log(res.data);
+          if (res.data["status"] == "0") {
+            this.setState({
+              errorMsg: res.data.message,
+            });
+            this.handleModelOpenfn();
+          } else if (res.data["staus"] == "1") {
+            this.props.history.push("/login");
+          }
+        })
+        .catch((err) => console.error(err));
+    } else {
+      this.setState({
+        errorMsg: "Please enter all the details",
+        modalactive: "true",
+      });
+      this.handleModelOpenfn();
+    }
   }
+
+  componentDidUpdate() {
+    this.removeallData();
+  }
+
   render() {
     return (
       <>
@@ -119,7 +151,7 @@ class FormExample extends React.Component {
                         <Row>
                           <Col
                             style={{ marginTop: "10px", marginBottom: "20px" }}
-                            xl={{ span: "5", offset: "2" }}
+                            xl={{ span: "4", offset: "2" }}
                           >
                             <div class="custom-control custom-radio custom-control-inline">
                               <input

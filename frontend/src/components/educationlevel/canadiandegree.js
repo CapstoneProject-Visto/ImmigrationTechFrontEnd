@@ -1,6 +1,6 @@
 import React from "react";
 import LevelOfEducation from "./levelofeducation";
-import Button from "../submitbtn/submitcadedu";
+import Button from "../submitbtn/index";
 import { Animated } from "react-animated-css";
 import { withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";

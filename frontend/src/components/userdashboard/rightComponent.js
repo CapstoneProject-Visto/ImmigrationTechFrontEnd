@@ -16,8 +16,6 @@ class RightComponent extends React.Component {
   }
 
   componentDidMount() {
-    console.log(sessionStorage.getItem("LoggedIn"));
-    console.log(sessionStorage.getItem("token"));
     let usertoken = sessionStorage.getItem("token");
     fetch("https://capestone-visto-server.herokuapp.com/api/check-score", {
       method: "GET",
@@ -35,7 +33,6 @@ class RightComponent extends React.Component {
     return (
       <>
         <Header />
-        {console.log("This state" + JSON.stringify(this.state))}
         <Container style={{ backgroundColor: "grey" }}>
           <span style={{ height: "10px" }}></span>
           <div
@@ -54,7 +51,7 @@ class RightComponent extends React.Component {
                   fontFamily: "Times New Roman, Times, serif",
                   color: "blue",
                 }}
-                xl={{ offset: "6" }}
+                xl={{ offset: "0" }}
               >
                 User DashBoard
               </Col>

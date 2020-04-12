@@ -3,27 +3,28 @@ import RightComponent from "./rightComponent";
 import UserDashboardWithoutIELTS from "./noieltsdashboard";
 import { Container, Row, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
+import decode from "jwt-decode";
 class UserDashboardMainPage extends React.Component {
   state = {
     forward: "",
   };
   componentDidMount() {
     let data = {
-      email: "sachinjav@gmail.com",
-      password: "12345",
-      user_type: "user",
+      email: decode(sessionStorage.getItem("token")).email,
+      user_type: sessionStorage.getItem("type"),
+      // password: this.props.location.state.password,
       headers: {
         "x-auth-token": sessionStorage.getItem("token"),
       },
     };
-    // this.props.history.push("/noIeltsDashboard");
+    // "https://capestone-visto-server.herokuapp.com/api/misc/isFirstTime",
     fetch(
       "https://capestone-visto-server.herokuapp.com/api/misc/isFirstTime",
       data
     )
       .then((res) => res.json())
       .then((fdata) => {
-        console.log("Fdata " + fdata);
+        console.log("Fdata " + fdata.status);
         if (fdata.status === 0) {
           this.props.history.push("/RightComponent");
         } else if (fdata.status === 1) {

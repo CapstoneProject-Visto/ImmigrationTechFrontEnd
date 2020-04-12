@@ -32,6 +32,7 @@ class Admin extends Component {
   }
 
   handleRadioChange = (e) => {
+    console.log(e.target);
     // check whether it's range or else
     if (
       e.target.value === "x<500" ||
@@ -193,22 +194,28 @@ class Admin extends Component {
     return (
       <>
         <Header />
-        <Container fluid className="contact-container">
-          <Row>
-            <Col xs={8} className="search-column">
+        <Row
+          style={{
+            minHeight: "calc(70.3vh)",
+          }}
+        >
+          <Container fluid className="contact-container">
+            {/* <Row> */}
+            <Col xs={6} className="search-column">
               <Search
                 onRadioChanged={this.handleRadioChange}
                 onTextChanged={this.handleSearchChange}
               />
             </Col>
-          </Row>
+            {/* </Row> */}
 
-          <Row>
-            {this.state.filteredArray
-              ? this.renderUserItem(this.state.filteredArray)
-              : this.renderUserItem(this.state.users)}
-          </Row>
-        </Container>
+            <Row>
+              {this.state.filteredArray
+                ? this.renderUserItem(this.state.filteredArray)
+                : this.renderUserItem(this.state.users)}
+            </Row>
+          </Container>
+        </Row>
         <Footer />
       </>
     );

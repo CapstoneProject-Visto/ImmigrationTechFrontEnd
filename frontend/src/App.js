@@ -88,12 +88,12 @@ function App() {
           path="/certificateorqualification"
           component={CertificateOrQualification}
         />
-        <Route exact path="/userdashboard" component={UserDashboard} />
         <Route
           exact
           path="/noIeltsDashboard"
           component={UserDashboardWithoutIELTS}
         />
+        <Route exact path="/userdashboard" component={UserDashboard} />
 
         <Route exact path="/spouse" component={Spouse} />
         <Route exact path="/useritem" component={UserItem} />
