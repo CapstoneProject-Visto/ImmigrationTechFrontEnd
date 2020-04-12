@@ -39,6 +39,7 @@ class FinalScorePage extends React.Component {
     return (
       <>
         <Header />
+        {/* FIXME DESIGN WHOLE PAGE AGAIN / FIX Current one */}
         {this.state.grandtotal != "" ? (
           <>
             <Row>

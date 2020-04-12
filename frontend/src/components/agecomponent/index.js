@@ -8,7 +8,7 @@ const AgeOfUser = (props) => {
     <>
       <Row>
         <Col
-          xl={{ span: 6, offset: 3 }}
+          xl={{ span: 8, offset: 2 }}
           lg={{ span: 6, offset: 3 }}
           md={{ span: 4, offset: 4 }}
           style={{ marginTop: "5vh", textAlign: "center" }}
@@ -21,11 +21,13 @@ const AgeOfUser = (props) => {
           If you plan to complete an Express Entry profile, enter your current
           age.
         </Col>
+
+        {/* FIXME Width of select property not set */}
         <Col
-          xl={{ span: 2, offset: 5 }}
+          xl={{ span: 3, offset: 4 }}
           lg={{ span: 2, offset: 5 }}
           md={{ span: 4, offset: 4 }}
-          style={{ textAlign: "center" }}
+          style={{ marginTop: "20px", width: "300px", textAlign: "center" }}
         >
           <select onChange={props.agefn}>
             <option name="select" value="select">

@@ -158,14 +158,22 @@ class Spouse extends React.Component {
           }}
         >
           <Col
-            md={{ span: 5, offset: 4 }}
-            sm={{ offset: 2 }}
-            xs={{ offset: 1 }}
-            style={{ marginTop: "5vh" }}
+            xl={{ span: 6, offset: 3 }}
+            lg={{ span: 6, offset: 3 }}
+            md={{ span: 4, offset: 4 }}
+            style={{
+              backgroundColor: "white",
+              paddingTop: "2vh",
+              border: "1px solid black",
+              boxShadow: "2px 3px black",
+              marginTop: "5vh",
+              marginBottom: "5vh",
+              textAlign: "center",
+            }}
           >
             <h5>
-              11) What is the highest level of education for which your spouse
-              or common-law partner's has: earned a Canadian degree, diploma or
+              What is the highest level of education for which your spouse or
+              common-law partner's has: earned a Canadian degree, diploma or
               certificate; or had an Educational Credential Assessment (ECA)?
               (ECAs must be from an approved agency, in the last five years)
             </h5>

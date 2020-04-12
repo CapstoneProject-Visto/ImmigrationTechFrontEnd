@@ -124,7 +124,7 @@ class IELTSScore extends React.Component {
         }
       });
   }
-
+  // FIXME Text size and color change. All common functionalities in one place
   render() {
     return (
       <>
@@ -139,7 +139,15 @@ class IELTSScore extends React.Component {
             md={{ span: 6, offset: 3 }}
             sm={{ offset: 2 }}
             xs={{ offset: 1 }}
-            style={{ marginTop: "10vh", textAlign: "center" }}
+            style={{
+              paddingTop: "3vh",
+              border: "1px solid black",
+              backgroundColor: "white",
+              boxShadow: "3px 3px black",
+              marginBottom: "3vh",
+              textAlign: "center",
+              marginTop: "20px",
+            }}
           >
             <p>Have you opted for IELTS ?</p>
 

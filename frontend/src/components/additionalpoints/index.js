@@ -11,13 +11,13 @@ function AdditionalPoints(props) {
     <>
       <Row>
         <Col
-          xl={{ span: 6, offset: 3 }}
+          xl={{ span: 8, offset: 2 }}
           lg={{ span: 6, offset: 3 }}
           md={{ span: 4, offset: 4 }}
           style={{ marginTop: "5vh", textAlign: "center" }}
         >
           <h4>
-            8) Do you have a valid job offer supported by a Labour Market Impact
+            Do you have a valid job offer supported by a Labour Market Impact
             Assessment (
             <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/offer-employment/lmia-exempt.html">
               if needed
@@ -29,9 +29,7 @@ function AdditionalPoints(props) {
             <br />
             - full-time. <br />
             - in a skilled job listed as Skill Type 0, or Skill Level A or B in
-            the 2011 National Occupational Classification. <br />
-            - supported by a Labour Market Impact Assessment (LMIA) or exempt
-            from needing one.
+            the 2011 National Occupational Classification.
             <br />- for one year from the time you become a permanent resident.
           </p>
           <p>

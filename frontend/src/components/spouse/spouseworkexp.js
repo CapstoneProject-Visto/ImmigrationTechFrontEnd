@@ -8,11 +8,12 @@ function SpouseWorkExp(props) {
     <>
       <Row>
         <Col
-          md={{ span: 5, offset: 4 }}
+          md={{ span: 8, offset: 2 }}
           sm={{ offset: 2 }}
           xs={{ offset: 1 }}
           style={{ marginTop: "4vh" }}
         >
+          {/* FIXME Change Font Size */}
           <h5>
             12) In the last ten years, how many years of skilled work experience
             in Canada does your spouse/common-law partner have? It must have

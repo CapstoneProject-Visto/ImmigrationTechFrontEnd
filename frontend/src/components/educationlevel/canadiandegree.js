@@ -77,10 +77,10 @@ class CanadianDegree extends React.Component {
     return (
       <>
         <Header />
-
+        {/* FIXME Background color fix  */}
         <Row
           style={{
-            backgroundColor: "white",
+            backgroundColor: "lightblue",
             minHeight: "calc(67.5vh)",
           }}
         >
@@ -88,13 +88,19 @@ class CanadianDegree extends React.Component {
             md={{ span: 6, offset: 3 }}
             sm={{ offset: 2 }}
             xs={{ offset: 0 }}
-            style={{ textAlign: "center", marginTop: "20px" }}
+            style={{
+              paddingTop: "3vh",
+              border: "1px solid black",
+              backgroundColor: "white",
+              boxShadow: "3px 3px black",
+              marginBottom: "3vh",
+              textAlign: "center",
+              marginTop: "20px",
+            }}
           >
             <h4>Please select your status</h4>
 
-            <p>
-              4 b) Have you earned a Canadian degree, diploma or certificate?
-            </p>
+            <p>Have you earned a Canadian degree, diploma or certificate?</p>
             <p>
               Note: to answer yes: <br />
               a. English or French as a Second Language must not have made up

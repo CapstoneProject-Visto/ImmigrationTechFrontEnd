@@ -84,14 +84,23 @@ class ForeignSkillExperience extends React.Component {
           }}
         >
           <Col
-            md={{ span: 5, offset: 4 }}
-            sm={{ offset: 2 }}
-            xs={{ offset: 1 }}
-            style={{ marginTop: "10vh" }}
+            xl={{ span: 6, offset: 3 }}
+            lg={{ span: 6, offset: 3 }}
+            md={{ span: 4, offset: 4 }}
+            style={{
+              backgroundColor: "white",
+              paddingTop: "10vh",
+              paddingBottom: "5vh",
+              border: "1px solid black",
+              boxShadow: "2px 3px black",
+              marginTop: "5vh",
+              marginBottom: "5vh",
+              textAlign: "center",
+            }}
           >
             <p>
-              ii. In the last 10 years, how many total years of foreign skilled
-              work experience do you have?
+              In the last 10 years, how many total years of foreign skilled work
+              experience do you have?
             </p>
             <p>
               It must have been paid, full-time (or an equal amount in

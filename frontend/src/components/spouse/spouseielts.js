@@ -9,14 +9,14 @@ function SpouseIELTS(props) {
     <>
       <Row>
         <Col
-          md={{ span: 5, offset: 4 }}
+          md={{ span: 8, offset: 2 }}
           sm={{ offset: 2 }}
           xs={{ offset: 1 }}
           style={{ marginTop: "3vh" }}
         >
           <h5>
-            13) i) Did your spouse or common-law partner take a language
-            test(IELTS)? If so, is the test less than two years old.
+            Did your spouse or common-law partner take a language test(IELTS)?
+            If so, is the test less than two years old.
           </h5>
         </Col>
       </Row>

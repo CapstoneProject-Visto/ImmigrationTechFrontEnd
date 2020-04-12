@@ -140,10 +140,19 @@ class CertificateOrQualification extends React.Component {
           }}
         >
           <Col
-            xl={{ span: 8, offset: 2 }}
+            xl={{ span: 6, offset: 3 }}
             lg={{ span: 6, offset: 3 }}
             md={{ span: 4, offset: 4 }}
-            style={{ marginTop: "5vh", textAlign: "center" }}
+            style={{
+              backgroundColor: "white",
+              paddingTop: "2vh",
+              paddingBottom: "5vh",
+              border: "1px solid black",
+              boxShadow: "2px 3px black",
+              marginTop: "5vh",
+              marginBottom: "5vh",
+              textAlign: "center",
+            }}
           >
             <h3>Additional Points</h3>
             <p>

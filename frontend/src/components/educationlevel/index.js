@@ -47,21 +47,27 @@ class EducationLevel extends React.Component {
     return (
       <>
         <Header />
-
+        {/* FIXME make responsive  and change background color*/}
         <Row
           style={{
-            backgroundColor: "white",
             minHeight: "calc(67.5vh)",
+            backgroundColor: "lightblue",
           }}
         >
           <Col
-            md={{ span: 8, offset: 2 }}
+            xl={{ span: 6, offset: 3 }}
+            lg={{ span: 6, offset: 3 }}
+            md={{ span: 4, offset: 4 }}
             style={{
-              marginTop: "10vh",
+              backgroundColor: "white",
+              paddingTop: "7vh",
+              boxShadow: "2px 3px black",
+              marginTop: "5vh",
+              marginBottom: "5vh",
               textAlign: "center",
             }}
           >
-            <h3>4. What is the level of education ?</h3>
+            <h3>What is the level of education ?</h3>
             <h4>Enter the highest level of education you have achieved </h4>
             <br></br>
             <br></br>
@@ -76,24 +82,20 @@ class EducationLevel extends React.Component {
                 Secondary diploma (high school graduation)
               </option>
               <option name="education" value="one-year">
-                One-year program at a university, college, trade or technical
-                school, or other institute
+                One-year program at a university, college
               </option>
               <option name="education" value="two-year">
-                Two-year program at a university, college, trade or technical
-                school, or other institute
+                Two-year program at a university, college
               </option>
               <option name="education" value="bachelors">
                 Bachelor's degree (three or more year program at a university,
-                college, trade or technical school, or other institute)
+                college)
               </option>
               <option name="education" value="twoOrMoreCertificate">
-                Two or more certificates, diplomas or degrees. One must be for a
-                program of three or more years
+                Two or more certificates, diplomas or degrees.
               </option>
               <option name="education" value="masters">
-                Master's degree, or professional degree needed to practice in a
-                licensed profession (see Help)
+                Master's degree, or professional degree
               </option>
               <option name="education" value="doctoral">
                 Doctoral level university degree (PhD)

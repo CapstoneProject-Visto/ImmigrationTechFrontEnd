@@ -8,6 +8,7 @@ function NOCLevel(props) {
   }
   return (
     <>
+      {/* FIXME BackgroundColor */}
       <Row>
         <Col
           xl={{ span: 6, offset: 3 }}
@@ -16,12 +17,12 @@ function NOCLevel(props) {
           style={{ marginTop: "5vh", textAlign: "center" }}
         >
           <p>
-            8a) Which NOC skill type or level is the job offer? You can use our
+            Which NOC skill type or level is the job offer? You can use our
             online tool to find out if you don’t know.
           </p>
         </Col>
         <Col
-          xl={{ span: 2, offset: 5 }}
+          xl={{ span: 2, offset: 3 }}
           lg={{ span: 2, offset: 5 }}
           md={{ span: 4, offset: 4 }}
           style={{ textAlign: "center" }}

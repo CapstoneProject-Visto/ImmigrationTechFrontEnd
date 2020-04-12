@@ -14,8 +14,8 @@ function SpouseStatus(props) {
           xs={{ offset: 1 }}
           style={{ marginTop: "20px" }}
         >
-          2.a - Is your spouse or common-law partner a citizen or permanent
-          resident of Canada?
+          Is your spouse or common-law partner a citizen or permanent resident
+          of Canada?
         </Col>
       </Row>
       <Col

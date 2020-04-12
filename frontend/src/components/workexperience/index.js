@@ -64,12 +64,21 @@ class WorkExperience extends React.Component {
           }}
         >
           <Col
-            md={{ span: 5, offset: 4 }}
-            sm={{ offset: 2 }}
-            xs={{ offset: 1 }}
-            style={{ marginTop: "10vh" }}
+            xl={{ span: 6, offset: 3 }}
+            lg={{ span: 6, offset: 3 }}
+            md={{ span: 4, offset: 4 }}
+            style={{
+              backgroundColor: "white",
+              paddingTop: "2vh",
+              border: "1px solid black",
+              boxShadow: "2px 3px black",
+              marginTop: "5vh",
+              marginBottom: "5vh",
+              textAlign: "center",
+            }}
           >
-            <div>6 . Work Experience</div>
+            {/* FIXME CHnage background color */}
+            <div>Work Experience</div>
             <p>
               i. In the last ten years, how many years of skilled work
               experience in Canada do you have?

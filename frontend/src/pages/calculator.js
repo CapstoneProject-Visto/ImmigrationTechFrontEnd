@@ -21,9 +21,11 @@ class Calculator extends React.Component {
     return (
       <>
         <Header />
+
+        {/* FIXME Change background color */}
         <Row
           style={{
-            backgroundColor: "white",
+            backgroundColor: "lightblue",
             minHeight: "calc(67.5vh)",
           }}
         >
@@ -33,14 +35,16 @@ class Calculator extends React.Component {
             md={8}
             sm={10}
             xs={10}
-            // style={{ backgroundColor: "#68B684" }}
+            style={{ border: "1px solid black", boxShadow: "3px 3px black" }}
           >
-            {console.log(this.state.loggedIn)}
             {this.state.loggedIn != ""
               ? [
                   this.state.loggedIn != "false" ? (
                     <div
-                      style={{ backgroundColor: "yellow", minHeight: "55vh" }}
+                      style={{
+                        marginLeft: "0px",
+                        minHeight: "55vh",
+                      }}
                     >
                       <CalculatorPage />
                     </div>

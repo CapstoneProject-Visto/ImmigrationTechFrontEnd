@@ -6,13 +6,14 @@ function CLPCmgToCanada(props) {
   return (
     <>
       <Row>
-        <Col md={{ span: 5, offset: 4 }} style={{ marginTop: "20px" }}>
+        <Col md={{ span: 8, offset: 2 }} style={{ marginTop: "20px" }}>
+          {/* FIXME change text size */}
           <h3>Please select your status</h3>
         </Col>
       </Row>
       <Row>
-        <Col md={{ span: 5, offset: 4 }} style={{ marginTop: "20px" }}>
-          2) ii. Will your spouse or common-law partner come with you to Canada?{" "}
+        <Col md={{ span: 7, offset: 3 }} style={{ marginTop: "20px" }}>
+          Will your spouse or common-law partner come with you to Canada?{" "}
         </Col>
         <Col
           md={{ span: 4, offset: 4 }}
@@ -37,9 +38,7 @@ function CLPCmgToCanada(props) {
           </select>
         </Col>
       </Row>
-      {/* {props.clpartnermainstate != "" ? (
-        <AgeOfUser loe={props.loe} loestate={props.loestate} />
-      ) : null} */}
+
       {props.clpartnermainstate != "" ? (
         <Animated
           animationIn="fadeIn "

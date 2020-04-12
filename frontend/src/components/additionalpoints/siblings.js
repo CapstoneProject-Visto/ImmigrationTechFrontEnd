@@ -6,7 +6,7 @@ function Siblings(props) {
     <>
       <Row>
         <Col
-          xl={{ span: 6, offset: 3 }}
+          xl={{ span: 8, offset: 2 }}
           lg={{ span: 6, offset: 3 }}
           md={{ span: 4, offset: 4 }}
           style={{ marginTop: "5vh", textAlign: "center" }}
@@ -39,6 +39,7 @@ function Siblings(props) {
           style={{ textAlign: "center" }}
         >
           <select name="" onChange={props.siblingsincanadafn}>
+            <option value="select">---SELECT---</option>
             <option value="immediate_relative_yes">YES</option>
             <option value="immediate_relative_no">NO</option>
           </select>
@@ -49,7 +50,7 @@ function Siblings(props) {
         animationInDuration={1000}
         isVisible={true}
       >
-        <Col md={{ span: 4, offset: 5 }} style={{ marginTop: "20px" }}>
+        <Col md={{ span: 4, offset: 4 }} style={{ marginTop: "20px" }}>
           <button
             disabled={!props.siblingsincanadastate}
             onClick={props.apiCall}

@@ -16,7 +16,7 @@ function NOCLevel(props) {
           style={{ marginTop: "5vh", textAlign: "center" }}
         >
           <p>
-            8a) Which NOC skill type or level is the job offer? You can use our
+            Which NOC skill type or level is the job offer? You can use our
             online tool to find out if you don’t know.
           </p>
         </Col>

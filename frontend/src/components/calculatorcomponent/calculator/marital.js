@@ -119,7 +119,7 @@ class CalculatorPage extends React.Component {
         > */}
         <Row style={{ width: "100%" }}>
           <Col
-            md={{ span: 5, offset: 4 }}
+            md={{ span: 4, offset: 4 }}
             sm={{ span: 2, offset: 5 }}
             xs={{ span: 6, offset: 3 }}
             style={{ marginTop: "20px" }}
@@ -127,7 +127,8 @@ class CalculatorPage extends React.Component {
             MARITAL STATUS
           </Col>
           <Col
-            md={{ span: 7, offset: 4 }}
+            xl={{ span: 6, offset: 3 }}
+            md={{ span: 5, offset: 3 }}
             sm={{ span: 2, offset: 5 }}
             xs={{ span: 6, offset: 3 }}
             style={{ marginTop: "20px" }}
@@ -135,6 +136,7 @@ class CalculatorPage extends React.Component {
             Are you married?{" "}
           </Col>
           <Col
+            xl={{ span: 2, offset: 3 }}
             md={{ span: 3, offset: 2 }}
             sm={{ span: 2, offset: 4 }}
             xs={{ span: 1, offset: 3 }}
