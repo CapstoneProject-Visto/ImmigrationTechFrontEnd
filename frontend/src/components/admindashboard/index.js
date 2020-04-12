@@ -201,7 +201,22 @@ class Admin extends Component {
         >
           <Container fluid className="contact-container">
             {/* <Row> */}
-            <Col xs={6} className="search-column">
+            <Row>
+              <Col
+                style={{
+                  marginTop: "7px",
+                  marginBottom: "20px",
+                  fontSize: "25px",
+                  fontFamily: "Times New Roman, Times, serif",
+                  color: "black",
+                  borderBottom: "1px solid black",
+                }}
+                xl={{ offset: "0" }}
+              >
+                Admin DashBoard
+              </Col>
+            </Row>
+            <Col>
               <Search
                 onRadioChanged={this.handleRadioChange}
                 onTextChanged={this.handleSearchChange}

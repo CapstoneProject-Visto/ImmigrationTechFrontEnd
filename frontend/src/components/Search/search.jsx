@@ -11,8 +11,19 @@ import "./search.css";
 
 const Search = (props) => {
   return (
-    <Row>
-      <Col xs={8} className="search-column">
+    // <Row style={{ width: "40%", margin: "auto" }}>
+    <Col style={{ display: "flex" }}>
+      <Col xl={{ offset: "4", span: 3 }}>
+        <Form style={{ display: "flex" }}>
+          <Form.Control
+            className="input-search"
+            type="search"
+            placeholder="search by"
+            onChange={props.onTextChanged}
+          />
+        </Form>
+      </Col>
+      <Col xl={{ span: 1 }}>
         <Dropdown>
           <Dropdown.Toggle
             variant="success"
@@ -83,15 +94,8 @@ const Search = (props) => {
           </Dropdown.Menu>
         </Dropdown>
       </Col>
-      <Form inline>
-        <Form.Control
-          className="input-search"
-          type="search"
-          placeholder="search by"
-          onChange={props.onTextChanged}
-        />
-      </Form>
-    </Row>
+    </Col>
+    // </Row>
   );
 };
 

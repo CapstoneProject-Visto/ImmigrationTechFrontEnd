@@ -213,11 +213,11 @@ class UserLogin extends React.Component {
                         style={{ marginTop: "3.5vh" }}
                         xl={{ span: "7", offset: "0" }}
                       >
-                        <h6>Forgot Password</h6>
+                        <h6>Forgot Password?</h6>
                       </Col>
                       <Col xl={{ span: "6", offset: "0" }}>
                         <Link to={{ pathname: "/signup" }}>
-                          <h6 style={{ color: "blue" }}>Sign Up here</h6>
+                          <h6 style={{ color: "black" }}>Sign Up here</h6>
                         </Link>
                       </Col>
                     </div>

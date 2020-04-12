@@ -47,9 +47,10 @@ class RightComponent extends React.Component {
               <Col
                 style={{
                   marginTop: "15px",
-                  fontSize: "30px",
+                  fontSize: "25px",
                   fontFamily: "Times New Roman, Times, serif",
-                  color: "blue",
+                  color: "black",
+                  borderBottom: "1px solid black",
                 }}
                 xl={{ offset: "0" }}
               >
