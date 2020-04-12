@@ -120,7 +120,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                     borderLeft: "2px solid black",
                     borderTop: "2px solid black",
@@ -134,7 +134,7 @@ class FinalScorePage extends React.Component {
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
                   style={{
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
                     borderRight: "2px solid black",
                     borderTop: "2px solid black",
@@ -154,7 +154,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                     borderLeft: "2px solid black",
                   }}
@@ -167,7 +167,7 @@ class FinalScorePage extends React.Component {
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
                   style={{
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
                     borderRight: "2px solid black",
                   }}
@@ -186,7 +186,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                     borderLeft: "2px solid black",
                   }}
@@ -200,7 +200,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 4 }}
                   style={{
                     borderRight: "2px solid black",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
                   }}
                 >
@@ -217,7 +217,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                     borderLeft: "2px solid black",
                   }}
@@ -231,7 +231,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 4 }}
                   style={{
                     borderRight: "2px solid black",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
                   }}
                 >
@@ -249,7 +249,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "center",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                     borderLeft: "2px solid black",
                     borderBottom: "2px solid black",
@@ -265,7 +265,7 @@ class FinalScorePage extends React.Component {
                   style={{
                     borderRight: "2px solid black",
                     borderBottom: "2px solid black",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
                   }}
                 >
@@ -299,7 +299,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -310,7 +310,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[1]["Spouse Factors"]}
                 </Col>
@@ -326,7 +326,7 @@ class FinalScorePage extends React.Component {
                 xs={{ span: 3, offset: 3 }}
                 style={{
                   textAlign: "right",
-                  backgroundColor: "red",
+                  backgroundColor: "#b2ebf2",
                   paddingRight: "30px",
                 }}
                 >
@@ -337,7 +337,7 @@ class FinalScorePage extends React.Component {
                 lg={{ span: 2 }}
                 md={{ span: 2 }}
                 xs={{ span: 4 }}
-                style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                 Language score here
                 </Col>
@@ -354,7 +354,7 @@ class FinalScorePage extends React.Component {
                 xs={{ span: 3, offset: 3 }}
                 style={{
                   textAlign: "right",
-                  backgroundColor: "red",
+                  backgroundColor: "#b2ebf2",
                   paddingRight: "30px",
                 }}
                 >
@@ -365,7 +365,7 @@ class FinalScorePage extends React.Component {
                 lg={{ span: 2 }}
                 md={{ span: 2 }}
                 xs={{ span: 4 }}
-                style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                 Work Exp Score
                 </Col>
@@ -380,7 +380,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -391,7 +391,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[1].Subtotal}
                 </Col>
@@ -422,7 +422,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -433,7 +433,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[2].Education}
                 </Col>
@@ -448,7 +448,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -459,7 +459,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[2]["Foreign work experience"]}
                 </Col>
@@ -474,7 +474,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -485,7 +485,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[2]["Certificate of qualification"]}
                 </Col>
@@ -500,7 +500,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -511,7 +511,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[2]["Subtotal"]}
                 </Col>
@@ -540,7 +540,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -551,7 +551,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[3]["Provincial nomination"]}
                 </Col>
@@ -566,7 +566,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -577,7 +577,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[3]["Job Offer"]}
                 </Col>
@@ -592,7 +592,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -603,7 +603,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[3]["Study in Canada"]}
                 </Col>
@@ -617,7 +617,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -628,7 +628,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[3]["Sibling in Canada"]}
                 </Col>
@@ -643,7 +643,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                   }}
                 >
@@ -654,7 +654,7 @@ class FinalScorePage extends React.Component {
                   lg={{ span: 2 }}
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
-                  style={{ backgroundColor: "red", paddingLeft: "30px" }}
+                  style={{ backgroundColor: "#b2ebf2", paddingLeft: "30px" }}
                 >
                   {this.state.subtotal[3]["Subtotal"]}
                 </Col>
@@ -685,7 +685,7 @@ class FinalScorePage extends React.Component {
                   xs={{ span: 3, offset: 3 }}
                   style={{
                     textAlign: "right",
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
                     border: "2px solid black",
                     borderRight: "none",
@@ -699,7 +699,7 @@ class FinalScorePage extends React.Component {
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
                   style={{
-                    backgroundColor: "red",
+                    backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
                     border: "2px solid black",
                     borderLeft: "none",

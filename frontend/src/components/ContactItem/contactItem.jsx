@@ -13,8 +13,10 @@ const ContactItem = (props) => {
       <div
         style={{
           width: "60%",
-          backgroundColor: "lightgrey",
+          backgroundColor: "#b2ebf2",
           boxShadow: "1px 1px black",
+          color: "#511845",
+          fontWeight: "bold",
           margin: "20px auto",
         }}
         id="div"

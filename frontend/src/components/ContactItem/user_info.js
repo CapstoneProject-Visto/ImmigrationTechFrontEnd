@@ -10,7 +10,7 @@ class UserInfo extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.location.state.user[0].score.crs_score);
+    console.log(this.props.location.state.user[0]);
     let usertoken = sessionStorage.getItem("token");
     fetch(
       `https://capestone-visto-server.herokuapp.com/api/admin/getUser/${this.props.location.state.user[0].user_id}`,
@@ -107,19 +107,19 @@ class UserInfo extends Component {
                   }}
                   md={{ span: "12" }}
                 >
-                  Name: Sachin
+                  Name: {this.props.location.state.user[0]["first_name"]}
                 </Col>
                 <Col
                   style={{ marginTop: "3vh", marginLeft: "35px" }}
                   md={{ span: "10" }}
                 >
-                  Email : sachin@gmail.com
+                  Email :{this.props.location.state.user[0]["email"]}
                 </Col>
                 <Col
                   style={{ marginTop: "3vh", marginLeft: "11px" }}
                   md={{ span: "11" }}
                 >
-                  Country:Singapore
+                  Country:{this.props.location.state.user[0]["country"]}
                 </Col>
               </Col>
             </Row>
