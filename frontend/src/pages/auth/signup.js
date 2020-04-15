@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/header";
-import SignUpForm from "../components/auth/signup";
-import Footer from "../components/footer";
+import Header from "../../components/header";
+import SignUpForm from "../../components/auth/signup";
+import Footer from "../../components/footer";
 
 function SignupPage() {
   return (

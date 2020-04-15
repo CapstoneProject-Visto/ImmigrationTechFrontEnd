@@ -1,15 +1,11 @@
 import React from "react";
-import MainPage from "./pages";
-import SignupPage from "./pages/signup.js";
-import LoginPage from "./pages/login.js";
+
+import SignupPage from "./pages/auth/signup.js";
+import LoginPage from "./pages/auth/login.js";
 import LevelOfEducation from "./components/educationlevel";
 import AgeOfUser from "./components/agecomponent";
 import EditUser from "./components/Edit_User";
 import Calculator from "./pages/calculator.js";
-import AboutUS from "./pages/aboutus.js";
-import Blog from "./pages/blog.js";
-import ContactUs from "./pages/contactus.js";
-import FAQ from "./pages/faq.js";
 import IELTS from "./components/ielts";
 import adminPage from "./pages/adminPage.js";
 import UserDashboard from "./pages/userdashboard";
@@ -34,7 +30,6 @@ import UserDashboardWithoutIELTS from "./components/userdashboard/noieltsdashboa
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import "./App.css";
 import "./styles/style.css";
 
 function App() {
@@ -42,15 +37,11 @@ function App() {
     <Router>
       {/* <Header /> */}
       <Switch>
-        <Route exact path="/" component={MainPage} />
+        <Route exact path="/" component={LoginPage} />
         <Route exact path="/calculator" component={Calculator} />
 
         <Route exact path="/login" component={LoginPage} />
 
-        <Route exact path="/aboutus" component={AboutUS} />
-        <Route exact path="/contactus" component={ContactUs} />
-        <Route exact path="/blog" component={Blog} />
-        <Route exact path="/faq" component={FAQ} />
         <Route exact path="/levelofedu" component={LevelOfEducation} />
 
         <Route exact path="/ielts" component={IELTS} />

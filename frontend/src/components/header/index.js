@@ -4,14 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-const withoutLogin = [
-  ["Home", "/"],
-  ["About Us", "/aboutus"],
-  ["Blog", "/blog"],
-  ["Contact Us", "/contactus"],
-  ["FAQ", "/faq"],
-  ["LOGIN", "/login"],
-];
+const withoutLogin = [];
 
 const adminLogin = [["Admin Dashboard", "/adminPage"]];
 

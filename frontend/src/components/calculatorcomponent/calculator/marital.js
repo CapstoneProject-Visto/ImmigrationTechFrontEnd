@@ -11,8 +11,8 @@ class CalculatorPage extends React.Component {
     this.state = {
       selectedOption: "",
       marital_status_type: "",
-      spouse_citizen: "",
-      spouse_coming_canada: "",
+      spouse_citizen: null,
+      spouse_coming_canada: null,
       notMarriedOptionValue: "",
       submitDatastate: "",
       educationlevelstate: "",
@@ -29,8 +29,8 @@ class CalculatorPage extends React.Component {
     this.setState({
       selectedOption: e.currentTarget.value,
       marital_status_type: "",
-      spouse_citizen: "",
-      spouse_coming_canada: "",
+      spouse_citizen: null,
+      spouse_coming_canada: null,
       notMarriedOptionValue: "",
       submitDatastate: "",
       educationlevelstate: "",
@@ -52,13 +52,13 @@ class CalculatorPage extends React.Component {
   citizenofCanada(e) {
     if (e.target.value === "select") {
       this.setState({
-        spouse_citizen: "",
-        spouse_coming_canada: "",
+        spouse_citizen: null,
+        spouse_coming_canada: null,
       });
     } else {
       this.setState({
         spouse_citizen: e.target.value,
-        spouse_coming_canada: "",
+        spouse_coming_canada: null,
       });
     }
   }
@@ -66,7 +66,7 @@ class CalculatorPage extends React.Component {
   clpcmgtocanada(e) {
     if (e.target.value === "select") {
       this.setState({
-        spouse_coming_canada: "",
+        spouse_coming_canada: null,
       });
     } else {
       this.setState({
@@ -83,13 +83,22 @@ class CalculatorPage extends React.Component {
 
   submitData() {
     let usertoken = sessionStorage.getItem("token");
-    let data = {
-      marital_status_type: this.state.marital_status_type,
-      spouse_citizen: this.state.spouse_citizen,
-      spouse_coming_canada: this.state.spouse_coming_canada,
-    };
+    let data;
+    if (this.state.spouse_coming_canada != null) {
+      data = {
+        marital_status_type: this.state.marital_status_type,
+        spouse_citizen: this.state.spouse_citizen,
+        spouse_coming_canada: this.state.spouse_coming_canada,
+      };
+    } else {
+      data = {
+        marital_status_type: this.state.marital_status_type,
+        spouse_citizen: this.state.spouse_citizen,
+      };
+    }
     console.log(data);
-    fetch("https://capestone-visto-server.herokuapp.com/api/marital-status", {
+    // fetch("https://capestone-visto-server.herokuapp.com/api/marital-status", {
+    fetch("http://localhost:5001/api/marital-status", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

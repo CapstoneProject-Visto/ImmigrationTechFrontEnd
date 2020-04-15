@@ -122,6 +122,7 @@ class UserLogin extends React.Component {
             backgroundColor: "white",
             boxShadow: "3px 4px 3px black",
             marginTop: "15px",
+            border: "1px solid black",
           }}
           xl={{ span: 4, offset: "4" }}
           lg={{ span: 4, offset: "4" }}

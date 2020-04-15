@@ -1,6 +1,7 @@
 import React from "react";
 import { Animated } from "react-animated-css";
 import { Row, Col } from "react-bootstrap";
+import Button from "../submitbtn";
 function Siblings(props) {
   return (
     <>
@@ -50,13 +51,17 @@ function Siblings(props) {
         animationInDuration={1000}
         isVisible={true}
       >
-        <Col md={{ span: 4, offset: 4 }} style={{ marginTop: "20px" }}>
-          <button
+        <Col md={{ span: 8, offset: 2 }} style={{ marginTop: "20px" }}>
+          {/* <button
             disabled={!props.siblingsincanadastate}
             onClick={props.apiCall}
           >
             Submit
-          </button>
+          </button> */}
+          <Button
+            siblingsincanadastate={props.siblingsincanadastate}
+            apiCall={props.apiCall}
+          />
         </Col>
       </Animated>
     </>

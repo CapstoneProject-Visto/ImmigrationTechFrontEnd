@@ -12,24 +12,10 @@ class CanadianDegree extends React.Component {
     super();
     this.state = {
       submitDatastate: "",
-      canadiandegree: "",
       level_of_education: "",
     };
     this.submitData = this.submitData.bind(this);
-    this.canadiandegree = this.canadiandegree.bind(this);
     this.canadianlevelofedu = this.canadianlevelofedu.bind(this);
-  }
-
-  canadiandegree(e) {
-    if (e.target.value == "select") {
-      this.setState({
-        canadiandegree: "",
-      });
-    } else {
-      this.setState({
-        canadiandegree: e.target.value,
-      });
-    }
   }
 
   canadianlevelofedu(e) {
@@ -113,54 +99,14 @@ class CanadianDegree extends React.Component {
               at least eight months
             </p>
 
-            <select style={{ width: "100px" }} onChange={this.canadiandegree}>
-              <option name="select" value="select">
-                ---SELECT---
-              </option>
-              <option
-                name="canadian_degree_diploma_cerificate"
-                value="canadian_degree_diploma_certificate_no"
-              >
-                NO
-              </option>
-              <option
-                name="canadian_degree_diploma_cerificate"
-                value="canadian_degree_diploma_certificate_yes"
-              >
-                YES
-              </option>
-            </select>
-
-            {console.log(this.state)}
-            {this.state.canadiandegree != ""
-              ? [
-                  this.state.canadiandegree ==
-                  "canadian_degree_diploma_certificate_yes" ? (
-                    <Animated
-                      animationIn="fadeIn"
-                      animationInDuration={1000}
-                      isVisible={true}
-                    >
-                      <div style={{ marginBottom: "20px" }}>
-                        <LevelOfEducation
-                          submitData={this.submitData}
-                          submitDataState={this.submitDataState}
-                          canadianlevelofedufn={this.canadianlevelofedu}
-                          canadianlevelofedu={this.state.level_of_education}
-                        />
-                      </div>
-                    </Animated>
-                  ) : (
-                    <Animated
-                      animationIn="fadeIn"
-                      animationInDuration={1000}
-                      isVisible={true}
-                    >
-                      <Button apiCall={this.submitData} />
-                    </Animated>
-                  ),
-                ]
-              : null}
+            <div style={{ marginBottom: "20px" }}>
+              <LevelOfEducation
+                submitData={this.submitData}
+                submitDataState={this.submitDataState}
+                canadianlevelofedufn={this.canadianlevelofedu}
+                canadianlevelofedu={this.state.level_of_education}
+              />
+            </div>
           </Col>
         </Row>
         <Footer />

@@ -10,7 +10,7 @@ function Button(props) {
           name="submit"
           value="SUBMIT"
           style={{ marginTop: "3vh" }}
-          onClick={props.submitDataBtn}
+          onClick={props.apiCall}
         ></input>
       </Col>
     </Row>

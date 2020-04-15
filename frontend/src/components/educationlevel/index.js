@@ -110,7 +110,7 @@ class EducationLevel extends React.Component {
                       animationInDuration={1000}
                       isVisible={true}
                     >
-                      <Button submitDataBtn={this.submitData} />
+                      <Button apiCall={this.submitData} />
                     </Animated>
                   ) : null,
                 ]

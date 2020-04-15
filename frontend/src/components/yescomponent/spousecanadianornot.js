@@ -35,7 +35,7 @@ function SpouseStatus(props) {
           </option>
         </select>
       </Col>
-      {props.spouse_citizenStateValue !== ""
+      {props.spouse_citizenStateValue !== null
         ? [
             props.spouse_citizenStateValue !== "spouse_citizen_yes" ? (
               <Animated

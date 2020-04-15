@@ -122,8 +122,8 @@ class FinalScorePage extends React.Component {
                     textAlign: "right",
                     backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
-                    borderLeft: "2px solid black",
-                    borderTop: "2px solid black",
+                    // borderLeft: "2px solid black",
+                    // borderTop: "2px solid black",
                   }}
                 >
                   Age
@@ -136,8 +136,8 @@ class FinalScorePage extends React.Component {
                   style={{
                     backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
-                    borderRight: "2px solid black",
-                    borderTop: "2px solid black",
+                    // borderRight: "2px solid black",
+                    // borderTop: "2px solid black",
                   }}
                 >
                   {this.state.subtotal[0].Age}
@@ -156,7 +156,7 @@ class FinalScorePage extends React.Component {
                     textAlign: "right",
                     backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
-                    borderLeft: "2px solid black",
+                    // borderLeft: "2px solid black",
                   }}
                 >
                   Level Of Education
@@ -169,7 +169,7 @@ class FinalScorePage extends React.Component {
                   style={{
                     backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
-                    borderRight: "2px solid black",
+                    // borderRight: "2px solid black",
                   }}
                 >
                   {this.state.subtotal[0]["Level of Education"]}
@@ -188,7 +188,7 @@ class FinalScorePage extends React.Component {
                     textAlign: "right",
                     backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
-                    borderLeft: "2px solid black",
+                    // borderLeft: "2px solid black",
                   }}
                 >
                   Language Profiency
@@ -199,7 +199,6 @@ class FinalScorePage extends React.Component {
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
                   style={{
-                    borderRight: "2px solid black",
                     backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
                   }}
@@ -219,7 +218,7 @@ class FinalScorePage extends React.Component {
                     textAlign: "right",
                     backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
-                    borderLeft: "2px solid black",
+                    // borderLeft: "2px solid black",
                   }}
                 >
                   Canadian Work Experience
@@ -230,7 +229,6 @@ class FinalScorePage extends React.Component {
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
                   style={{
-                    borderRight: "2px solid black",
                     backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
                   }}
@@ -251,8 +249,8 @@ class FinalScorePage extends React.Component {
                     textAlign: "center",
                     backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
-                    borderLeft: "2px solid black",
-                    borderBottom: "2px solid black",
+                    // borderLeft: "2px solid black",
+                    // borderBottom: "2px solid black",
                   }}
                 >
                   Subtotal :-
@@ -263,8 +261,8 @@ class FinalScorePage extends React.Component {
                   md={{ span: 2 }}
                   xs={{ span: 4 }}
                   style={{
-                    borderRight: "2px solid black",
-                    borderBottom: "2px solid black",
+                    // borderRight: "2px solid black",
+                    // borderBottom: "2px solid black",
                     backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
                   }}
@@ -687,7 +685,7 @@ class FinalScorePage extends React.Component {
                     textAlign: "right",
                     backgroundColor: "#b2ebf2",
                     paddingRight: "30px",
-                    border: "2px solid black",
+                    // border: "2px solid black",
                     borderRight: "none",
                   }}
                 >
@@ -701,7 +699,7 @@ class FinalScorePage extends React.Component {
                   style={{
                     backgroundColor: "#b2ebf2",
                     paddingLeft: "30px",
-                    border: "2px solid black",
+                    // border: "2px solid black",
                     borderLeft: "none",
                   }}
                 >

@@ -39,7 +39,7 @@ function CLPCmgToCanada(props) {
         </Col>
       </Row>
 
-      {props.clpartnermainstate != "" ? (
+      {props.clpartnermainstate != null ? (
         <Animated
           animationIn="fadeIn "
           animationInDuration={1000}

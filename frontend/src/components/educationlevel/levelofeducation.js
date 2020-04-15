@@ -11,7 +11,7 @@ function LevelOfEducation(props) {
           md={{ span: 6, offset: 3 }}
           style={{ textAlign: "center", marginTop: "20px" }}
         >
-          4 c) - Choose the best answer to describe the level of your education
+          Choose the best answer to describe the level of your education
         </Col>
         <Col
           md={{ offset: 1, span: 5 }}
@@ -29,7 +29,7 @@ function LevelOfEducation(props) {
               ---SELECT---
             </option>
             <option name="school" value="secondary">
-              Secondary (high school) or less
+              None or Secondary (high school) or less
             </option>
             <option name="school" value="one_or_two">
               One- or two-year diploma or certificate

@@ -139,7 +139,7 @@ class UserInfo extends Component {
                 </Row>
                 <Row
                   style={{
-                    backgroundColor: "lightgreen",
+                    // backgroundColor: "lightgreen",
                     minHeight: "calc(49.8vh)",
                   }}
                 >
@@ -366,7 +366,7 @@ class UserInfo extends Component {
                   </Col>
                   <Col
                     xl={{ span: 12 }}
-                    style={{ backgroundColor: "lightblue" }}
+                    style={{ borderTop: "1px solid black", paddingTop: "15px" }}
                   >
                     <div style={{ textAlign: "center" }}>
                       Grand Total :- &nbsp;{" "}
