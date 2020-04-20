@@ -10,7 +10,7 @@ class CalculatorPage extends React.Component {
     super();
     this.state = {
       selectedOption: "",
-      marital_status_type: "",
+      marital_status_type: null,
       spouse_citizen: null,
       spouse_coming_canada: null,
       notMarriedOptionValue: "",
@@ -28,7 +28,7 @@ class CalculatorPage extends React.Component {
   radioChange(e) {
     this.setState({
       selectedOption: e.currentTarget.value,
-      marital_status_type: "",
+      marital_status_type: null,
       spouse_citizen: null,
       spouse_coming_canada: null,
       notMarriedOptionValue: "",
@@ -76,8 +76,9 @@ class CalculatorPage extends React.Component {
   }
 
   notmarriedstatus(e) {
+    console.log(e.target.value);
     this.setState({
-      notMarriedOptionValue: e.target.value,
+      marital_status_type: e.target.value,
     });
   }
 
@@ -93,12 +94,11 @@ class CalculatorPage extends React.Component {
     } else {
       data = {
         marital_status_type: this.state.marital_status_type,
-        spouse_citizen: this.state.spouse_citizen,
       };
     }
     console.log(data);
-    // fetch("https://capestone-visto-server.herokuapp.com/api/marital-status", {
-    fetch("http://localhost:5001/api/marital-status", {
+    fetch("https://capestone-visto-server.herokuapp.com/api/marital-status", {
+      // fetch("http://localhost:5001/api/marital-status", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -214,6 +214,7 @@ class CalculatorPage extends React.Component {
                 <NoComponent
                   notmarriedfn={this.notmarriedstatus}
                   notmarriedvalue={this.state.notMarriedOptionValue}
+                  maritalstate={this.state.marital_status_type}
                   submitfn={this.submitData}
                   submitstatedata={this.state.submitDatastate}
                   loe={this.levelofeducation}

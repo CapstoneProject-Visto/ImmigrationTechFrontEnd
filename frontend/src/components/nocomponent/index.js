@@ -39,9 +39,9 @@ function NoComponent(props) {
           </select>
         </Col>
       </Row>
-      {props.notmarriedvalue != ""
+      {props.maritalstate != null
         ? [
-            props.notmarriedvalue === "select" ? null : (
+            props.maritalstate === "select" ? null : (
               <Animated
                 animationIn="fadeIn"
                 animationInDuration={1000}
